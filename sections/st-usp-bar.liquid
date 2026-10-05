@@ -1,11 +1,13 @@
 <section class="usp-bar">
-  <div class="usp-bar__grid container">
-    {%- for block in section.blocks -%}
-      <div class="usp" {{ block.shopify_attributes }}>
-        {% render 'st-icon', name: block.settings.icon, size: 30, stroke: 1.2 %}
-        <div><strong>{{ block.settings.title }}</strong>{% if block.settings.text != blank %}<span>{{ block.settings.text }}</span>{% endif %}</div>
-      </div>
-    {%- endfor -%}
+  <div class="container">
+    <div class="usp-bar__grid">
+      {%- for block in section.blocks -%}
+        <div class="usp" {{ block.shopify_attributes }}>
+          {% render 'st-icon', name: block.settings.icon, size: 30, stroke: 1.2 %}
+          <div><strong>{{ block.settings.title }}</strong>{% if block.settings.text != blank %}<span>{{ block.settings.text }}</span>{% endif %}</div>
+        </div>
+      {%- endfor -%}
+    </div>
   </div>
 </section>
 
