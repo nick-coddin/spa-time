@@ -1,0 +1,101 @@
+{%- comment -%}
+  Metaveld product.custom.key_specs = lijst van metaobjecten "kerncijfer" (icon, value, label).
+{%- endcomment -%}
+{%- assign specs = product.metafields.custom.key_specs.value -%}
+{%- if specs != blank -%}
+<section class="key-specs key-specs--{{ section.settings.style }} pad-{{ section.settings.padding }}">
+  <div class="container">
+    {%- if section.settings.style == 'cards' -%}
+      <div class="key-specs__panel">
+        <div class="stack stack--sm"><h2 class="st-heading st-heading--h3">{{ section.settings.heading | replace: '[product]', product.title }}</h2><span class="muted">{{ section.settings.text }}</span></div>
+        {%- for s in specs limit: section.settings.limit -%}<div class="key-spec-card">{% render 'st-icon', name: s.icon.value, size: 28 %}<strong>{{ s.value.value }}</strong><span>{{ s.label.value }}</span></div>{%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="key-specs__strip">
+        {%- for s in specs limit: section.settings.limit -%}<div class="key-spec">{% render 'st-icon', name: s.icon.value, size: 32, stroke: 1.1 %}<div><strong>{{ s.value.value }}</strong><span>{{ s.label.value }}</span></div></div>{%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "ST · Kerncijfers product",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Stijl",
+      "options": [
+        {
+          "value": "strip",
+          "label": "Balk"
+        },
+        {
+          "value": "cards",
+          "label": "Kaarten met kop"
+        }
+      ],
+      "default": "strip"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Kop (kaarten)",
+      "default": "[product] in cijfers"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Subtekst",
+      "default": "De belangrijkste specificaties op een rij."
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "label": "Max. aantal",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "select",
+      "id": "padding",
+      "label": "Verticale ruimte",
+      "options": [
+        {
+          "value": "none",
+          "label": "Geen"
+        },
+        {
+          "value": "sm",
+          "label": "Klein"
+        },
+        {
+          "value": "md",
+          "label": "Normaal"
+        },
+        {
+          "value": "lg",
+          "label": "Groot"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ST · Kerncijfers product"
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "product"
+    ]
+  },
+  "class": "st"
+}
+{% endschema %}

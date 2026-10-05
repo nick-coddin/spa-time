@@ -1,0 +1,16 @@
+{%- comment -%} {% render 'st-model-card', product: product, cta_prefix: 'Bekijk', show_price: true %} {%- endcomment -%}
+{%- assign persons = product.metafields.custom.persons.value -%}
+<article class="model-card">
+  <a href="{{ product.url }}" class="model-card__media" tabindex="-1" aria-hidden="true">
+    {% render 'st-responsive-image', image: product.featured_media.preview_image, sizes: '(min-width: 990px) 33vw, 100vw', class: 'st-contain' %}
+  </a>
+  <div class="model-card__body">
+    <h3 class="model-card__name">{{ product.title }}</h3>
+    {%- if persons -%}<span class="eyebrow">{{ persons }} personen</span>{%- endif -%}
+    <span class="st-divider"></span>
+    <p class="model-card__tag">{{ product.metafields.custom.tagline.value }}</p>
+    {%- if show_price -%}{% render 'st-price', amount: product.price_min, prefix: 'Vanaf', vat: true %}{%- endif -%}
+    {%- assign cta_label = cta_prefix | append: ' ' | append: product.title -%}
+    {% render 'st-button', label: cta_label, link: product.url, full: true %}
+  </div>
+</article>

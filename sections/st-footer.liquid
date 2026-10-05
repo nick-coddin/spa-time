@@ -1,0 +1,94 @@
+<footer class="site-footer">
+  <div class="site-footer__grid container">
+    {%- for block in section.blocks -%}
+      <div class="site-footer__col" {{ block.shopify_attributes }}>
+        {%- case block.type -%}
+          {%- when 'brand' -%}
+            <a href="{{ routes.root_url }}" class="brand brand--footer"><span class="brand__mark">S</span><span class="brand__text"><span class="brand__name">SPA TIME</span><span class="brand__sub">LUXURY JACUZZI'S</span></span></a>
+            <p class="site-footer__muted">{{ block.settings.text }}</p>
+          {%- when 'menu' -%}
+            <span class="site-footer__heading">{{ block.settings.heading }}</span>
+            {%- for link in linklists[block.settings.menu].links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+          {%- when 'contact' -%}
+            <span class="site-footer__heading">{{ block.settings.heading }}</span>
+            <span>{{ settings.address_line1 }}</span><span>{{ settings.address_line2 }}</span>
+            <a href="tel:{{ settings.phone | remove: ' ' }}">{{ settings.phone }}</a>
+            <a href="mailto:{{ settings.email }}">{{ settings.email }}</a>
+        {%- endcase -%}
+      </div>
+    {%- endfor -%}
+  </div>
+  <div class="site-footer__bottom container">
+    <span>© {{ 'now' | date: '%Y' }} {{ shop.name }}. Alle rechten voorbehouden.</span>
+    <nav>{%- for link in linklists[section.settings.legal_menu].links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}</nav>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "ST · Footer",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "legal_menu",
+      "label": "Juridisch menu",
+      "default": "footer"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Merk",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Tekst",
+          "default": "Luxe jacuzzi's, compleet uitgerust. Zonder ingewikkelde keuzes."
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Kop",
+          "default": "Collectie"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "Contactgegevens",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Kop",
+          "default": "Showroom"
+        },
+        {
+          "type": "paragraph",
+          "content": "Adres, telefoon en e-mail komen uit Thema-instellingen › Bedrijfsgegevens."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ST · Footer"
+    }
+  ],
+  "class": "st"
+}
+{% endschema %}

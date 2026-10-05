@@ -1,146 +1,124 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "hero": {
+      "type": "st-hero-banner",
+      "settings": {
+        "layout": "split",
+        "fade": true,
+        "eager": true
+      },
       "blocks": {
-        "title": {
-          "type": "text",
-          "name": "t:names.title",
+        "eyebrow_0": {
+          "type": "eyebrow",
           "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "CONTACT"
+          }
         },
-        "content": {
-          "type": "text",
-          "name": "t:names.content",
+        "heading_1": {
+          "type": "heading",
           "settings": {
-            "text": "{{ closest.page.content }}",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "We helpen je\ngraag verder.",
+            "size": "h1",
+            "rule": true
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "style": "lead"
+          }
         }
       },
       "block_order": [
-        "title",
-        "content"
-      ],
-      "settings": {
-        "content_direction": "column",
-        "gap": 32,
-        "padding-block-start": 40,
-        "padding-block-end": 0
-      }
+        "eyebrow_0",
+        "heading_1",
+        "text_2"
+      ]
     },
     "form": {
-      "type": "section",
+      "type": "st-contact-main",
+      "settings": {},
       "blocks": {
-        "contact_form_UwiCkQ": {
-          "type": "contact-form",
+        "item_0": {
+          "type": "item",
           "settings": {
-            "width": "custom",
-            "custom_width": 50,
-            "width_mobile": "custom",
-            "custom_width_mobile": 100,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "submit-button": {
-              "type": "contact-form-submit-button",
-              "static": true,
-              "settings": {
-                "label": "Submit",
-                "style_class": "button",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
+            "icon": "phone",
+            "title": "Bel ons",
+            "value": "+31 6 12 34 56 78",
+            "link": "tel:+31612345678",
+            "note": "Ma t/m za bereikbaar"
+          }
+        },
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "icon": "mail",
+            "title": "Mail ons",
+            "value": "info@spa-time.nl",
+            "link": "mailto:info@spa-time.nl",
+            "note": "We reageren meestal binnen 24 uur"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "icon": "pin",
+            "title": "Bezoek onze showroom",
+            "value": "Josinkstraat 54a, Enschede",
+            "cta_label": "Showroombezoek op afspraak",
+            "cta_link": "#showroom"
+          }
         }
       },
       "block_order": [
-        "contact_form_UwiCkQ"
-      ],
-      "name": "t:names.contact_form",
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 32,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "padding-block-start": 32,
-        "padding-block-end": 84
-      }
+        "item_0",
+        "item_1",
+        "item_2"
+      ]
+    },
+    "kaart": {
+      "type": "st-map-showroom",
+      "settings": {},
+      "blocks": {
+        "eyebrow_0": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "ONZE SHOWROOM"
+          }
+        },
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "text": "Ervaar het zelf."
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {}
+        },
+        "address_3": {
+          "type": "address",
+          "settings": {}
+        },
+        "button_4": {
+          "type": "button",
+          "settings": {
+            "label": "Plan een showroomafspraak"
+          }
+        }
+      },
+      "block_order": [
+        "eyebrow_0",
+        "heading_1",
+        "text_2",
+        "address_3",
+        "button_4"
+      ]
     }
   },
   "order": [
-    "main",
-    "form"
+    "hero",
+    "form",
+    "kaart"
   ]
 }

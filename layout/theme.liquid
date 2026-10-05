@@ -25,6 +25,20 @@
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-palette' -%}
 
+    {%- comment -%} Spa Time design layer {%- endcomment -%}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --c-ink: {{ settings.color_ink }}; --c-cream: {{ settings.color_cream }}; --c-soft: {{ settings.color_soft }}; --c-sand: {{ settings.color_sand }};
+        --c-gold: {{ settings.color_gold }}; --c-gold-text: {{ settings.color_gold_text }}; --c-gold-light: {{ settings.color_gold_light }};
+        --btn-from: {{ settings.button_from }}; --btn-to: {{ settings.button_to }};
+      }
+    </style>
+    {{ 'spatime.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'spatime.js' | asset_url }}" defer></script>
+
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
     {% endif %}
@@ -173,5 +187,9 @@
     {% if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add-modal' %}
     {% endif %}
+    <div class="st toast" data-cart-toast role="status" aria-live="polite" hidden>
+      <span class="toast__mark">{% render 'st-icon', name: 'check', size: 13, stroke: 3 %}</span>
+      <div><span data-cart-toast-text></span><a href="{{ routes.cart_url }}">{{ 'spatime.view_cart' | t }} →</a></div>
+    </div>
   </body>
 </html>

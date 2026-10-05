@@ -2116,5 +2116,116 @@
         "default": "equal-width-buttons"
       }
     ]
+  },
+  {
+    "name": "Spa Time · Kleuren",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "Inkt / donker",
+        "default": "#15120F"
+      },
+      {
+        "type": "color",
+        "id": "color_cream",
+        "label": "Crème (achtergrond)",
+        "default": "#F6F2EB"
+      },
+      {
+        "type": "color",
+        "id": "color_soft",
+        "label": "Licht (kaarten)",
+        "default": "#FBF8F3"
+      },
+      {
+        "type": "color",
+        "id": "color_sand",
+        "label": "Zand (afwisselend)",
+        "default": "#EFE8DD"
+      },
+      {
+        "type": "color",
+        "id": "color_gold",
+        "label": "Brons (iconen, lijnen)",
+        "default": "#946E42"
+      },
+      {
+        "type": "color",
+        "id": "color_gold_text",
+        "label": "Brons tekst op licht",
+        "default": "#8C6A3F"
+      },
+      {
+        "type": "color",
+        "id": "color_gold_light",
+        "label": "Goud op donker",
+        "default": "#C6A06E"
+      },
+      {
+        "type": "color",
+        "id": "button_from",
+        "label": "Knop verloop boven",
+        "default": "#EDD9BF"
+      },
+      {
+        "type": "color",
+        "id": "button_to",
+        "label": "Knop verloop onder",
+        "default": "#D3B089"
+      }
+    ]
+  },
+  {
+    "name": "Spa Time · Bedrijfsgegevens",
+    "settings": [
+      {
+        "type": "text",
+        "id": "address_line1",
+        "label": "Straat + nr",
+        "default": "Tolstraat 8a"
+      },
+      {
+        "type": "text",
+        "id": "address_line2",
+        "label": "Postcode + plaats",
+        "default": "7482 DB Haaksbergen"
+      },
+      {
+        "type": "text",
+        "id": "city",
+        "label": "Plaats (kort)",
+        "default": "Haaksbergen"
+      },
+      {
+        "type": "text",
+        "id": "phone",
+        "label": "Telefoon",
+        "default": "+31 6 12 34 56 78"
+      },
+      {
+        "type": "text",
+        "id": "email",
+        "label": "E-mail",
+        "default": "info@spa-time.nl"
+      }
+    ]
+  },
+  {
+    "name": "Spa Time · Productopties",
+    "settings": [
+      {
+        "type": "text",
+        "id": "color_option_name",
+        "label": "Naam optie kuipkleur",
+        "default": "Kuipkleur"
+      },
+      {
+        "type": "text",
+        "id": "tier_option_name",
+        "label": "Naam optie uitvoering",
+        "default": "Uitvoering"
+      }
+    ]
   }
 ]

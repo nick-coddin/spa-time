@@ -1,0 +1,198 @@
+<section class="usp-bar">
+  <div class="usp-bar__grid container">
+    {%- for block in section.blocks -%}
+      <div class="usp" {{ block.shopify_attributes }}>
+        {% render 'st-icon', name: block.settings.icon, size: 30, stroke: 1.2 %}
+        <div><strong>{{ block.settings.title }}</strong>{% if block.settings.text != blank %}<span>{{ block.settings.text }}</span>{% endif %}</div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ST · USP-balk",
+  "tag": "div",
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icoon",
+          "options": [
+            {
+              "value": "none",
+              "label": "Geen"
+            },
+            {
+              "value": "truck",
+              "label": "truck"
+            },
+            {
+              "value": "shield",
+              "label": "shield"
+            },
+            {
+              "value": "gear",
+              "label": "gear"
+            },
+            {
+              "value": "user",
+              "label": "user"
+            },
+            {
+              "value": "users",
+              "label": "users"
+            },
+            {
+              "value": "diamond",
+              "label": "diamond"
+            },
+            {
+              "value": "steam",
+              "label": "steam"
+            },
+            {
+              "value": "star",
+              "label": "star"
+            },
+            {
+              "value": "leaf",
+              "label": "leaf"
+            },
+            {
+              "value": "check",
+              "label": "check"
+            },
+            {
+              "value": "pin",
+              "label": "pin"
+            },
+            {
+              "value": "phone",
+              "label": "phone"
+            },
+            {
+              "value": "mail",
+              "label": "mail"
+            },
+            {
+              "value": "calendar",
+              "label": "calendar"
+            },
+            {
+              "value": "search",
+              "label": "search"
+            },
+            {
+              "value": "cart",
+              "label": "cart"
+            },
+            {
+              "value": "drop",
+              "label": "drop"
+            },
+            {
+              "value": "crown",
+              "label": "crown"
+            },
+            {
+              "value": "sliders",
+              "label": "sliders"
+            },
+            {
+              "value": "layers",
+              "label": "layers"
+            },
+            {
+              "value": "chat",
+              "label": "chat"
+            },
+            {
+              "value": "wrench",
+              "label": "wrench"
+            },
+            {
+              "value": "car",
+              "label": "car"
+            },
+            {
+              "value": "bolt",
+              "label": "bolt"
+            },
+            {
+              "value": "ruler",
+              "label": "ruler"
+            },
+            {
+              "value": "touch",
+              "label": "touch"
+            },
+            {
+              "value": "sparkle",
+              "label": "sparkle"
+            }
+          ],
+          "default": "truck"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel",
+          "default": "Gratis levering en plaatsing"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Subtekst",
+          "default": "In Nederland en België"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "ST · USP-balk",
+      "blocks": [
+        {
+          "type": "usp",
+          "settings": {
+            "icon": "truck",
+            "title": "Gratis levering en plaatsing",
+            "text": "In Nederland en België"
+          }
+        },
+        {
+          "type": "usp",
+          "settings": {
+            "icon": "shield",
+            "title": "Tot 5 jaar garantie",
+            "text": "Zorgeloos genieten"
+          }
+        },
+        {
+          "type": "usp",
+          "settings": {
+            "icon": "gear",
+            "title": "Betrouwbare Balboa-techniek",
+            "text": "Hoogwaardige kwaliteit"
+          }
+        },
+        {
+          "type": "usp",
+          "settings": {
+            "icon": "user",
+            "title": "Persoonlijk advies",
+            "text": "Van onze specialisten"
+          }
+        }
+      ]
+    }
+  ],
+  "class": "st"
+}
+{% endschema %}

@@ -1,0 +1,305 @@
+<section class="features bg-{{ section.settings.background }} pad-{{ section.settings.padding }}">
+  <div class="container features__wrap features__wrap--{{ section.settings.intro_position }}">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+      <div class="features__intro stack">
+        {% render 'st-eyebrow', text: section.settings.eyebrow %}
+        {%- if section.settings.heading != blank -%}<h2 class="st-heading st-heading--h2">{{ section.settings.heading | newline_to_br }}</h2>{%- endif -%}
+        {%- if section.settings.text != blank -%}<div class="st-rte">{{ section.settings.text }}</div>{%- endif -%}
+        {% render 'st-button', label: section.settings.button_label, link: section.settings.button_link %}
+      </div>
+    {%- endif -%}
+    <div class="features__grid features__grid--{{ section.settings.style }}" style="--cols:{{ section.blocks.size }}">
+      {%- for block in section.blocks -%}
+        <div class="feature" {{ block.shopify_attributes }}>
+          {% render 'st-icon', name: block.settings.icon, size: section.settings.icon_size, stroke: 1.1 %}
+          <div><h3 class="feature__title">{{ block.settings.title }}</h3>{%- if block.settings.text != blank -%}<p class="feature__text">{{ block.settings.text }}</p>{%- endif -%}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ST · Kenmerken (kolommen)",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Bovenkop"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Kop"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Tekst"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Knoptekst"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Knoplink"
+    },
+    {
+      "type": "select",
+      "id": "intro_position",
+      "label": "Positie kop",
+      "options": [
+        {
+          "value": "top",
+          "label": "Boven"
+        },
+        {
+          "value": "side",
+          "label": "Links naast kolommen"
+        }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Stijl kolommen",
+      "options": [
+        {
+          "value": "centered",
+          "label": "Gecentreerd met scheidingslijnen"
+        },
+        {
+          "value": "inline",
+          "label": "Icoon naast tekst"
+        }
+      ],
+      "default": "centered"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icoongrootte",
+      "min": 24,
+      "max": 56,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Achtergrond",
+      "options": [
+        {
+          "value": "cream",
+          "label": "Crème"
+        },
+        {
+          "value": "soft",
+          "label": "Licht"
+        },
+        {
+          "value": "sand",
+          "label": "Zand"
+        },
+        {
+          "value": "dark",
+          "label": "Donker"
+        }
+      ],
+      "default": "cream"
+    },
+    {
+      "type": "select",
+      "id": "padding",
+      "label": "Verticale ruimte",
+      "options": [
+        {
+          "value": "none",
+          "label": "Geen"
+        },
+        {
+          "value": "sm",
+          "label": "Klein"
+        },
+        {
+          "value": "md",
+          "label": "Normaal"
+        },
+        {
+          "value": "lg",
+          "label": "Groot"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Kolom",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icoon",
+          "options": [
+            {
+              "value": "none",
+              "label": "Geen"
+            },
+            {
+              "value": "truck",
+              "label": "truck"
+            },
+            {
+              "value": "shield",
+              "label": "shield"
+            },
+            {
+              "value": "gear",
+              "label": "gear"
+            },
+            {
+              "value": "user",
+              "label": "user"
+            },
+            {
+              "value": "users",
+              "label": "users"
+            },
+            {
+              "value": "diamond",
+              "label": "diamond"
+            },
+            {
+              "value": "steam",
+              "label": "steam"
+            },
+            {
+              "value": "star",
+              "label": "star"
+            },
+            {
+              "value": "leaf",
+              "label": "leaf"
+            },
+            {
+              "value": "check",
+              "label": "check"
+            },
+            {
+              "value": "pin",
+              "label": "pin"
+            },
+            {
+              "value": "phone",
+              "label": "phone"
+            },
+            {
+              "value": "mail",
+              "label": "mail"
+            },
+            {
+              "value": "calendar",
+              "label": "calendar"
+            },
+            {
+              "value": "search",
+              "label": "search"
+            },
+            {
+              "value": "cart",
+              "label": "cart"
+            },
+            {
+              "value": "drop",
+              "label": "drop"
+            },
+            {
+              "value": "crown",
+              "label": "crown"
+            },
+            {
+              "value": "sliders",
+              "label": "sliders"
+            },
+            {
+              "value": "layers",
+              "label": "layers"
+            },
+            {
+              "value": "chat",
+              "label": "chat"
+            },
+            {
+              "value": "wrench",
+              "label": "wrench"
+            },
+            {
+              "value": "car",
+              "label": "car"
+            },
+            {
+              "value": "bolt",
+              "label": "bolt"
+            },
+            {
+              "value": "ruler",
+              "label": "ruler"
+            },
+            {
+              "value": "touch",
+              "label": "touch"
+            },
+            {
+              "value": "sparkle",
+              "label": "sparkle"
+            }
+          ],
+          "default": "diamond"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel",
+          "default": "Hoogwaardige techniek"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Tekst",
+          "default": "Betrouwbare Balboa-techniek"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "ST · Kenmerken (kolommen)",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ],
+  "class": "st"
+}
+{% endschema %}

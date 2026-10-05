@@ -1,0 +1,40 @@
+{%- comment -%}
+  Opties per product: Optie 1 = Kuipkleur (swatches), Optie 2 = Uitvoering.
+  Uitvoering-kaarten halen icoon/ondertitel uit metaobject "uitvoering" (match op naam).
+{%- endcomment -%}
+<variant-picker class="st-variant-picker" data-section="{{ section.id }}">
+  {%- for option in product.options_with_values -%}
+    {%- assign is_tier = false -%}
+    {%- if option.name == settings.tier_option_name -%}{%- assign is_tier = true -%}{%- endif -%}
+    <fieldset class="st-variant-picker__group">
+      <legend class="st-variant-picker__legend">{{ forloop.index }}. {{ 'spatime.choose' | t }} {{ option.name | downcase }}</legend>
+      <div class="st-variant-picker__options{% if is_tier %} st-variant-picker__options--tiers{% endif %}">
+        {%- for value in option.values -%}
+          {%- assign vid = section.id | append: '-' | append: option.position | append: '-' | append: forloop.index0 -%}
+          <input type="radio" class="st-visually-hidden" id="{{ vid }}" name="{{ option.name }}" value="{{ value | escape }}" form="product-form-{{ section.id }}" {% if option.selected_value == value %}checked{% endif %}>
+          {%- if is_tier -%}
+            {%- assign tier = nil -%}
+            {%- for t in shop.metaobjects.uitvoering.values -%}{%- if t.name.value == value -%}{%- assign tier = t -%}{%- endif -%}{%- endfor -%}
+            {%- assign tier_variant = product.variants | where: option_key, value | first -%}
+            <label for="{{ vid }}" class="option-tile option-tile--tier">
+              {%- if tier.featured.value -%}<span class="badge badge--sm">{{ 'spatime.most_chosen' | t }}</span>{%- endif -%}
+              {% render 'st-icon', name: tier.icon.value, size: 26, stroke: 1.1 %}
+              <span class="option-tile__name">{{ value }}</span>
+              <span class="option-tile__price" data-tier-price="{{ value | escape }}"></span>
+              <span class="option-tile__sub">{{ tier.subtitle.value }}</span>
+            </label>
+          {%- else -%}
+            <label for="{{ vid }}" class="option-tile option-tile--swatch">
+              <span class="option-tile__swatch"{% if value.swatch.color %} style="background:{{ value.swatch.color }}"{% endif %}>
+                {%- if value.swatch.image -%}{{ value.swatch.image | image_url: width: 200 | image_tag: alt: value }}{%- endif -%}
+              </span>
+              <span class="option-tile__name">{{ value }}<span class="option-tile__extra" data-color-extra="{{ value | escape }}"></span></span>
+              <span class="option-tile__check">{% render 'st-icon', name: 'check', size: 12, stroke: 3 %}</span>
+            </label>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </fieldset>
+  {%- endfor -%}
+  <script type="application/json" data-variants>{{ product.variants | json }}</script>
+</variant-picker>

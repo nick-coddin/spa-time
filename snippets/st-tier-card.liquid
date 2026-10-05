@@ -1,0 +1,26 @@
+{%- comment -%}
+  Rendert één metaobject "uitvoering". style: 'image' | 'detailed' | 'compact'
+{%- endcomment -%}
+<article class="tier-card tier-card--{{ style }}{% if tier.featured.value %} is-featured{% endif %}">
+  {%- if tier.featured.value -%}<span class="badge">{{ 'spatime.most_chosen' | t }}</span>{%- endif -%}
+  {%- if style == 'image' and tier.image.value -%}
+    <div class="tier-card__media">{% render 'st-responsive-image', image: tier.image.value, sizes: '33vw', class: 'st-cover' %}</div>
+  {%- endif -%}
+  <div class="tier-card__body">
+    <header class="tier-card__head">
+      {%- if style != 'image' -%}{% render 'st-icon', name: tier.icon.value, size: 48, stroke: 1 %}{%- endif -%}
+      <div><h3 class="tier-card__name">{{ tier.name.value }}</h3><span class="tier-card__sub">{{ tier.subtitle.value }}</span></div>
+    </header>
+    {%- if style != 'compact' -%}
+      <p class="tier-card__text">{% if style == 'image' %}{{ tier.short_description.value }}{% else %}{{ tier.description.value }}{% endif %}</p>
+      {%- if style == 'detailed' -%}<span class="st-divider"></span>{%- endif -%}
+      {% render 'st-check-list', items: tier.features.value %}
+    {%- endif -%}
+    {%- if style == 'detailed' and tier.ideal_for.value != blank -%}
+      <div class="tier-card__ideal">
+        {% render 'st-icon', name: tier.ideal_icon.value, size: 34, stroke: 1.1 %}
+        <div><strong>{{ 'spatime.ideal_for' | t }}</strong><span>{{ tier.ideal_for.value }}</span></div>
+      </div>
+    {%- endif -%}
+  </div>
+</article>

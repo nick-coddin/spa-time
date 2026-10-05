@@ -1,0 +1,26 @@
+{%- comment -%} Gedeelde contentblokken voor hero-banner, image-with-text en map-showroom. {%- endcomment -%}
+{%- for block in blocks -%}
+  {%- case block.type -%}
+    {%- when 'eyebrow' -%}{% render 'st-eyebrow', text: block.settings.text, block: block %}
+    {%- when 'heading' -%}
+      {%- assign tag = 'h2' -%}{%- if block.settings.size == 'h1' -%}{%- assign tag = 'h1' -%}{%- endif -%}
+      <{{ tag }} class="st-heading st-heading--{{ block.settings.size }}" {{ block.shopify_attributes }}>{{ block.settings.text | newline_to_br }}{% if block.settings.highlight != blank %} <span class="st-heading__accent">{{ block.settings.highlight | newline_to_br }}</span>{% endif %}</{{ tag }}>
+      {%- if block.settings.rule -%}<span class="rule"></span>{%- endif -%}
+    {%- when 'text' -%}<div class="st-rte st-rte--{{ block.settings.style }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+    {%- when 'checklist' -%}<div {{ block.shopify_attributes }}>{% render 'st-check-list', items: block.settings.items, variant: block.settings.variant %}</div>
+    {%- when 'facts' -%}
+      <div class="facts" {{ block.shopify_attributes }}>
+        {%- for i in (1..3) -%}
+          {%- assign ic = 'icon_' | append: i -%}{%- assign ti = 'title_' | append: i -%}{%- assign tx = 'text_' | append: i -%}
+          {%- if block.settings[ti] != blank -%}<div class="fact">{% render 'st-icon', name: block.settings[ic], size: 24 %}<div><strong>{{ block.settings[ti] }}</strong><span>{{ block.settings[tx] }}</span></div></div>{%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- when 'divider' -%}<span class="rule rule--wide" {{ block.shopify_attributes }}></span>
+    {%- when 'address' -%}<p class="address-line" {{ block.shopify_attributes }}>{% render 'st-icon', name: 'pin', size: 20 %}<span>{{ settings.address_line1 }}, {{ settings.city }}</span></p>
+    {%- when 'button' -%}
+      {%- unless btn_open -%}<div class="btn-row">{%- assign btn_open = true -%}{%- endunless -%}
+      {% render 'st-button', label: block.settings.label, link: block.settings.link, style: block.settings.style, icon: block.settings.icon, block: block %}
+      {%- assign next_i = forloop.index -%}
+      {%- if blocks[next_i].type != 'button' -%}</div>{%- assign btn_open = false -%}{%- endif -%}
+  {%- endcase -%}
+{%- endfor -%}

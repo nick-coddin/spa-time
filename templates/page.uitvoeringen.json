@@ -1,0 +1,329 @@
+{
+  "sections": {
+    "hero": {
+      "type": "st-hero-banner",
+      "settings": {
+        "layout": "split",
+        "fade": true,
+        "eager": true
+      },
+      "blocks": {
+        "eyebrow_0": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "UITVOERINGEN"
+          }
+        },
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "text": "Drie niveaus van comfort.\nEén Spa Time-ervaring.",
+            "size": "h1"
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Elk Spa Time-model is verkrijgbaar als Comfort, Premium of Signature.</p>",
+            "style": "lead"
+          }
+        },
+        "text_3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Het model bepaalt de grootte en indeling. De uitvoering bepaalt massage, bediening, verlichting, isolatie en afwerking.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "eyebrow_0",
+        "heading_1",
+        "text_2",
+        "text_3"
+      ]
+    },
+    "kaarten": {
+      "type": "st-tier-cards",
+      "settings": {
+        "style": "detailed",
+        "heading": "",
+        "button_label": ""
+      }
+    },
+    "tabel": {
+      "type": "st-comparison-table",
+      "settings": {
+        "highlight": 2
+      },
+      "blocks": {
+        "group_0": {
+          "type": "group",
+          "settings": {
+            "icon": "gear",
+            "title": "Comfort & techniek"
+          }
+        },
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "label": "Hoogwaardige afwerking",
+            "col_1": true,
+            "col_2": true,
+            "col_3": true
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "label": "Krachtige massage",
+            "col_1": true,
+            "col_2": true,
+            "col_3": true
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "label": "Bluetooth",
+            "col_1": true,
+            "col_2": true,
+            "col_3": true
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "label": "Standaard uitrusting",
+            "col_1": true,
+            "col_2": true,
+            "col_3": true
+          }
+        },
+        "group_5": {
+          "type": "group",
+          "settings": {
+            "icon": "sliders",
+            "title": "Extra luxe & bediening"
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "label": "Extra massagekracht (tweede pomp)",
+            "col_1": false,
+            "col_2": true,
+            "col_3": true
+          }
+        },
+        "row_7": {
+          "type": "row",
+          "settings": {
+            "label": "Balboa SpaTouch-bedieningspaneel",
+            "col_1": false,
+            "col_2": true,
+            "col_3": true
+          }
+        },
+        "row_8": {
+          "type": "row",
+          "settings": {
+            "label": "Luxe LED-verlichting",
+            "col_1": false,
+            "col_2": true,
+            "col_3": true
+          }
+        },
+        "group_9": {
+          "type": "group",
+          "settings": {
+            "icon": "layers",
+            "title": "Isolatie & afwerking"
+          }
+        },
+        "row_10": {
+          "type": "row",
+          "settings": {
+            "label": "Verbeterde isolatie",
+            "col_1": false,
+            "col_2": true,
+            "col_3": true
+          }
+        },
+        "row_11": {
+          "type": "row",
+          "settings": {
+            "label": "Maximale isolatie",
+            "col_1": false,
+            "col_2": false,
+            "col_3": true
+          }
+        },
+        "row_12": {
+          "type": "row",
+          "settings": {
+            "label": "Geïsoleerde bodem",
+            "col_1": false,
+            "col_2": false,
+            "col_3": true
+          }
+        },
+        "row_13": {
+          "type": "row",
+          "settings": {
+            "label": "Exclusieve afwerking",
+            "col_1": false,
+            "col_2": false,
+            "col_3": true
+          }
+        }
+      },
+      "block_order": [
+        "group_0",
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "group_5",
+        "row_6",
+        "row_7",
+        "row_8",
+        "group_9",
+        "row_10",
+        "row_11",
+        "row_12",
+        "row_13"
+      ]
+    },
+    "uitgelegd": {
+      "type": "st-feature-cards",
+      "settings": {},
+      "blocks": {
+        "card_0": {
+          "type": "card",
+          "settings": {
+            "icon": "steam",
+            "title": "Massagekracht"
+          }
+        },
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "icon": "touch",
+            "title": "Bediening"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "icon": "layers",
+            "title": "Isolatie"
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Afwerking"
+          }
+        }
+      },
+      "block_order": [
+        "card_0",
+        "card_1",
+        "card_2",
+        "card_3"
+      ]
+    },
+    "cta": {
+      "type": "st-image-with-text",
+      "settings": {
+        "image_position": "left",
+        "background": "dark",
+        "min_height": 300
+      },
+      "blocks": {
+        "heading_0": {
+          "type": "heading",
+          "settings": {
+            "text": "Ervaar de verschillen zelf\nin onze showroom.",
+            "size": "h3"
+          }
+        },
+        "text_1": {
+          "type": "text",
+          "settings": {}
+        },
+        "button_2": {
+          "type": "button",
+          "settings": {
+            "label": "Plan een showroomafspraak",
+            "icon": "calendar",
+            "link": "/pages/contact#showroom"
+          }
+        },
+        "address_3": {
+          "type": "address",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_0",
+        "text_1",
+        "button_2",
+        "address_3"
+      ]
+    },
+    "usps": {
+      "type": "st-usp-bar",
+      "settings": {},
+      "blocks": {
+        "usp_0": {
+          "type": "usp",
+          "settings": {
+            "icon": "truck",
+            "title": "Gratis levering en plaatsing",
+            "text": "In Nederland en België"
+          }
+        },
+        "usp_1": {
+          "type": "usp",
+          "settings": {
+            "icon": "shield",
+            "title": "Tot 5 jaar garantie",
+            "text": "Zorgeloos genieten"
+          }
+        },
+        "usp_2": {
+          "type": "usp",
+          "settings": {
+            "icon": "gear",
+            "title": "Betrouwbare Balboa-techniek",
+            "text": "Hoogwaardige kwaliteit"
+          }
+        },
+        "usp_3": {
+          "type": "usp",
+          "settings": {
+            "icon": "user",
+            "title": "Persoonlijk advies",
+            "text": "Van onze specialisten"
+          }
+        }
+      },
+      "block_order": [
+        "usp_0",
+        "usp_1",
+        "usp_2",
+        "usp_3"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "kaarten",
+    "tabel",
+    "uitgelegd",
+    "cta",
+    "usps"
+  ]
+}

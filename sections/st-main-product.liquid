@@ -1,0 +1,259 @@
+{%- liquid
+  assign current = product.selected_or_first_available_variant
+  assign images = product.media | where: 'media_type', 'image'
+-%}
+{% render 'st-breadcrumbs', product: product, page_title: product.title %}
+<section class="st-product container" data-product data-section="{{ section.id }}" data-color-option="{{ settings.color_option_name }}" data-tier-option="{{ settings.tier_option_name }}">
+  <div class="st-product__gallery" data-gallery>
+    <div class="st-product__stage">
+      {%- for media in images -%}
+        {%- if forloop.first -%}{%- assign lz = 'eager' -%}{%- else -%}{%- assign lz = 'lazy' -%}{%- endif -%}
+        <div class="st-product__slide{% if forloop.first %} is-active{% endif %}" data-slide="{{ forloop.index0 }}">{{ media | image_url: width: 1600 | image_tag: widths: '600,900,1200,1600', sizes: '(min-width: 990px) 50vw, 100vw', loading: lz, class: 'st-contain', alt: media.alt | escape }}</div>
+      {%- endfor -%}
+      {%- if images.size > 1 -%}
+        <button type="button" class="round-btn round-btn--prev" data-prev aria-label="Vorige foto">←</button>
+        <button type="button" class="round-btn round-btn--next" data-next aria-label="Volgende foto">→</button>
+      {%- endif -%}
+    </div>
+    {%- if images.size > 1 -%}
+      <div class="st-product__thumbs">
+        {%- for media in images -%}<button type="button" class="st-product__thumb{% if forloop.first %} is-active{% endif %}" data-thumb="{{ forloop.index0 }}" aria-label="Foto {{ forloop.index }}">{{ media | image_url: width: 200 | image_tag: alt: '' }}</button>{%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="st-product__info stack">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'badge' -%}{%- if product.metafields.custom.badge != blank -%}<span class="tag" {{ block.shopify_attributes }}>{{ product.metafields.custom.badge }}</span>{%- endif -%}
+        {%- when 'title' -%}
+          <div class="st-product__title" {{ block.shopify_attributes }}><h1 class="st-heading st-heading--display">{{ product.title }}</h1>
+          {%- if product.metafields.custom.persons -%}<span class="st-product__persons">{{ product.metafields.custom.persons }} personen</span>{%- endif -%}</div>
+        {%- when 'subtitle' -%}<p class="st-product__subtitle" {{ block.shopify_attributes }}>{{ product.metafields.custom.subtitle }}</p>
+        {%- when 'description' -%}<div class="st-rte" {{ block.shopify_attributes }}>{{ product.description }}</div>
+        {%- when 'variant_picker' -%}
+          <div {{ block.shopify_attributes }}>{% render 'st-variant-picker', product: product, section: section, settings: settings, option_key: 'option2' %}
+          {%- if block.settings.compare_link != blank -%}<a href="{{ block.settings.compare_link }}" class="text-link text-link--center">{{ block.settings.compare_label }} →</a>{%- endif -%}</div>
+        {%- when 'price' -%}
+          <div class="st-product__price" {{ block.shopify_attributes }}><span class="st-product__summary" data-summary>{{ current.title }}</span>
+          <span class="st-price st-price--lg"><span class="st-price__value" data-price>{{ current.price | money_without_trailing_zeros }}</span><span class="st-price__vat">incl. btw</span></span></div>
+        {%- when 'buy_buttons' -%}
+          <div {{ block.shopify_attributes }}>
+          {%- assign product_form_id = 'product-form-' | append: section.id -%}
+          {%- form 'product', product, id: product_form_id, data-product-form: '' -%}
+            <input type="hidden" name="id" value="{{ current.id }}" data-variant-id>
+            <button type="submit" class="btn btn--primary btn--full btn--lg" {% unless current.available %}disabled{% endunless %} data-add>
+              <span data-add-label>{% if current.available %}{{ block.settings.label | replace: '[product]', product.title }}{% else %}Uitverkocht{% endif %}</span>{% render 'st-icon', name: 'arrow', size: 16, stroke: 1.4 %}
+            </button>
+          {%- endform -%}
+          </div>
+        {%- when 'note' -%}<p class="st-product__note" {{ block.shopify_attributes }}>{% render 'st-icon', name: block.settings.icon, size: 16, stroke: 1.8 %}{{ block.settings.text }}</p>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</section>
+<script type="application/json" id="product-json-{{ section.id }}">{{ product | json }}</script>
+
+{% schema %}
+{
+  "name": "ST · Product",
+  "tag": "div",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Label (metaveld badge)",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "title",
+      "name": "Titel + personen",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "subtitle",
+      "name": "Ondertitel (metaveld)",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "description",
+      "name": "Beschrijving",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "variant_picker",
+      "name": "Kuipkleur & uitvoering",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "compare_label",
+          "label": "Vergelijk-linktekst",
+          "default": "Vergelijk de uitvoeringen"
+        },
+        {
+          "type": "url",
+          "id": "compare_link",
+          "label": "Vergelijk-link"
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "Prijs",
+      "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Bestelknop",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Knoptekst ([product] = naam)",
+          "default": "Bestel jouw [product]"
+        }
+      ]
+    },
+    {
+      "type": "note",
+      "name": "Notitie",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icoon",
+          "options": [
+            {
+              "value": "none",
+              "label": "Geen"
+            },
+            {
+              "value": "truck",
+              "label": "truck"
+            },
+            {
+              "value": "shield",
+              "label": "shield"
+            },
+            {
+              "value": "gear",
+              "label": "gear"
+            },
+            {
+              "value": "user",
+              "label": "user"
+            },
+            {
+              "value": "users",
+              "label": "users"
+            },
+            {
+              "value": "diamond",
+              "label": "diamond"
+            },
+            {
+              "value": "steam",
+              "label": "steam"
+            },
+            {
+              "value": "star",
+              "label": "star"
+            },
+            {
+              "value": "leaf",
+              "label": "leaf"
+            },
+            {
+              "value": "check",
+              "label": "check"
+            },
+            {
+              "value": "pin",
+              "label": "pin"
+            },
+            {
+              "value": "phone",
+              "label": "phone"
+            },
+            {
+              "value": "mail",
+              "label": "mail"
+            },
+            {
+              "value": "calendar",
+              "label": "calendar"
+            },
+            {
+              "value": "search",
+              "label": "search"
+            },
+            {
+              "value": "cart",
+              "label": "cart"
+            },
+            {
+              "value": "drop",
+              "label": "drop"
+            },
+            {
+              "value": "crown",
+              "label": "crown"
+            },
+            {
+              "value": "sliders",
+              "label": "sliders"
+            },
+            {
+              "value": "layers",
+              "label": "layers"
+            },
+            {
+              "value": "chat",
+              "label": "chat"
+            },
+            {
+              "value": "wrench",
+              "label": "wrench"
+            },
+            {
+              "value": "car",
+              "label": "car"
+            },
+            {
+              "value": "bolt",
+              "label": "bolt"
+            },
+            {
+              "value": "ruler",
+              "label": "ruler"
+            },
+            {
+              "value": "touch",
+              "label": "touch"
+            },
+            {
+              "value": "sparkle",
+              "label": "sparkle"
+            }
+          ],
+          "default": "check"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Tekst",
+          "default": "Gratis levering en plaatsing in Nederland en België"
+        }
+      ]
+    }
+  ],
+  "class": "st"
+}
+{% endschema %}

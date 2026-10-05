@@ -1,0 +1,316 @@
+{%- comment -%}
+  Blokvolgorde bepaalt de tabel: een "Groep"-blok start een nieuwe categorie, de "Rij"-blokken eronder horen erbij.
+{%- endcomment -%}
+<section class="compare bg-{{ section.settings.background }} pad-{{ section.settings.padding }}">
+  <div class="container stack stack--lg">
+    <div class="section-head"><div class="stack">{% render 'st-eyebrow', text: section.settings.eyebrow %}<h2 class="st-heading st-heading--h2">{{ section.settings.heading }}</h2></div>{%- if section.settings.text != blank -%}<div class="st-rte section-head__aside">{{ section.settings.text }}</div>{%- endif -%}</div>
+    <div class="compare__scroll">
+      <table class="compare__table" data-highlight="{{ section.settings.highlight }}">
+        <thead><tr><th>Categorie</th><th>Kenmerk</th>
+          {%- for i in (1..3) -%}{%- assign k = 'col_' | append: i -%}<th class="compare__col{% if section.settings.highlight == i %} is-hl{% endif %}">{%- if section.settings.highlight == i -%}<span class="badge badge--sm">{{ 'spatime.most_chosen' | t }}</span>{%- endif -%}{{ section.settings[k] }}</th>{%- endfor -%}
+        </tr></thead>
+        <tbody>
+        {%- assign group_title = '' -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'group' -%}
+            {%- comment -%} tel rijen tot volgende groep voor rowspan {%- endcomment -%}
+            {%- assign span = 0 -%}{%- assign start = forloop.index -%}
+            {%- for b in section.blocks offset: start -%}{%- if b.type == 'group' -%}{%- break -%}{%- endif -%}{%- assign span = span | plus: 1 -%}{%- endfor -%}
+            {%- assign g = block -%}{%- assign first_row = true -%}
+          {%- else -%}
+            <tr {{ block.shopify_attributes }}>
+              {%- if first_row -%}<th scope="rowgroup" rowspan="{{ span }}" class="compare__group" {{ g.shopify_attributes }}>{% render 'st-icon', name: g.settings.icon, size: 30 %}<span>{{ g.settings.title }}</span></th>{%- assign first_row = false -%}{%- endif -%}
+              <td>{{ block.settings.label }}</td>
+              {%- for i in (1..3) -%}{%- assign k = 'col_' | append: i -%}
+                <td class="compare__cell{% if section.settings.highlight == i %} is-hl{% endif %}">{%- if block.settings[k] -%}<span class="sr-only">Ja</span>{% render 'st-icon', name: 'check', size: 17, stroke: 1.8 %}{%- else -%}<span class="compare__no" aria-label="Nee">–</span>{%- endif -%}</td>
+              {%- endfor -%}
+            </tr>
+          {%- endif -%}
+        {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ST · Vergelijkingstabel",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Bovenkop",
+      "default": "Vergelijk de uitvoeringen"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Kop",
+      "default": "Alle verschillen in één overzicht."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Tekst"
+    },
+    {
+      "type": "text",
+      "id": "col_1",
+      "label": "Kolom 1",
+      "default": "Comfort"
+    },
+    {
+      "type": "text",
+      "id": "col_2",
+      "label": "Kolom 2",
+      "default": "Premium"
+    },
+    {
+      "type": "text",
+      "id": "col_3",
+      "label": "Kolom 3",
+      "default": "Signature"
+    },
+    {
+      "type": "range",
+      "id": "highlight",
+      "label": "Uitgelichte kolom (0 = geen)",
+      "min": 0,
+      "max": 3,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Achtergrond",
+      "options": [
+        {
+          "value": "cream",
+          "label": "Crème"
+        },
+        {
+          "value": "soft",
+          "label": "Licht"
+        },
+        {
+          "value": "sand",
+          "label": "Zand"
+        },
+        {
+          "value": "dark",
+          "label": "Donker"
+        }
+      ],
+      "default": "cream"
+    },
+    {
+      "type": "select",
+      "id": "padding",
+      "label": "Verticale ruimte",
+      "options": [
+        {
+          "value": "none",
+          "label": "Geen"
+        },
+        {
+          "value": "sm",
+          "label": "Klein"
+        },
+        {
+          "value": "md",
+          "label": "Normaal"
+        },
+        {
+          "value": "lg",
+          "label": "Groot"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "group",
+      "name": "Groep",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icoon",
+          "options": [
+            {
+              "value": "none",
+              "label": "Geen"
+            },
+            {
+              "value": "truck",
+              "label": "truck"
+            },
+            {
+              "value": "shield",
+              "label": "shield"
+            },
+            {
+              "value": "gear",
+              "label": "gear"
+            },
+            {
+              "value": "user",
+              "label": "user"
+            },
+            {
+              "value": "users",
+              "label": "users"
+            },
+            {
+              "value": "diamond",
+              "label": "diamond"
+            },
+            {
+              "value": "steam",
+              "label": "steam"
+            },
+            {
+              "value": "star",
+              "label": "star"
+            },
+            {
+              "value": "leaf",
+              "label": "leaf"
+            },
+            {
+              "value": "check",
+              "label": "check"
+            },
+            {
+              "value": "pin",
+              "label": "pin"
+            },
+            {
+              "value": "phone",
+              "label": "phone"
+            },
+            {
+              "value": "mail",
+              "label": "mail"
+            },
+            {
+              "value": "calendar",
+              "label": "calendar"
+            },
+            {
+              "value": "search",
+              "label": "search"
+            },
+            {
+              "value": "cart",
+              "label": "cart"
+            },
+            {
+              "value": "drop",
+              "label": "drop"
+            },
+            {
+              "value": "crown",
+              "label": "crown"
+            },
+            {
+              "value": "sliders",
+              "label": "sliders"
+            },
+            {
+              "value": "layers",
+              "label": "layers"
+            },
+            {
+              "value": "chat",
+              "label": "chat"
+            },
+            {
+              "value": "wrench",
+              "label": "wrench"
+            },
+            {
+              "value": "car",
+              "label": "car"
+            },
+            {
+              "value": "bolt",
+              "label": "bolt"
+            },
+            {
+              "value": "ruler",
+              "label": "ruler"
+            },
+            {
+              "value": "touch",
+              "label": "touch"
+            },
+            {
+              "value": "sparkle",
+              "label": "sparkle"
+            }
+          ],
+          "default": "gear"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Categorie",
+          "default": "Comfort & techniek"
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "name": "Rij",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Kenmerk",
+          "default": "Krachtige massage"
+        },
+        {
+          "type": "checkbox",
+          "id": "col_1",
+          "label": "Kolom 1",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "col_2",
+          "label": "Kolom 2",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "col_3",
+          "label": "Kolom 3",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ST · Vergelijkingstabel",
+      "blocks": [
+        {
+          "type": "group"
+        },
+        {
+          "type": "row"
+        },
+        {
+          "type": "row"
+        }
+      ]
+    }
+  ],
+  "class": "st"
+}
+{% endschema %}

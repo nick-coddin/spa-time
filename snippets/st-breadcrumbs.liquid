@@ -1,0 +1,5 @@
+<nav class="breadcrumbs container" aria-label="Kruimelpad">
+  <a href="{{ routes.root_url }}">Home</a><span aria-hidden="true">›</span>
+  {%- if product and product.collections.first -%}<a href="{{ product.collections.first.url }}">{{ product.collections.first.title }}</a><span aria-hidden="true">›</span>{%- endif -%}
+  <span aria-current="page">{{ page_title }}</span>
+</nav>

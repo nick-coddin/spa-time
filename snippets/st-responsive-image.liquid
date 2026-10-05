@@ -1,0 +1,12 @@
+{%- comment -%} {% render 'st-responsive-image', image: img, sizes: '50vw', class: 'st-cover', eager: false %} {%- endcomment -%}
+{%- if image != blank -%}
+  {%- liquid
+    assign lz = 'lazy'
+    if eager
+      assign lz = 'eager'
+    endif
+  -%}
+  {{ image | image_url: width: 2400 | image_tag: loading: lz, sizes: sizes | default: '100vw', widths: '480,800,1200,1600,2000,2400', class: class, alt: image.alt | escape }}
+{%- else -%}
+  {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder' }}
+{%- endif -%}

@@ -1,0 +1,94 @@
+{%- liquid
+  assign menu = linklists[section.settings.menu]
+-%}
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a href="{{ routes.root_url }}" class="brand" aria-label="{{ shop.name }}">
+      {%- if section.settings.logo -%}
+        {{ section.settings.logo | image_url: width: 480 | image_tag: width: section.settings.logo_width, height: nil, alt: shop.name, class: 'brand__img' }}
+      {%- else -%}
+        <span class="brand__mark">S</span><span class="brand__text"><span class="brand__name">SPA TIME</span><span class="brand__sub">LUXURY JACUZZI'S</span></span>
+      {%- endif -%}
+    </a>
+    <nav class="main-nav" aria-label="Hoofdmenu">
+      <ul>
+        {%- for link in menu.links -%}
+          <li class="main-nav__item{% if link.links != blank %} has-dropdown{% endif %}">
+            <a href="{{ link.url }}" class="main-nav__link{% if link.active or link.child_active %} is-active{% endif %}">{{ link.title }}{% if link.links != blank %}{% render 'st-icon', name: 'chevron', size: 10, stroke: 2 %}{% endif %}</a>
+            {%- if link.links != blank -%}
+              <ul class="dropdown">
+                {%- for child in link.links -%}<li><a href="{{ child.url }}">{{ child.title }}</a></li>{%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+    <div class="site-header__actions">
+      {%- if section.settings.show_search -%}<a href="{{ routes.search_url }}" class="icon-btn" aria-label="Zoeken">{% render 'st-icon', name: 'search', size: 22, stroke: 1.4 %}</a>{%- endif -%}
+      <a href="{{ routes.cart_url }}" class="icon-btn" aria-label="Winkelwagen">
+        {% render 'st-icon', name: 'cart', size: 23, stroke: 1.4 %}
+        <span class="cart-count" data-cart-count{% if cart.item_count == 0 %} hidden{% endif %}>{{ cart.item_count }}</span>
+      </a>
+      <div class="site-header__cta">{% render 'st-button', label: section.settings.cta_label, link: section.settings.cta_link %}</div>
+      <details class="mobile-nav">
+        <summary class="icon-btn icon-btn--bordered" aria-label="Menu">{% render 'st-icon', name: 'menu', size: 20, stroke: 1.4 %}</summary>
+        <div class="mobile-nav__panel">
+          {%- for link in menu.links -%}
+            <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+            {%- for child in link.links -%}<a href="{{ child.url }}" class="mobile-nav__sub">{{ child.title }}</a>{%- endfor -%}
+          {%- endfor -%}
+          {% render 'st-button', label: section.settings.cta_label, link: section.settings.cta_link, full: true %}
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "ST · Header",
+  "class": "section-header st",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo (optioneel, anders woordmerk)"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logobreedte",
+      "min": 120,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 200
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu",
+      "info": "Submenu-items worden een uitklapmenu."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Zoekicoon tonen",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Knoptekst",
+      "default": "Plan showroomafspraak"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Knoplink"
+    }
+  ]
+}
+{% endschema %}

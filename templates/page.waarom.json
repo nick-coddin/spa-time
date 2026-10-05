@@ -1,0 +1,221 @@
+{
+  "sections": {
+    "hero": {
+      "type": "st-hero-banner",
+      "settings": {
+        "layout": "split",
+        "fade": true,
+        "eager": true
+      },
+      "blocks": {
+        "eyebrow_0": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "WAAROM SPA TIME?"
+          }
+        },
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "text": "Luxe hoeft niet\ningewikkeld te zijn.",
+            "size": "h1",
+            "rule": true
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "eyebrow_0",
+        "heading_1",
+        "text_2"
+      ]
+    },
+    "gedachte": {
+      "type": "st-image-with-text",
+      "settings": {
+        "fade": true
+      },
+      "blocks": {
+        "eyebrow_0": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "ONZE GEDACHTE"
+          }
+        },
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "text": "De belangrijkste keuzes\nhebben wij al voor je gemaakt."
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "eyebrow_0",
+        "heading_1",
+        "text_2"
+      ]
+    },
+    "waarden": {
+      "type": "st-feature-columns",
+      "settings": {
+        "eyebrow": "WAT WIJ BELANGRIJK VINDEN",
+        "style": "centered",
+        "icon_size": 42,
+        "background": "sand"
+      },
+      "blocks": {
+        "column_0": {
+          "type": "column",
+          "settings": {
+            "icon": "shield",
+            "title": "Betrouwbare techniek"
+          }
+        },
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "icon": "steam",
+            "title": "Krachtige massage"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "icon": "diamond",
+            "title": "Luxe afwerking"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "icon": "leaf",
+            "title": "Doordachte isolatie"
+          }
+        }
+      },
+      "block_order": [
+        "column_0",
+        "column_1",
+        "column_2",
+        "column_3"
+      ]
+    },
+    "compleet": {
+      "type": "st-image-with-text",
+      "settings": {
+        "fade": true,
+        "min_height": 560
+      },
+      "blocks": {
+        "eyebrow_0": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "ALTIJD EEN VOLWAARDIGE SPA TIME"
+          }
+        },
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "text": "Geen uitgeklede basis.\nGeen eindeloze optielijst.\nGewoon een complete Spa Time."
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {}
+        },
+        "divider_3": {
+          "type": "divider",
+          "settings": {}
+        },
+        "text_4": {
+          "type": "text",
+          "settings": {
+            "style": "lead"
+          }
+        },
+        "button_5": {
+          "type": "button",
+          "settings": {
+            "label": "Bekijk de collectie",
+            "link": "/collections/jacuzzis"
+          }
+        },
+        "button_6": {
+          "type": "button",
+          "settings": {
+            "label": "Vergelijk de uitvoeringen",
+            "link": "/pages/uitvoeringen",
+            "style": "outline"
+          }
+        }
+      },
+      "block_order": [
+        "eyebrow_0",
+        "heading_1",
+        "text_2",
+        "divider_3",
+        "text_4",
+        "button_5",
+        "button_6"
+      ]
+    },
+    "usps": {
+      "type": "st-usp-bar",
+      "settings": {},
+      "blocks": {
+        "usp_0": {
+          "type": "usp",
+          "settings": {
+            "icon": "truck",
+            "title": "Gratis levering en plaatsing",
+            "text": "In Nederland en België"
+          }
+        },
+        "usp_1": {
+          "type": "usp",
+          "settings": {
+            "icon": "shield",
+            "title": "Tot 5 jaar garantie",
+            "text": "Zorgeloos genieten"
+          }
+        },
+        "usp_2": {
+          "type": "usp",
+          "settings": {
+            "icon": "gear",
+            "title": "Betrouwbare Balboa-techniek",
+            "text": "Hoogwaardige kwaliteit"
+          }
+        },
+        "usp_3": {
+          "type": "usp",
+          "settings": {
+            "icon": "user",
+            "title": "Persoonlijk advies",
+            "text": "Van onze specialisten"
+          }
+        }
+      },
+      "block_order": [
+        "usp_0",
+        "usp_1",
+        "usp_2",
+        "usp_3"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "gedachte",
+    "waarden",
+    "compleet",
+    "usps"
+  ]
+}

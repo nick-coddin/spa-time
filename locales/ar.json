@@ -1,4 +1,11 @@
 {
+  "spatime": {
+      "most_chosen": "Most chosen",
+      "ideal_for": "Ideal for",
+      "choose": "Choose your",
+      "view_cart": "View cart",
+      "added": "has been added to your cart."
+  },
   "accessibility": {
     "account": "الحساب",
     "active_filters": "عوامل التصفية النشطة:",

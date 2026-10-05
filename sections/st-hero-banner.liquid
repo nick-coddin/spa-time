@@ -1,0 +1,822 @@
+{%- comment -%}
+  Twee layouts: 'overlay' (foto over volle breedte, tekst op donker verloop) en 'split' (tekst links, foto rechts met zachte overgang).
+  Gebruikt voor: homepage-hero, "Jouw moment", showroom-CTA's en alle paginahero's.
+{%- endcomment -%}
+<section class="st-hero st-hero--{{ section.settings.layout }} bg-{{ section.settings.background }}" style="--hero-min:{{ section.settings.min_height }}px;--overlay:{{ section.settings.overlay | divided_by: 100.0 }}">
+  <div class="st-hero__media">
+    {% render 'st-responsive-image', image: section.settings.image, sizes: '100vw', class: 'st-cover', eager: section.settings.eager %}
+    {%- if section.settings.layout == 'split' and section.settings.fade -%}<span class="st-hero__fade"></span>{%- endif -%}
+  </div>
+  <div class="st-hero__content{% if section.settings.layout == 'overlay' %} container{% endif %}">
+    <div class="stack">{% render 'st-content-blocks', blocks: section.blocks, settings: settings %}</div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ST · Banner",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "overlay",
+          "label": "Foto over volle breedte"
+        },
+        {
+          "value": "split",
+          "label": "Tekst links, foto rechts"
+        }
+      ],
+      "default": "split"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Afbeelding"
+    },
+    {
+      "type": "checkbox",
+      "id": "fade",
+      "label": "Zachte overgang naar tekst (split)",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "overlay",
+      "label": "Donker verloop (overlay)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Minimale hoogte",
+      "min": 320,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "default": 440
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Achtergrond",
+      "options": [
+        {
+          "value": "cream",
+          "label": "Crème"
+        },
+        {
+          "value": "soft",
+          "label": "Licht"
+        },
+        {
+          "value": "sand",
+          "label": "Zand"
+        },
+        {
+          "value": "dark",
+          "label": "Donker"
+        }
+      ],
+      "default": "cream",
+      "info": "Bij overlay altijd donker."
+    },
+    {
+      "type": "checkbox",
+      "id": "eager",
+      "label": "Bovenaan de pagina (sneller laden)",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "eyebrow",
+      "name": "Bovenkop",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Tekst",
+          "default": "Waarom Spa Time?"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Kop",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Tekst (Enter = nieuwe regel)",
+          "default": "Luxe hoeft niet ingewikkeld te zijn."
+        },
+        {
+          "type": "textarea",
+          "id": "highlight",
+          "label": "Gekleurd vervolg (optioneel)"
+        },
+        {
+          "type": "select",
+          "id": "size",
+          "label": "Grootte",
+          "options": [
+            {
+              "value": "h1",
+              "label": "Paginatitel"
+            },
+            {
+              "value": "h2",
+              "label": "Sectiekop"
+            },
+            {
+              "value": "h3",
+              "label": "Klein"
+            }
+          ],
+          "default": "h2"
+        },
+        {
+          "type": "checkbox",
+          "id": "rule",
+          "label": "Gouden streep eronder",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Tekst",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Tekst",
+          "default": "<p>Spa Time staat voor kwaliteit, luxe en gemak.</p>"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Stijl",
+          "options": [
+            {
+              "value": "body",
+              "label": "Normaal"
+            },
+            {
+              "value": "lead",
+              "label": "Intro (groter, donker)"
+            }
+          ],
+          "default": "body"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "name": "Checklist",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "items",
+          "label": "Items (één per regel)",
+          "default": "Vijf comfortabele zitplaatsen\n42 krachtige massagejets"
+        },
+        {
+          "type": "select",
+          "id": "variant",
+          "label": "Stijl",
+          "options": [
+            {
+              "value": "line",
+              "label": "Vinkje"
+            },
+            {
+              "value": "filled",
+              "label": "Gevuld rondje"
+            }
+          ],
+          "default": "filled"
+        }
+      ]
+    },
+    {
+      "type": "facts",
+      "name": "Feitjes (rij)",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon_1",
+          "label": "Icoon 1",
+          "options": [
+            {
+              "value": "none",
+              "label": "Geen"
+            },
+            {
+              "value": "truck",
+              "label": "truck"
+            },
+            {
+              "value": "shield",
+              "label": "shield"
+            },
+            {
+              "value": "gear",
+              "label": "gear"
+            },
+            {
+              "value": "user",
+              "label": "user"
+            },
+            {
+              "value": "users",
+              "label": "users"
+            },
+            {
+              "value": "diamond",
+              "label": "diamond"
+            },
+            {
+              "value": "steam",
+              "label": "steam"
+            },
+            {
+              "value": "star",
+              "label": "star"
+            },
+            {
+              "value": "leaf",
+              "label": "leaf"
+            },
+            {
+              "value": "check",
+              "label": "check"
+            },
+            {
+              "value": "pin",
+              "label": "pin"
+            },
+            {
+              "value": "phone",
+              "label": "phone"
+            },
+            {
+              "value": "mail",
+              "label": "mail"
+            },
+            {
+              "value": "calendar",
+              "label": "calendar"
+            },
+            {
+              "value": "search",
+              "label": "search"
+            },
+            {
+              "value": "cart",
+              "label": "cart"
+            },
+            {
+              "value": "drop",
+              "label": "drop"
+            },
+            {
+              "value": "crown",
+              "label": "crown"
+            },
+            {
+              "value": "sliders",
+              "label": "sliders"
+            },
+            {
+              "value": "layers",
+              "label": "layers"
+            },
+            {
+              "value": "chat",
+              "label": "chat"
+            },
+            {
+              "value": "wrench",
+              "label": "wrench"
+            },
+            {
+              "value": "car",
+              "label": "car"
+            },
+            {
+              "value": "bolt",
+              "label": "bolt"
+            },
+            {
+              "value": "ruler",
+              "label": "ruler"
+            },
+            {
+              "value": "touch",
+              "label": "touch"
+            },
+            {
+              "value": "sparkle",
+              "label": "sparkle"
+            }
+          ],
+          "default": "pin"
+        },
+        {
+          "type": "text",
+          "id": "title_1",
+          "label": "Titel 1",
+          "default": "Enschede"
+        },
+        {
+          "type": "text",
+          "id": "text_1",
+          "label": "Tekst 1",
+          "default": "Josinkstraat 54a"
+        },
+        {
+          "type": "select",
+          "id": "icon_2",
+          "label": "Icoon 2",
+          "options": [
+            {
+              "value": "none",
+              "label": "Geen"
+            },
+            {
+              "value": "truck",
+              "label": "truck"
+            },
+            {
+              "value": "shield",
+              "label": "shield"
+            },
+            {
+              "value": "gear",
+              "label": "gear"
+            },
+            {
+              "value": "user",
+              "label": "user"
+            },
+            {
+              "value": "users",
+              "label": "users"
+            },
+            {
+              "value": "diamond",
+              "label": "diamond"
+            },
+            {
+              "value": "steam",
+              "label": "steam"
+            },
+            {
+              "value": "star",
+              "label": "star"
+            },
+            {
+              "value": "leaf",
+              "label": "leaf"
+            },
+            {
+              "value": "check",
+              "label": "check"
+            },
+            {
+              "value": "pin",
+              "label": "pin"
+            },
+            {
+              "value": "phone",
+              "label": "phone"
+            },
+            {
+              "value": "mail",
+              "label": "mail"
+            },
+            {
+              "value": "calendar",
+              "label": "calendar"
+            },
+            {
+              "value": "search",
+              "label": "search"
+            },
+            {
+              "value": "cart",
+              "label": "cart"
+            },
+            {
+              "value": "drop",
+              "label": "drop"
+            },
+            {
+              "value": "crown",
+              "label": "crown"
+            },
+            {
+              "value": "sliders",
+              "label": "sliders"
+            },
+            {
+              "value": "layers",
+              "label": "layers"
+            },
+            {
+              "value": "chat",
+              "label": "chat"
+            },
+            {
+              "value": "wrench",
+              "label": "wrench"
+            },
+            {
+              "value": "car",
+              "label": "car"
+            },
+            {
+              "value": "bolt",
+              "label": "bolt"
+            },
+            {
+              "value": "ruler",
+              "label": "ruler"
+            },
+            {
+              "value": "touch",
+              "label": "touch"
+            },
+            {
+              "value": "sparkle",
+              "label": "sparkle"
+            }
+          ],
+          "default": "car"
+        },
+        {
+          "type": "text",
+          "id": "title_2",
+          "label": "Titel 2",
+          "default": "Gratis parkeren"
+        },
+        {
+          "type": "text",
+          "id": "text_2",
+          "label": "Tekst 2",
+          "default": "Voor de deur"
+        },
+        {
+          "type": "select",
+          "id": "icon_3",
+          "label": "Icoon 3",
+          "options": [
+            {
+              "value": "none",
+              "label": "Geen"
+            },
+            {
+              "value": "truck",
+              "label": "truck"
+            },
+            {
+              "value": "shield",
+              "label": "shield"
+            },
+            {
+              "value": "gear",
+              "label": "gear"
+            },
+            {
+              "value": "user",
+              "label": "user"
+            },
+            {
+              "value": "users",
+              "label": "users"
+            },
+            {
+              "value": "diamond",
+              "label": "diamond"
+            },
+            {
+              "value": "steam",
+              "label": "steam"
+            },
+            {
+              "value": "star",
+              "label": "star"
+            },
+            {
+              "value": "leaf",
+              "label": "leaf"
+            },
+            {
+              "value": "check",
+              "label": "check"
+            },
+            {
+              "value": "pin",
+              "label": "pin"
+            },
+            {
+              "value": "phone",
+              "label": "phone"
+            },
+            {
+              "value": "mail",
+              "label": "mail"
+            },
+            {
+              "value": "calendar",
+              "label": "calendar"
+            },
+            {
+              "value": "search",
+              "label": "search"
+            },
+            {
+              "value": "cart",
+              "label": "cart"
+            },
+            {
+              "value": "drop",
+              "label": "drop"
+            },
+            {
+              "value": "crown",
+              "label": "crown"
+            },
+            {
+              "value": "sliders",
+              "label": "sliders"
+            },
+            {
+              "value": "layers",
+              "label": "layers"
+            },
+            {
+              "value": "chat",
+              "label": "chat"
+            },
+            {
+              "value": "wrench",
+              "label": "wrench"
+            },
+            {
+              "value": "car",
+              "label": "car"
+            },
+            {
+              "value": "bolt",
+              "label": "bolt"
+            },
+            {
+              "value": "ruler",
+              "label": "ruler"
+            },
+            {
+              "value": "touch",
+              "label": "touch"
+            },
+            {
+              "value": "sparkle",
+              "label": "sparkle"
+            }
+          ],
+          "default": "user"
+        },
+        {
+          "type": "text",
+          "id": "title_3",
+          "label": "Titel 3",
+          "default": "Persoonlijk advies"
+        },
+        {
+          "type": "text",
+          "id": "text_3",
+          "label": "Tekst 3",
+          "default": "Door onze specialisten"
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "name": "Gouden streep",
+      "settings": []
+    },
+    {
+      "type": "address",
+      "name": "Adresregel",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Toont het showroomadres uit Thema-instellingen."
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Knop",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Tekst",
+          "default": "Bekijk de collectie"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Stijl",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Goud"
+            },
+            {
+              "value": "outline",
+              "label": "Omlijnd"
+            },
+            {
+              "value": "ghost",
+              "label": "Omlijnd (op donker)"
+            }
+          ],
+          "default": "primary"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icoon voor tekst",
+          "options": [
+            {
+              "value": "none",
+              "label": "Geen"
+            },
+            {
+              "value": "truck",
+              "label": "truck"
+            },
+            {
+              "value": "shield",
+              "label": "shield"
+            },
+            {
+              "value": "gear",
+              "label": "gear"
+            },
+            {
+              "value": "user",
+              "label": "user"
+            },
+            {
+              "value": "users",
+              "label": "users"
+            },
+            {
+              "value": "diamond",
+              "label": "diamond"
+            },
+            {
+              "value": "steam",
+              "label": "steam"
+            },
+            {
+              "value": "star",
+              "label": "star"
+            },
+            {
+              "value": "leaf",
+              "label": "leaf"
+            },
+            {
+              "value": "check",
+              "label": "check"
+            },
+            {
+              "value": "pin",
+              "label": "pin"
+            },
+            {
+              "value": "phone",
+              "label": "phone"
+            },
+            {
+              "value": "mail",
+              "label": "mail"
+            },
+            {
+              "value": "calendar",
+              "label": "calendar"
+            },
+            {
+              "value": "search",
+              "label": "search"
+            },
+            {
+              "value": "cart",
+              "label": "cart"
+            },
+            {
+              "value": "drop",
+              "label": "drop"
+            },
+            {
+              "value": "crown",
+              "label": "crown"
+            },
+            {
+              "value": "sliders",
+              "label": "sliders"
+            },
+            {
+              "value": "layers",
+              "label": "layers"
+            },
+            {
+              "value": "chat",
+              "label": "chat"
+            },
+            {
+              "value": "wrench",
+              "label": "wrench"
+            },
+            {
+              "value": "car",
+              "label": "car"
+            },
+            {
+              "value": "bolt",
+              "label": "bolt"
+            },
+            {
+              "value": "ruler",
+              "label": "ruler"
+            },
+            {
+              "value": "touch",
+              "label": "touch"
+            },
+            {
+              "value": "sparkle",
+              "label": "sparkle"
+            }
+          ],
+          "default": "none"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ST · Banner",
+      "blocks": [
+        {
+          "type": "eyebrow",
+          "settings": {
+            "text": "Luxury jacuzzi's"
+          }
+        },
+        {
+          "type": "heading",
+          "settings": {
+            "text": "Ontspanning\nbegint bij Spa Time",
+            "size": "h1"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<p>Luxe jacuzzi's, ontworpen om jarenlang van te genieten.</p>"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "label": "Bekijk de collectie",
+            "style": "primary"
+          }
+        }
+      ]
+    }
+  ],
+  "class": "st"
+}
+{% endschema %}

@@ -1,0 +1,15 @@
+{%- comment -%} {% render 'st-button', label: 'Bekijk', link: '/collections/all', style: 'primary', icon: 'calendar', block: block, full: false %} {%- endcomment -%}
+{%- liquid
+  assign st = style | default: 'primary'
+  assign show_arrow = true
+  if st == 'ghost' or st == 'outline'
+    assign show_arrow = arrow | default: false
+  endif
+-%}
+{%- if label != blank -%}
+<a href="{{ link | default: '#' }}" class="btn btn--{{ st }}{% if full %} btn--full{% endif %}" {% if block %}{{ block.shopify_attributes }}{% endif %}>
+  {%- if icon != blank and icon != 'none' -%}{% render 'st-icon', name: icon, size: 18, stroke: 1.3 %}{%- endif -%}
+  <span>{{ label }}</span>
+  {%- if show_arrow -%}{% render 'st-icon', name: 'arrow', size: 16, stroke: 1.4 %}{%- endif -%}
+</a>
+{%- endif -%}

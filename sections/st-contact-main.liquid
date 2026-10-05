@@ -1,0 +1,338 @@
+<section class="contact bg-{{ section.settings.background }} pad-{{ section.settings.padding }}">
+  <div class="contact__grid container">
+    <div class="stack">
+      {% render 'st-eyebrow', text: section.settings.eyebrow %}
+      <h2 class="st-heading st-heading--h2">{{ section.settings.heading }}</h2>
+      <div class="st-rte">{{ section.settings.text }}</div>
+      {%- form 'contact', id: 'ContactForm', class: 'form' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="form__success">{% render 'st-icon', name: 'check', size: 28 %}<h3>{{ section.settings.success_heading }}</h3><p>{{ section.settings.success_text }}</p></div>
+        {%- else -%}
+          {%- if form.errors -%}<div class="form__error" role="alert">{{ form.errors | default_errors }}</div>{%- endif -%}
+          <div class="form__row">
+            <input class="st-field" name="contact[voornaam]" placeholder="Voornaam *" aria-label="Voornaam" required autocomplete="given-name">
+            <input class="st-field" name="contact[achternaam]" placeholder="Achternaam *" aria-label="Achternaam" required autocomplete="family-name">
+          </div>
+          <input class="st-field" type="email" name="contact[email]" placeholder="E-mailadres *" aria-label="E-mailadres" required autocomplete="email" value="{{ customer.email }}">
+          <input class="st-field" type="tel" name="contact[telefoon]" placeholder="Telefoonnummer" aria-label="Telefoonnummer" autocomplete="tel">
+          <select class="st-field st-field--select" name="contact[onderwerp]" aria-label="Onderwerp">
+            <option value="">Onderwerp</option>
+            {%- assign subjects = section.settings.subjects | newline_to_br | split: '<br />' -%}
+            {%- for s in subjects -%}{%- assign t = s | strip -%}{%- if t != blank -%}<option>{{ t }}</option>{%- endif -%}{%- endfor -%}
+          </select>
+          <textarea class="st-field" name="contact[body]" rows="5" placeholder="Je bericht *" aria-label="Je bericht" required></textarea>
+          <button type="submit" class="btn btn--primary btn--full"><span>{{ section.settings.submit_label }}</span>{% render 'st-icon', name: 'arrow', size: 16, stroke: 1.4 %}</button>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+    <div class="contact__aside stack stack--lg">
+      {% render 'st-eyebrow', text: section.settings.aside_eyebrow %}
+      {%- for block in section.blocks -%}
+        <div class="contact-item" {{ block.shopify_attributes }}>
+          <span class="contact-item__icon">{% render 'st-icon', name: block.settings.icon, size: 26 %}</span>
+          <div><strong>{{ block.settings.title }}</strong>
+            {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" class="contact-item__value">{{ block.settings.value }}</a>{%- else -%}<span class="contact-item__value">{{ block.settings.value }}</span>{%- endif -%}
+            {%- if block.settings.note != blank -%}<span class="contact-item__note">{{ block.settings.note }}</span>{%- endif -%}
+            {%- if block.settings.cta_label != blank -%}<a href="{{ block.settings.cta_link }}" class="text-link">{{ block.settings.cta_label }} →</a>{%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ST · Contactformulier",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Bovenkop",
+      "default": "Stuur een bericht"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Kop",
+      "default": "Neem contact op."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Tekst",
+      "default": "<p>Vul het formulier in, dan nemen we zo snel mogelijk contact met je op.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "subjects",
+      "label": "Onderwerpen (één per regel)",
+      "default": "Advies over een model\nShowroomafspraak\nLevering en plaatsing\nOnderhoud en service\nAnders"
+    },
+    {
+      "type": "text",
+      "id": "submit_label",
+      "label": "Knoptekst",
+      "default": "Verstuur bericht"
+    },
+    {
+      "type": "text",
+      "id": "success_heading",
+      "label": "Bedankt-kop",
+      "default": "Bedankt voor je bericht."
+    },
+    {
+      "type": "text",
+      "id": "success_text",
+      "label": "Bedankt-tekst",
+      "default": "We nemen meestal binnen 24 uur contact met je op."
+    },
+    {
+      "type": "text",
+      "id": "aside_eyebrow",
+      "label": "Bovenkop rechts",
+      "default": "Direct contact"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Achtergrond",
+      "options": [
+        {
+          "value": "cream",
+          "label": "Crème"
+        },
+        {
+          "value": "soft",
+          "label": "Licht"
+        },
+        {
+          "value": "sand",
+          "label": "Zand"
+        },
+        {
+          "value": "dark",
+          "label": "Donker"
+        }
+      ],
+      "default": "cream"
+    },
+    {
+      "type": "select",
+      "id": "padding",
+      "label": "Verticale ruimte",
+      "options": [
+        {
+          "value": "none",
+          "label": "Geen"
+        },
+        {
+          "value": "sm",
+          "label": "Klein"
+        },
+        {
+          "value": "md",
+          "label": "Normaal"
+        },
+        {
+          "value": "lg",
+          "label": "Groot"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Contactregel",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icoon",
+          "options": [
+            {
+              "value": "none",
+              "label": "Geen"
+            },
+            {
+              "value": "truck",
+              "label": "truck"
+            },
+            {
+              "value": "shield",
+              "label": "shield"
+            },
+            {
+              "value": "gear",
+              "label": "gear"
+            },
+            {
+              "value": "user",
+              "label": "user"
+            },
+            {
+              "value": "users",
+              "label": "users"
+            },
+            {
+              "value": "diamond",
+              "label": "diamond"
+            },
+            {
+              "value": "steam",
+              "label": "steam"
+            },
+            {
+              "value": "star",
+              "label": "star"
+            },
+            {
+              "value": "leaf",
+              "label": "leaf"
+            },
+            {
+              "value": "check",
+              "label": "check"
+            },
+            {
+              "value": "pin",
+              "label": "pin"
+            },
+            {
+              "value": "phone",
+              "label": "phone"
+            },
+            {
+              "value": "mail",
+              "label": "mail"
+            },
+            {
+              "value": "calendar",
+              "label": "calendar"
+            },
+            {
+              "value": "search",
+              "label": "search"
+            },
+            {
+              "value": "cart",
+              "label": "cart"
+            },
+            {
+              "value": "drop",
+              "label": "drop"
+            },
+            {
+              "value": "crown",
+              "label": "crown"
+            },
+            {
+              "value": "sliders",
+              "label": "sliders"
+            },
+            {
+              "value": "layers",
+              "label": "layers"
+            },
+            {
+              "value": "chat",
+              "label": "chat"
+            },
+            {
+              "value": "wrench",
+              "label": "wrench"
+            },
+            {
+              "value": "car",
+              "label": "car"
+            },
+            {
+              "value": "bolt",
+              "label": "bolt"
+            },
+            {
+              "value": "ruler",
+              "label": "ruler"
+            },
+            {
+              "value": "touch",
+              "label": "touch"
+            },
+            {
+              "value": "sparkle",
+              "label": "sparkle"
+            }
+          ],
+          "default": "phone"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel",
+          "default": "Bel ons"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Waarde",
+          "default": "+31 6 12 34 56 78"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (tel:/mailto:)"
+        },
+        {
+          "type": "text",
+          "id": "note",
+          "label": "Toelichting",
+          "default": "Ma t/m za bereikbaar"
+        },
+        {
+          "type": "text",
+          "id": "cta_label",
+          "label": "Linktekst"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ST · Contactformulier",
+      "blocks": [
+        {
+          "type": "item"
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "mail",
+            "title": "Mail ons",
+            "value": "info@spa-time.nl",
+            "note": "We reageren meestal binnen 24 uur"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "pin",
+            "title": "Bezoek onze showroom",
+            "value": "Josinkstraat 54a, Enschede",
+            "note": "",
+            "cta_label": "Showroombezoek op afspraak"
+          }
+        }
+      ]
+    }
+  ],
+  "class": "st"
+}
+{% endschema %}

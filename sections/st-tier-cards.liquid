@@ -1,0 +1,123 @@
+{%- comment -%} Toont alle metaobjecten "uitvoering" (Inhoud › Metaobjecten). {%- endcomment -%}
+<section class="tiers bg-{{ section.settings.background }} pad-{{ section.settings.padding }}">
+  <div class="container stack stack--lg">
+    {%- if section.settings.heading != blank -%}
+      <div class="section-head"><div class="stack">{% render 'st-eyebrow', text: section.settings.eyebrow %}<h2 class="st-heading st-heading--h2">{{ section.settings.heading }}</h2></div>{%- if section.settings.text != blank -%}<div class="st-rte section-head__aside">{{ section.settings.text }}</div>{%- endif -%}</div>
+    {%- endif -%}
+    <div class="grid-3 grid-3--badges">
+      {%- for tier in shop.metaobjects.uitvoering.values -%}{% render 'st-tier-card', tier: tier, style: section.settings.style %}{%- endfor -%}
+    </div>
+    {%- if section.settings.button_label != blank -%}<div class="st-center">{% render 'st-button', label: section.settings.button_label, link: section.settings.button_link %}</div>{%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ST · Uitvoeringen",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Stijl",
+      "options": [
+        {
+          "value": "image",
+          "label": "Met foto (homepage)"
+        },
+        {
+          "value": "detailed",
+          "label": "Uitgebreid met \"Ideaal voor\""
+        },
+        {
+          "value": "compact",
+          "label": "Compact"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Bovenkop",
+      "default": "Jouw spa, jouw ervaring"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Kop",
+      "default": "Kies jouw uitvoering."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Tekst"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Knoptekst",
+      "default": "Vergelijk de uitvoeringen"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Knoplink"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Achtergrond",
+      "options": [
+        {
+          "value": "cream",
+          "label": "Crème"
+        },
+        {
+          "value": "soft",
+          "label": "Licht"
+        },
+        {
+          "value": "sand",
+          "label": "Zand"
+        },
+        {
+          "value": "dark",
+          "label": "Donker"
+        }
+      ],
+      "default": "cream"
+    },
+    {
+      "type": "select",
+      "id": "padding",
+      "label": "Verticale ruimte",
+      "options": [
+        {
+          "value": "none",
+          "label": "Geen"
+        },
+        {
+          "value": "sm",
+          "label": "Klein"
+        },
+        {
+          "value": "md",
+          "label": "Normaal"
+        },
+        {
+          "value": "lg",
+          "label": "Groot"
+        }
+      ],
+      "default": "md"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ST · Uitvoeringen"
+    }
+  ],
+  "class": "st"
+}
+{% endschema %}

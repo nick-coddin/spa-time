@@ -1,0 +1,104 @@
+{
+  "sections": {
+    "hero": {
+      "type": "st-hero-banner",
+      "settings": {
+        "layout": "split",
+        "fade": true,
+        "eager": true,
+        "min_height": 480
+      },
+      "blocks": {
+        "eyebrow_0": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "OVER SPA TIME"
+          }
+        },
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "text": "Het verhaal\nachter Spa Time.",
+            "size": "h1",
+            "rule": true
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "style": "lead"
+          }
+        }
+      },
+      "block_order": [
+        "eyebrow_0",
+        "heading_1",
+        "text_2"
+      ]
+    },
+    "verhaal": {
+      "type": "st-timeline",
+      "settings": {
+        "year": "2020",
+        "padding": "lg"
+      },
+      "blocks": {
+        "chapter_0": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Waar het begon."
+          }
+        },
+        "chapter_1": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Van idee naar Spa Time."
+          }
+        },
+        "chapter_2": {
+          "type": "chapter",
+          "settings": {
+            "heading": "Onze ambitie."
+          }
+        }
+      },
+      "block_order": [
+        "chapter_0",
+        "chapter_1",
+        "chapter_2"
+      ]
+    },
+    "quote": {
+      "type": "st-closing-statement",
+      "settings": {
+        "background": "sand"
+      },
+      "blocks": {
+        "button_0": {
+          "type": "button",
+          "settings": {
+            "label": "Bekijk de collectie",
+            "link": "/collections/jacuzzis"
+          }
+        },
+        "button_1": {
+          "type": "button",
+          "settings": {
+            "label": "Neem contact op",
+            "link": "/pages/contact",
+            "style": "outline"
+          }
+        }
+      },
+      "block_order": [
+        "button_0",
+        "button_1"
+      ]
+    }
+  },
+  "order": [
+    "hero",
+    "verhaal",
+    "quote"
+  ]
+}

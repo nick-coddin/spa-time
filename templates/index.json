@@ -1,282 +1,354 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
+    "hero": {
+      "type": "st-hero-banner",
+      "settings": {
+        "layout": "overlay",
+        "overlay": 90,
+        "min_height": 640,
+        "eager": true,
+        "background": "dark"
+      },
       "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
+        "eyebrow_0": {
+          "type": "eyebrow",
           "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "{{ settings.color_palette.background }}",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "LUXURY JACUZZI'S"
+          }
         },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
+        "heading_1": {
+          "type": "heading",
           "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-custom",
-            "custom_button_background": "rgba(0, 0, 0, 0)",
-            "custom_button_text": "{{ settings.color_palette.background }}",
-            "custom_button_border": "{{ settings.color_palette.background }}",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
+            "text": "Ontspanning\nbegint bij Spa Time",
+            "size": "h1"
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Luxe jacuzzi's, ontworpen om jarenlang van te genieten. Ontdek onze collectie en ervaar zelf het verschil.</p>",
+            "style": "lead"
+          }
+        },
+        "button_3": {
+          "type": "button",
+          "settings": {
+            "label": "Bekijk de collectie",
+            "link": "/collections/jacuzzis",
+            "style": "primary"
+          }
+        },
+        "button_4": {
+          "type": "button",
+          "settings": {
+            "label": "Plan een showroombezoek",
+            "link": "/pages/contact#showroom",
+            "style": "ghost",
+            "icon": "calendar"
+          }
         }
       },
       "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
-      ],
-      "name": "t:names.hero",
-      "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
-      }
+        "eyebrow_0",
+        "heading_1",
+        "text_2",
+        "button_3",
+        "button_4"
+      ]
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
+    "usps": {
+      "type": "st-usp-bar",
+      "settings": {},
       "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
+        "usp_0": {
+          "type": "usp",
           "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "button-unstyled",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
+            "icon": "truck",
+            "title": "Gratis levering en plaatsing",
+            "text": "In Nederland en België"
+          }
         },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
+        "usp_1": {
+          "type": "usp",
           "settings": {
-            "product_card_gap": 4,
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "paragraph",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
+            "icon": "shield",
+            "title": "Tot 5 jaar garantie",
+            "text": "Zorgeloos genieten"
+          }
+        },
+        "usp_2": {
+          "type": "usp",
+          "settings": {
+            "icon": "gear",
+            "title": "Betrouwbare Balboa-techniek",
+            "text": "Hoogwaardige kwaliteit"
+          }
+        },
+        "usp_3": {
+          "type": "usp",
+          "settings": {
+            "icon": "user",
+            "title": "Persoonlijk advies",
+            "text": "Van onze specialisten"
+          }
         }
       },
-      "name": "t:names.featured_collection",
+      "block_order": [
+        "usp_0",
+        "usp_1",
+        "usp_2",
+        "usp_3"
+      ]
+    },
+    "waarom": {
+      "type": "st-image-with-text",
       "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "image_position": "right",
+        "min_height": 480
+      },
+      "blocks": {
+        "eyebrow_0": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "WAAROM SPA TIME?"
+          }
+        },
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "text": "Luxe hoeft niet\ningewikkeld te zijn.",
+            "size": "h2"
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Spa Time staat voor kwaliteit, luxe en gemak. Daarom hebben we onze eigen lijn jacuzzi's ontwikkeld.</p><p>De belangrijkste keuzes hebben wij al voor je gemaakt.</p>"
+          }
+        },
+        "button_3": {
+          "type": "button",
+          "settings": {
+            "label": "Ontdek waarom Spa Time",
+            "link": "/pages/waarom-spa-time"
+          }
+        }
+      },
+      "block_order": [
+        "eyebrow_0",
+        "heading_1",
+        "text_2",
+        "button_3"
+      ]
+    },
+    "kenmerken": {
+      "type": "st-feature-columns",
+      "settings": {
+        "style": "centered",
+        "icon_size": 36,
+        "padding": "sm"
+      },
+      "blocks": {
+        "column_0": {
+          "type": "column",
+          "settings": {
+            "icon": "diamond",
+            "title": "Hoogwaardige techniek",
+            "text": "Betrouwbare Balboa-techniek"
+          }
+        },
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "icon": "steam",
+            "title": "Comfort",
+            "text": "Krachtige hydrotherapie"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "icon": "star",
+            "title": "Luxe afwerking",
+            "text": "Ontworpen met aandacht voor ieder detail"
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "icon": "leaf",
+            "title": "Zorgeloos genieten",
+            "text": "Levering, plaatsing en persoonlijk advies"
+          }
+        }
+      },
+      "block_order": [
+        "column_0",
+        "column_1",
+        "column_2",
+        "column_3"
+      ]
+    },
+    "moment": {
+      "type": "st-hero-banner",
+      "settings": {
+        "layout": "overlay",
+        "overlay": 90,
+        "min_height": 440,
+        "background": "dark"
+      },
+      "blocks": {
+        "eyebrow_0": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "JOUW MOMENT"
+          }
+        },
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "text": "Ontworpen om\nte ontspannen.",
+            "size": "h2"
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ontspan, laad op en geniet. Elke dag opnieuw.</p>"
+          }
+        },
+        "button_3": {
+          "type": "button",
+          "settings": {
+            "label": "Bekijk de collectie",
+            "link": "/collections/jacuzzis"
+          }
+        }
+      },
+      "block_order": [
+        "eyebrow_0",
+        "heading_1",
+        "text_2",
+        "button_3"
+      ]
+    },
+    "uitvoeringen": {
+      "type": "st-tier-cards",
+      "settings": {
+        "style": "image",
+        "eyebrow": "JOUW SPA, JOUW ERVARING",
+        "heading": "Kies jouw uitvoering.",
+        "text": "<p>Iedere Spa Time is compleet uitgerust. Kies het niveau van comfort en luxe dat bij je past.</p>",
+        "button_label": "Vergelijk de uitvoeringen",
+        "button_link": "/pages/uitvoeringen"
       }
+    },
+    "showroom": {
+      "type": "st-image-with-text",
+      "settings": {
+        "image_position": "left",
+        "border": true
+      },
+      "blocks": {
+        "eyebrow_0": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "SHOWROOM ENSCHEDE"
+          }
+        },
+        "heading_1": {
+          "type": "heading",
+          "settings": {
+            "text": "Ervaar Spa Time\nin het echt.",
+            "size": "h2"
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Bekijk onze jacuzzi's, ervaar het verschil tussen de uitvoeringen en krijg persoonlijk advies.</p>"
+          }
+        },
+        "button_3": {
+          "type": "button",
+          "settings": {
+            "label": "Plan een showroomafspraak",
+            "link": "/pages/contact#showroom"
+          }
+        },
+        "facts_4": {
+          "type": "facts",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "eyebrow_0",
+        "heading_1",
+        "text_2",
+        "button_3",
+        "facts_4"
+      ]
+    },
+    "service": {
+      "type": "st-feature-columns",
+      "settings": {
+        "eyebrow": "VAN ADVIES TOT JARENLANG GENIETEN",
+        "heading": "Onze service",
+        "intro_position": "side",
+        "style": "inline",
+        "icon_size": 30,
+        "background": "sand"
+      },
+      "blocks": {
+        "column_0": {
+          "type": "column",
+          "settings": {
+            "icon": "chat",
+            "title": "Persoonlijk advies",
+            "text": "We helpen je de jacuzzi te vinden die bij je past."
+          }
+        },
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "icon": "truck",
+            "title": "Levering & plaatsing",
+            "text": "Zorgeloze levering en vakkundige plaatsing."
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "icon": "drop",
+            "title": "Wateronderhoud",
+            "text": "Alle producten en advies voor helder water."
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "icon": "wrench",
+            "title": "Service & garantie",
+            "text": "Ook na aankoop staan we voor je klaar."
+          }
+        }
+      },
+      "block_order": [
+        "column_0",
+        "column_1",
+        "column_2",
+        "column_3"
+      ]
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "hero",
+    "usps",
+    "waarom",
+    "kenmerken",
+    "moment",
+    "uitvoeringen",
+    "showroom",
+    "service"
   ]
 }
