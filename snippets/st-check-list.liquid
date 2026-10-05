@@ -1,7 +1,9 @@
 {%- comment -%} items: array of strings OR newline-separated string {%- endcomment -%}
+{%- capture newline %}
+{% endcapture -%}
 {%- liquid
   if items.first == blank
-    assign list = items | newline_to_br | split: '<br />'
+    assign list = items | split: newline
   else
     assign list = items
   endif

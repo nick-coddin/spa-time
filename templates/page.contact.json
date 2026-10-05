@@ -25,7 +25,8 @@
         "text_2": {
           "type": "text",
           "settings": {
-            "style": "lead"
+            "style": "lead",
+            "text": "<p>Heb je een vraag, wil je persoonlijk advies over onze jacuzzi's of een showroomafspraak maken? We staan voor je klaar.</p>"
           }
         }
       },
@@ -64,9 +65,10 @@
           "settings": {
             "icon": "pin",
             "title": "Bezoek onze showroom",
-            "value": "Josinkstraat 54a, Enschede",
+            "value": "Tolstraat 8a, Haaksbergen",
             "cta_label": "Showroombezoek op afspraak",
-            "cta_link": "#showroom"
+            "cta_link": "#showroom",
+            "note": ""
           }
         }
       },
@@ -94,7 +96,9 @@
         },
         "text_2": {
           "type": "text",
-          "settings": {}
+          "settings": {
+            "text": "<p>Bekijk de jacuzzi's van dichtbij en krijg persoonlijk advies in onze showroom in Haaksbergen.</p>"
+          }
         },
         "address_3": {
           "type": "address",

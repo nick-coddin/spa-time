@@ -25,7 +25,8 @@
             </label>
           {%- else -%}
             <label for="{{ vid }}" class="option-tile option-tile--swatch">
-              <span class="option-tile__swatch"{% if value.swatch.color %} style="background:{{ value.swatch.color }}"{% endif %}>
+              {%- comment -%} No Shopify swatch set: fall back to a pattern based on the value name. {%- endcomment -%}
+              <span class="option-tile__swatch option-tile__swatch--{{ value | handleize }}"{% if value.swatch.color %} style="background:{{ value.swatch.color }}"{% endif %}>
                 {%- if value.swatch.image -%}{{ value.swatch.image | image_url: width: 200 | image_tag: alt: value }}{%- endif -%}
               </span>
               <span class="option-tile__name">{{ value }}<span class="option-tile__extra" data-color-extra="{{ value | escape }}"></span></span>

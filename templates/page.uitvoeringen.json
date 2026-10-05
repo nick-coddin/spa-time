@@ -251,7 +251,9 @@
         },
         "text_1": {
           "type": "text",
-          "settings": {}
+          "settings": {
+            "text": "<p>In Haaksbergen laten we je de drie uitvoeringen graag zien en kun je ze zelf ervaren.</p>"
+          }
         },
         "button_2": {
           "type": "button",

@@ -26,7 +26,8 @@
         "text_2": {
           "type": "text",
           "settings": {
-            "style": "lead"
+            "style": "lead",
+            "text": "<p>Spa Time is ontstaan vanuit een duidelijke gedachte: een jacuzzi moet luxe en compleet zijn, zonder dat kiezen ingewikkeld wordt.</p>"
           }
         }
       },
@@ -46,19 +47,22 @@
         "chapter_0": {
           "type": "chapter",
           "settings": {
-            "heading": "Waar het begon."
+            "heading": "Waar het begon.",
+            "text": "<p>Het verhaal achter Spa Time begon in 2020. Oprichter Bram Wevers zette toen zijn eerste stappen in de wereld van jacuzzi's, met de verkoop van opblaasbare modellen.</p><p>Hoewel hij daar na verloop van tijd mee stopte, liet het product hem nooit helemaal los. Eén ambitie bleef hangen: ooit terugkomen met iets dat écht eigen was.</p>"
           }
         },
         "chapter_1": {
           "type": "chapter",
           "settings": {
-            "heading": "Van idee naar Spa Time."
+            "heading": "Van idee naar Spa Time.",
+            "text": "<p>Niet simpelweg een bestaand product doorverkopen, maar een eigen jacuzzilijn ontwikkelen vanuit een duidelijke visie. Een collectie waarin luxe, comfort en gebruiksgemak samenkomen voor een ultieme wellnessbeleving, zonder concessies.</p><p>Vanuit die gedachte ontstond Spa Time.</p><p>Vandaag de dag werken we met een zorgvuldig samengestelde collectie, waarin kwaliteit, comfort en uitstraling samenkomen. Zodat jij kunt genieten van een complete en luxe jacuzzi, zonder eindeloze opties of ingewikkelde keuzes.</p>"
           }
         },
         "chapter_2": {
           "type": "chapter",
           "settings": {
-            "heading": "Onze ambitie."
+            "heading": "Onze ambitie.",
+            "text": "<p>Onze ambitie is om Spa Time uit te bouwen tot een herkenbaar Nederlands jacuzzimerk, waar kwaliteit, luxe en uitstraling vanzelfsprekend zijn, zonder het persoonlijke contact uit het oog te verliezen.</p><p>Juist bij een aankoop als een jacuzzi vinden we persoonlijk advies en goede service belangrijk. Van het eerste contact en het kiezen van het juiste model tot de levering en de ondersteuning daarna.</p>"
           }
         }
       },

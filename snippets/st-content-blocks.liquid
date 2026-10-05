@@ -1,13 +1,32 @@
 {%- comment -%} Gedeelde contentblokken voor hero-banner, image-with-text en map-showroom. {%- endcomment -%}
 {%- for block in blocks -%}
   {%- case block.type -%}
-    {%- when 'eyebrow' -%}{% render 'st-eyebrow', text: block.settings.text, block: block %}
+    {%- comment -%} On a product page "[product]" becomes the product title; an empty heading uses metafield custom.why_heading. {%- endcomment -%}
+    {%- when 'eyebrow' -%}
+      {%- assign eyebrow_text = block.settings.text -%}
+      {%- if product -%}{%- assign eyebrow_text = eyebrow_text | replace: '[product]', product.title -%}{%- endif -%}
+      {% render 'st-eyebrow', text: eyebrow_text, block: block %}
     {%- when 'heading' -%}
       {%- assign tag = 'h2' -%}{%- if block.settings.size == 'h1' -%}{%- assign tag = 'h1' -%}{%- endif -%}
-      <{{ tag }} class="st-heading st-heading--{{ block.settings.size }}" {{ block.shopify_attributes }}>{{ block.settings.text | newline_to_br }}{% if block.settings.highlight != blank %} <span class="st-heading__accent">{{ block.settings.highlight | newline_to_br }}</span>{% endif %}</{{ tag }}>
+      {%- assign heading_text = block.settings.text -%}
+      {%- if product -%}
+        {%- if heading_text == blank -%}{%- assign heading_text = product.metafields.custom.why_heading.value -%}{%- endif -%}
+        {%- assign heading_text = heading_text | replace: '[product]', product.title -%}
+      {%- endif -%}
+      <{{ tag }} class="st-heading st-heading--{{ block.settings.size }}" {{ block.shopify_attributes }}>{{ heading_text | newline_to_br }}{% if block.settings.highlight != blank %} <span class="st-heading__accent">{{ block.settings.highlight | newline_to_br }}</span>{% endif %}</{{ tag }}>
       {%- if block.settings.rule -%}<span class="rule"></span>{%- endif -%}
-    {%- when 'text' -%}<div class="st-rte st-rte--{{ block.settings.style }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
-    {%- when 'checklist' -%}<div {{ block.shopify_attributes }}>{% render 'st-check-list', items: block.settings.items, variant: block.settings.variant %}</div>
+    {%- when 'text' -%}
+      {%- assign body = block.settings.text -%}
+      {%- if product -%}
+        {%- if body == blank and product.metafields.custom.why_text != blank -%}{%- assign body = product.metafields.custom.why_text.value | newline_to_br | prepend: '<p>' | append: '</p>' -%}{%- endif -%}
+        {%- assign body = body | replace: '[product]', product.title -%}
+      {%- endif -%}
+      {%- if body != blank -%}<div class="st-rte st-rte--{{ block.settings.style }}" {{ block.shopify_attributes }}>{{ body }}</div>{%- endif -%}
+    {%- when 'checklist' -%}
+      {%- comment -%} Empty on a product page → product metafield custom.highlights (list of text). {%- endcomment -%}
+      {%- assign items = block.settings.items -%}
+      {%- if items == blank and product and product.metafields.custom.highlights != blank -%}{%- assign items = product.metafields.custom.highlights.value -%}{%- endif -%}
+      <div {{ block.shopify_attributes }}>{% render 'st-check-list', items: items, variant: block.settings.variant %}</div>
     {%- when 'facts' -%}
       <div class="facts" {{ block.shopify_attributes }}>
         {%- for i in (1..3) -%}

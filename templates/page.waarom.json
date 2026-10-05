@@ -24,7 +24,9 @@
         },
         "text_2": {
           "type": "text",
-          "settings": {}
+          "settings": {
+            "text": "<p>Spa Time staat voor kwaliteit, luxe en gemak. Vanuit die gedachte hebben we onze eigen lijn jacuzzi's ontwikkeld, waarin comfort, hoogwaardige techniek en een verfijnde uitstraling samenkomen.</p>"
+          }
         }
       },
       "block_order": [
@@ -53,7 +55,9 @@
         },
         "text_2": {
           "type": "text",
-          "settings": {}
+          "settings": {
+            "text": "<p>Bij veel jacuzzi's krijg je te maken met verschillende technische pakketten, lange lijsten met extra opties en moeilijke keuzes. Wij doen dat anders.</p><p>Onze jacuzzi's zijn vanaf de basis rijk uitgerust, met de beste materialen, betrouwbare techniek en een luxe afwerking. Zo geniet je van een complete spa, zonder eindeloze optielijsten en zonder in te leveren op kwaliteit.</p>"
+          }
         }
       },
       "block_order": [
@@ -75,28 +79,32 @@
           "type": "column",
           "settings": {
             "icon": "shield",
-            "title": "Betrouwbare techniek"
+            "title": "Betrouwbare techniek",
+            "text": "Onze jacuzzi's hebben hoogwaardige Balboa-techniek, bekend om de betrouwbaarheid en het gebruiksgemak."
           }
         },
         "column_1": {
           "type": "column",
           "settings": {
             "icon": "steam",
-            "title": "Krachtige massage"
+            "title": "Krachtige massage",
+            "text": "Strategisch geplaatste massagejets zorgen voor een diepe, effectieve hydrotherapie en optimaal comfort."
           }
         },
         "column_2": {
           "type": "column",
           "settings": {
             "icon": "diamond",
-            "title": "Luxe afwerking"
+            "title": "Luxe afwerking",
+            "text": "Van hoogwaardige materialen tot stijlvolle verlichting: ieder detail is zorgvuldig gekozen voor een luxe uitstraling."
           }
         },
         "column_3": {
           "type": "column",
           "settings": {
             "icon": "leaf",
-            "title": "Doordachte isolatie"
+            "title": "Doordachte isolatie",
+            "text": "Door de sterke isolatie blijft het water langer warm en gaat er zo min mogelijk warmte verloren."
           }
         }
       },
@@ -128,7 +136,9 @@
         },
         "text_2": {
           "type": "text",
-          "settings": {}
+          "settings": {
+            "text": "<p>Welke uitvoering je ook kiest, je kiest altijd voor een volwaardige Spa Time. Geen basismodel dat je eerst met allerlei opties moet uitbreiden, maar zorgvuldig samengestelde uitvoeringen, elk met een eigen niveau van luxe.</p>"
+          }
         },
         "divider_3": {
           "type": "divider",
@@ -137,7 +147,8 @@
         "text_4": {
           "type": "text",
           "settings": {
-            "style": "lead"
+            "style": "lead",
+            "text": "<p>Zo weet je precies waar je aan toe bent en geniet je jarenlang van optimaal comfort, kwaliteit en een stijlvolle uitstraling.</p>"
           }
         },
         "button_5": {

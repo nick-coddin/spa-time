@@ -73,23 +73,26 @@
         "eyebrow_0": {
           "type": "eyebrow",
           "settings": {
-            "text": "WAAROM BALI?"
+            "text": "Waarom [product]?"
           }
         },
         "heading_1": {
           "type": "heading",
           "settings": {
-            "text": "Ruimte voor vijf.\nKrachtige massage.\nNiet onnodig groot."
+            "text": ""
           }
         },
         "text_2": {
           "type": "text",
-          "settings": {}
+          "settings": {
+            "text": ""
+          }
         },
         "checklist_3": {
           "type": "checklist",
           "settings": {
-            "variant": "filled"
+            "variant": "filled",
+            "items": ""
           }
         }
       },
@@ -118,7 +121,7 @@
       "type": "st-hero-banner",
       "settings": {
         "layout": "overlay",
-        "overlay": 94,
+        "overlay": 95,
         "min_height": 440,
         "background": "dark"
       },
@@ -126,18 +129,20 @@
         "eyebrow_0": {
           "type": "eyebrow",
           "settings": {
-            "text": "SHOWROOM ENSCHEDE"
+            "text": "SHOWROOM HAAKSBERGEN"
           }
         },
         "heading_1": {
           "type": "heading",
           "settings": {
-            "text": "Ervaar het in het echt."
+            "text": "Ervaar de [product] in het echt."
           }
         },
         "text_2": {
           "type": "text",
-          "settings": {}
+          "settings": {
+            "text": "<p>Benieuwd naar de ruimte, het comfort en de massagekracht van de [product]? Kom langs in onze showroom in Haaksbergen en ervaar het zelf.</p>"
+          }
         },
         "button_3": {
           "type": "button",

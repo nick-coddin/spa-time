@@ -105,7 +105,7 @@
         "eyebrow_0": {
           "type": "eyebrow",
           "settings": {
-            "text": "SHOWROOM ENSCHEDE"
+            "text": "SHOWROOM HAAKSBERGEN"
           }
         },
         "heading_1": {
@@ -116,7 +116,9 @@
         },
         "text_2": {
           "type": "text",
-          "settings": {}
+          "settings": {
+            "text": "<p>Bekijk onze modellen, ervaar het verschil tussen de uitvoeringen en krijg persoonlijk advies. Je bent van harte welkom in onze showroom in Haaksbergen.</p>"
+          }
         },
         "button_3": {
           "type": "button",
