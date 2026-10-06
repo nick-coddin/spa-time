@@ -62,10 +62,10 @@
       ],
       "settings": {
         "layout": "overlay",
-        "image": "shopify://shop_images/ontwerp4-hero-zonsondergang-meer.jpg",
+        "image": "shopify://shop_images/WhatsApp_Image_2026-10-06_at_11.39.11.jpg",
         "fade": true,
         "overlay": 80,
-        "min_height": 620,
+        "min_height": 400,
         "background": "dark",
         "eager": true
       }
