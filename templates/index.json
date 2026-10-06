@@ -1,14 +1,16 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "st-hero-banner",
-      "settings": {
-        "layout": "overlay",
-        "overlay": 90,
-        "min_height": 640,
-        "eager": true,
-        "background": "dark"
-      },
       "blocks": {
         "eyebrow_0": {
           "type": "eyebrow",
@@ -20,7 +22,9 @@
           "type": "heading",
           "settings": {
             "text": "Ontspanning\nbegint bij Spa Time",
-            "size": "h1"
+            "highlight": "",
+            "size": "h1",
+            "rule": false
           }
         },
         "text_2": {
@@ -35,7 +39,8 @@
           "settings": {
             "label": "Bekijk de collectie",
             "link": "/collections/jacuzzis",
-            "style": "primary"
+            "style": "primary",
+            "icon": "none"
           }
         },
         "button_4": {
@@ -54,11 +59,19 @@
         "text_2",
         "button_3",
         "button_4"
-      ]
+      ],
+      "settings": {
+        "layout": "overlay",
+        "image": "shopify://shop_images/ontwerp4-hero-zonsondergang-meer.jpg",
+        "fade": true,
+        "overlay": 90,
+        "min_height": 620,
+        "background": "dark",
+        "eager": true
+      }
     },
     "usps": {
       "type": "st-usp-bar",
-      "settings": {},
       "blocks": {
         "usp_0": {
           "type": "usp",
@@ -98,14 +111,11 @@
         "usp_1",
         "usp_2",
         "usp_3"
-      ]
+      ],
+      "settings": {}
     },
     "waarom": {
       "type": "st-image-with-text",
-      "settings": {
-        "image_position": "right",
-        "min_height": 480
-      },
       "blocks": {
         "eyebrow_0": {
           "type": "eyebrow",
@@ -117,20 +127,25 @@
           "type": "heading",
           "settings": {
             "text": "Luxe hoeft niet\ningewikkeld te zijn.",
-            "size": "h2"
+            "highlight": "",
+            "size": "h2",
+            "rule": false
           }
         },
         "text_2": {
           "type": "text",
           "settings": {
-            "text": "<p>Spa Time staat voor kwaliteit, luxe en gemak. Daarom hebben we onze eigen lijn jacuzzi's ontwikkeld.</p><p>De belangrijkste keuzes hebben wij al voor je gemaakt.</p>"
+            "text": "<p>Spa Time staat voor kwaliteit, luxe en gemak. Daarom hebben we onze eigen lijn jacuzzi's ontwikkeld.</p><p>De belangrijkste keuzes hebben wij al voor je gemaakt.</p>",
+            "style": "body"
           }
         },
         "button_3": {
           "type": "button",
           "settings": {
             "label": "Ontdek waarom Spa Time",
-            "link": "/pages/waarom-spa-time"
+            "link": "/pages/waarom-spa-time",
+            "style": "primary",
+            "icon": "none"
           }
         }
       },
@@ -139,15 +154,17 @@
         "heading_1",
         "text_2",
         "button_3"
-      ]
+      ],
+      "settings": {
+        "image_position": "right",
+        "fade": false,
+        "min_height": 480,
+        "background": "cream",
+        "border": false
+      }
     },
     "kenmerken": {
       "type": "st-feature-columns",
-      "settings": {
-        "style": "centered",
-        "icon_size": 36,
-        "padding": "sm"
-      },
       "blocks": {
         "column_0": {
           "type": "column",
@@ -187,16 +204,22 @@
         "column_1",
         "column_2",
         "column_3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "intro_position": "top",
+        "style": "centered",
+        "icon_size": 36,
+        "background": "cream",
+        "padding": "sm"
+      }
     },
     "moment": {
       "type": "st-hero-banner",
-      "settings": {
-        "layout": "overlay",
-        "overlay": 90,
-        "min_height": 440,
-        "background": "dark"
-      },
       "blocks": {
         "eyebrow_0": {
           "type": "eyebrow",
@@ -208,20 +231,25 @@
           "type": "heading",
           "settings": {
             "text": "Ontworpen om\nte ontspannen.",
-            "size": "h2"
+            "highlight": "",
+            "size": "h2",
+            "rule": false
           }
         },
         "text_2": {
           "type": "text",
           "settings": {
-            "text": "<p>Ontspan, laad op en geniet. Elke dag opnieuw.</p>"
+            "text": "<p>Ontspan, laad op en geniet. Elke dag opnieuw.</p>",
+            "style": "body"
           }
         },
         "button_3": {
           "type": "button",
           "settings": {
             "label": "Bekijk de collectie",
-            "link": "/collections/jacuzzis"
+            "link": "/collections/jacuzzis",
+            "style": "primary",
+            "icon": "none"
           }
         }
       },
@@ -230,7 +258,15 @@
         "heading_1",
         "text_2",
         "button_3"
-      ]
+      ],
+      "settings": {
+        "layout": "overlay",
+        "fade": true,
+        "overlay": 90,
+        "min_height": 440,
+        "background": "dark",
+        "eager": false
+      }
     },
     "uitvoeringen": {
       "type": "st-tier-cards",
@@ -240,15 +276,13 @@
         "heading": "Kies jouw uitvoering.",
         "text": "<p>Iedere Spa Time is compleet uitgerust. Kies het niveau van comfort en luxe dat bij je past.</p>",
         "button_label": "Vergelijk de uitvoeringen",
-        "button_link": "/pages/uitvoeringen"
+        "button_link": "/pages/uitvoeringen",
+        "background": "cream",
+        "padding": "md"
       }
     },
     "showroom": {
       "type": "st-image-with-text",
-      "settings": {
-        "image_position": "left",
-        "border": true
-      },
       "blocks": {
         "eyebrow_0": {
           "type": "eyebrow",
@@ -260,25 +294,40 @@
           "type": "heading",
           "settings": {
             "text": "Ervaar Spa Time\nin het echt.",
-            "size": "h2"
+            "highlight": "",
+            "size": "h2",
+            "rule": false
           }
         },
         "text_2": {
           "type": "text",
           "settings": {
-            "text": "<p>Bekijk onze jacuzzi's, ervaar het verschil tussen de uitvoeringen en krijg persoonlijk advies.</p>"
+            "text": "<p>Bekijk onze jacuzzi's, ervaar het verschil tussen de uitvoeringen en krijg persoonlijk advies.</p>",
+            "style": "body"
           }
         },
         "button_3": {
           "type": "button",
           "settings": {
             "label": "Plan een showroomafspraak",
-            "link": "/pages/contact#showroom"
+            "link": "/pages/contact#showroom",
+            "style": "primary",
+            "icon": "none"
           }
         },
         "facts_4": {
           "type": "facts",
-          "settings": {}
+          "settings": {
+            "icon_1": "pin",
+            "title_1": "Haaksbergen",
+            "text_1": "Tolstraat 8a",
+            "icon_2": "car",
+            "title_2": "Gratis parkeren",
+            "text_2": "Voor de deur",
+            "icon_3": "user",
+            "title_3": "Persoonlijk advies",
+            "text_3": "Door onze specialisten"
+          }
         }
       },
       "block_order": [
@@ -287,18 +336,17 @@
         "text_2",
         "button_3",
         "facts_4"
-      ]
+      ],
+      "settings": {
+        "image_position": "left",
+        "fade": false,
+        "min_height": 480,
+        "background": "cream",
+        "border": true
+      }
     },
     "service": {
       "type": "st-feature-columns",
-      "settings": {
-        "eyebrow": "VAN ADVIES TOT JARENLANG GENIETEN",
-        "heading": "Onze service",
-        "intro_position": "side",
-        "style": "inline",
-        "icon_size": 30,
-        "background": "sand"
-      },
       "blocks": {
         "column_0": {
           "type": "column",
@@ -338,7 +386,19 @@
         "column_1",
         "column_2",
         "column_3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "VAN ADVIES TOT JARENLANG GENIETEN",
+        "heading": "Onze service",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "intro_position": "side",
+        "style": "inline",
+        "icon_size": 30,
+        "background": "sand",
+        "padding": "md"
+      }
     }
   },
   "order": [
