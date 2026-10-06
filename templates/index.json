@@ -64,7 +64,7 @@
         "layout": "overlay",
         "image": "shopify://shop_images/ontwerp4-hero-zonsondergang-meer.jpg",
         "fade": true,
-        "overlay": 90,
+        "overlay": 80,
         "min_height": 620,
         "background": "dark",
         "eager": true
@@ -156,6 +156,7 @@
         "button_3"
       ],
       "settings": {
+        "image": "shopify://shop_images/ontwerp3-product-hoofdfoto-rood.jpg",
         "image_position": "right",
         "fade": false,
         "min_height": 480,
@@ -261,6 +262,7 @@
       ],
       "settings": {
         "layout": "overlay",
+        "image": "shopify://shop_images/ontwerp3-showroom-binnen-drie-modellen.jpg",
         "fade": true,
         "overlay": 90,
         "min_height": 440,
@@ -338,6 +340,7 @@
         "facts_4"
       ],
       "settings": {
+        "image": "shopify://shop_images/ontwerp3-product-hoofdfoto-rood.jpg",
         "image_position": "left",
         "fade": false,
         "min_height": 480,
