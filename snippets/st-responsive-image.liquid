@@ -2,11 +2,13 @@
 {%- if image != blank -%}
   {%- liquid
     assign lz = 'lazy'
+    assign img_sizes = sizes | default: '100vw'
+    assign img_alt = image.alt | escape
     if eager
       assign lz = 'eager'
     endif
   -%}
-  {{ image | image_url: width: 5000 | image_tag: loading: lz, sizes: sizes | default: '100vw', widths: '480,800,1200,1600,2000,2400,3000,3840,5000', class: class, alt: image.alt | escape }}
+  {{ image | image_url: width: 5000 | image_tag: loading: lz, sizes: img_sizes, widths: '480,800,1200,1600,2000,2400,3000,3840,5000', class: class, alt: img_alt }}
 {%- else -%}
   {{ 'lifestyle-1' | placeholder_svg_tag: 'st-placeholder' }}
 {%- endif -%}

@@ -4,7 +4,7 @@
     <div class="feature-cards__grid">
       {%- for block in section.blocks -%}
         <article class="feature-card" {{ block.shopify_attributes }}>
-          <div class="feature-card__media">{% render 'st-responsive-image', image: block.settings.image, sizes: '(min-width: 1360px) 180px, (min-width: 700px) 25vw, 45vw', class: 'st-cover' %}</div>
+          <div class="feature-card__media">{% render 'st-responsive-image', image: block.settings.image, sizes: '(min-width: 1360px) 280px, (min-width: 940px) 22vw, 45vw', class: 'st-cover' %}</div>
           <div class="feature-card__body">{% render 'st-icon', name: block.settings.icon, size: 28 %}<h3>{{ block.settings.title }}</h3><p>{{ block.settings.text }}</p></div>
         </article>
       {%- endfor -%}
