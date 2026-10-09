@@ -10,17 +10,17 @@
         {%- else -%}
           {%- if form.errors -%}<div class="form__error" role="alert">{{ form.errors | default_errors }}</div>{%- endif -%}
           <div class="form__row">
-            <input class="st-field" name="contact[voornaam]" placeholder="Voornaam *" aria-label="Voornaam" required autocomplete="given-name">
-            <input class="st-field" name="contact[achternaam]" placeholder="Achternaam *" aria-label="Achternaam" required autocomplete="family-name">
+            <input class="st-field" name="contact[voornaam]" placeholder="{{ 'spatime.form.first_name' | t }} *" aria-label="{{ 'spatime.form.first_name' | t }}" required autocomplete="given-name">
+            <input class="st-field" name="contact[achternaam]" placeholder="{{ 'spatime.form.last_name' | t }} *" aria-label="{{ 'spatime.form.last_name' | t }}" required autocomplete="family-name">
           </div>
-          <input class="st-field" type="email" name="contact[email]" placeholder="E-mailadres *" aria-label="E-mailadres" required autocomplete="email" value="{{ customer.email }}">
-          <input class="st-field" type="tel" name="contact[telefoon]" placeholder="Telefoonnummer" aria-label="Telefoonnummer" autocomplete="tel">
-          <select class="st-field st-field--select" name="contact[onderwerp]" aria-label="Onderwerp">
-            <option value="">Onderwerp</option>
+          <input class="st-field" type="email" name="contact[email]" placeholder="{{ 'spatime.form.email' | t }} *" aria-label="{{ 'spatime.form.email' | t }}" required autocomplete="email" value="{{ customer.email }}">
+          <input class="st-field" type="tel" name="contact[telefoon]" placeholder="{{ 'spatime.form.phone' | t }}" aria-label="{{ 'spatime.form.phone' | t }}" autocomplete="tel">
+          <select class="st-field st-field--select" name="contact[onderwerp]" aria-label="{{ 'spatime.form.subject' | t }}">
+            <option value="">{{ 'spatime.form.subject' | t }}</option>
             {%- assign subjects = section.settings.subjects | newline_to_br | split: '<br />' -%}
             {%- for s in subjects -%}{%- assign t = s | strip -%}{%- if t != blank -%}<option>{{ t }}</option>{%- endif -%}{%- endfor -%}
           </select>
-          <textarea class="st-field" name="contact[body]" rows="5" placeholder="Je bericht *" aria-label="Je bericht" required></textarea>
+          <textarea class="st-field" name="contact[body]" rows="5" placeholder="{{ 'spatime.form.message' | t }} *" aria-label="{{ 'spatime.form.message' | t }}" required></textarea>
           <button type="submit" class="btn btn--primary btn--full"><span>{{ section.settings.submit_label }}</span>{% render 'st-icon', name: 'arrow', size: 16, stroke: 1.4 %}</button>
         {%- endif -%}
       {%- endform -%}

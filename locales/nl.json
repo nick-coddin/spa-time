@@ -1,10 +1,59 @@
 {
   "spatime": {
-      "most_chosen": "Meest gekozen",
-      "ideal_for": "Ideaal voor",
-      "choose": "Kies je",
-      "view_cart": "Naar winkelwagen",
-      "added": "is toegevoegd aan je winkelwagen."
+    "booking": {
+      "interest": "Interesse:"
+    },
+    "most_chosen": "Meest gekozen",
+    "ideal_for": "Ideaal voor",
+    "choose": "Kies je",
+    "view_cart": "Naar winkelwagen",
+    "added": "is toegevoegd aan je winkelwagen.",
+    "footer": {
+      "rights": "Alle rechten voorbehouden."
+    },
+    "a11y": {
+      "main_menu": "Hoofdmenu",
+      "search": "Zoeken",
+      "cart": "Winkelwagen",
+      "menu": "Menu",
+      "breadcrumbs": "Kruimelpad",
+      "previous_photo": "Vorige foto",
+      "next_photo": "Volgende foto",
+      "photo": "Foto {{ number }}",
+      "yes": "Ja",
+      "no": "Nee"
+    },
+    "breadcrumbs": {
+      "home": "Home"
+    },
+    "form": {
+      "first_name": "Voornaam",
+      "last_name": "Achternaam",
+      "email": "E-mailadres",
+      "phone": "Telefoonnummer",
+      "subject": "Onderwerp",
+      "message": "Je bericht"
+    },
+    "product": {
+      "persons": {
+        "one": "{{ count }} persoon",
+        "other": "{{ count }} personen"
+      },
+      "from": "Vanaf",
+      "incl_vat": "incl. btw",
+      "sold_out": "Uitverkocht"
+    },
+    "compare": {
+      "category": "Categorie",
+      "feature": "Kenmerk"
+    },
+    "map": {
+      "open": "Bekijk op Google Maps",
+      "title": "Kaart van {{ name }}"
+    },
+    "editor": {
+      "choose_collection": "Kies een collectie in de editor."
+    }
   },
   "blocks": {
     "load_video": "Video laden: {{ description }}",

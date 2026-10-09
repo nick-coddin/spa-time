@@ -1,10 +1,59 @@
 {
   "spatime": {
-      "most_chosen": "Most chosen",
-      "ideal_for": "Ideal for",
-      "choose": "Choose your",
-      "view_cart": "View cart",
-      "added": "has been added to your cart."
+    "booking": {
+      "interest": "Interested in:"
+    },
+    "most_chosen": "Most chosen",
+    "ideal_for": "Ideal for",
+    "choose": "Choose your",
+    "view_cart": "View cart",
+    "added": "has been added to your cart.",
+    "footer": {
+      "rights": "All rights reserved."
+    },
+    "a11y": {
+      "main_menu": "Main menu",
+      "search": "Search",
+      "cart": "Cart",
+      "menu": "Menu",
+      "breadcrumbs": "Breadcrumbs",
+      "previous_photo": "Previous photo",
+      "next_photo": "Next photo",
+      "photo": "Photo {{ number }}",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "breadcrumbs": {
+      "home": "Home"
+    },
+    "form": {
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "phone": "Phone number",
+      "subject": "Subject",
+      "message": "Your message"
+    },
+    "product": {
+      "persons": {
+        "one": "{{ count }} person",
+        "other": "{{ count }} persons"
+      },
+      "from": "From",
+      "incl_vat": "incl. VAT",
+      "sold_out": "Sold out"
+    },
+    "compare": {
+      "category": "Category",
+      "feature": "Feature"
+    },
+    "map": {
+      "open": "View on Google Maps",
+      "title": "Map of {{ name }}"
+    },
+    "editor": {
+      "choose_collection": "Choose a collection in the editor."
+    }
   },
   "blocks": {
     "load_video": "Naloži videoposnetek: {{ description }}",

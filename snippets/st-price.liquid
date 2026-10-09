@@ -1,2 +1,2 @@
 {%- comment -%} {% render 'st-price', amount: product.price_min, prefix: 'Vanaf', vat: true %} {%- endcomment -%}
-<span class="st-price">{% if prefix %}<span class="st-price__prefix">{{ prefix }}</span>{% endif %}<span class="st-price__value" data-price>{{ amount | money_without_trailing_zeros }}</span>{% if vat %}<span class="st-price__vat">incl. btw</span>{% endif %}</span>
+<span class="st-price">{% if prefix %}<span class="st-price__prefix">{{ prefix }}</span>{% endif %}<span class="st-price__value" data-price>{{ amount | money_without_trailing_zeros }}</span>{% if vat %}<span class="st-price__vat">{{ 'spatime.product.incl_vat' | t }}</span>{% endif %}</span>

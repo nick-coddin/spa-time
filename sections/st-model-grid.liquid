@@ -14,7 +14,7 @@
       {%- for product in items limit: section.settings.limit -%}
         {% render 'st-model-card', product: product, cta_prefix: section.settings.cta_prefix, show_price: section.settings.show_price %}
       {%- else -%}
-        <p>Kies een collectie in de editor.</p>
+        <p>{{ 'spatime.editor.choose_collection' | t }}</p>
       {%- endfor -%}
     </div>
   </div>

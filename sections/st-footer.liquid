@@ -4,7 +4,13 @@
       <div class="site-footer__col" {{ block.shopify_attributes }}>
         {%- case block.type -%}
           {%- when 'brand' -%}
-            <a href="{{ routes.root_url }}" class="brand brand--footer"><span class="brand__mark">S</span><span class="brand__text"><span class="brand__name">SPA TIME</span><span class="brand__sub">LUXURY JACUZZI'S</span></span></a>
+            <a href="{{ routes.root_url }}" class="brand brand--footer" aria-label="{{ shop.name }}">
+              {%- if block.settings.logo -%}
+                {{ block.settings.logo | image_url: width: 480 | image_tag: width: block.settings.logo_width, height: nil, alt: shop.name, class: 'brand__img', loading: 'lazy' }}
+              {%- else -%}
+                {% render 'st-wordmark' %}
+              {%- endif -%}
+            </a>
             <p class="site-footer__muted">{{ block.settings.text }}</p>
           {%- when 'menu' -%}
             <span class="site-footer__heading">{{ block.settings.heading }}</span>
@@ -19,7 +25,7 @@
     {%- endfor -%}
   </div>
   <div class="site-footer__bottom container">
-    <span>© {{ 'now' | date: '%Y' }} {{ shop.name }}. Alle rechten voorbehouden.</span>
+    <span>© {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'spatime.footer.rights' | t }}</span>
     <nav>{%- for link in linklists[section.settings.legal_menu].links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}</nav>
   </div>
 </footer>
@@ -41,6 +47,22 @@
       "name": "Merk",
       "limit": 1,
       "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo",
+          "info": "Leeg = tekstlogo uit Thema-instellingen › Spa Time · Merk."
+        },
+        {
+          "type": "range",
+          "id": "logo_width",
+          "label": "Logobreedte",
+          "min": 80,
+          "max": 280,
+          "step": 10,
+          "unit": "px",
+          "default": 180
+        },
         {
           "type": "textarea",
           "id": "text",

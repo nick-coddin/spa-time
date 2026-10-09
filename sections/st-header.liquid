@@ -7,10 +7,10 @@
       {%- if section.settings.logo -%}
         {{ section.settings.logo | image_url: width: 480 | image_tag: width: section.settings.logo_width, height: nil, alt: shop.name, class: 'brand__img' }}
       {%- else -%}
-        <span class="brand__mark">S</span><span class="brand__text"><span class="brand__name">SPA TIME</span><span class="brand__sub">LUXURY JACUZZI'S</span></span>
+        {% render 'st-wordmark' %}
       {%- endif -%}
     </a>
-    <nav class="main-nav" aria-label="Hoofdmenu">
+    <nav class="main-nav" aria-label="{{ 'spatime.a11y.main_menu' | t }}">
       <ul>
         {%- for link in menu.links -%}
           <li class="main-nav__item{% if link.links != blank %} has-dropdown{% endif %}">
@@ -25,14 +25,14 @@
       </ul>
     </nav>
     <div class="site-header__actions">
-      {%- if section.settings.show_search -%}<a href="{{ routes.search_url }}" class="icon-btn" aria-label="Zoeken">{% render 'st-icon', name: 'search', size: 22, stroke: 1.4 %}</a>{%- endif -%}
-      <a href="{{ routes.cart_url }}" class="icon-btn" aria-label="Winkelwagen">
+      {%- if section.settings.show_search -%}<a href="{{ routes.search_url }}" class="icon-btn" aria-label="{{ 'spatime.a11y.search' | t }}">{% render 'st-icon', name: 'search', size: 22, stroke: 1.4 %}</a>{%- endif -%}
+      <a href="{{ routes.cart_url }}" class="icon-btn" aria-label="{{ 'spatime.a11y.cart' | t }}">
         {% render 'st-icon', name: 'cart', size: 23, stroke: 1.4 %}
         <span class="cart-count" data-cart-count{% if cart.item_count == 0 %} hidden{% endif %}>{{ cart.item_count }}</span>
       </a>
       <div class="site-header__cta">{% render 'st-button', label: section.settings.cta_label, link: section.settings.cta_link %}</div>
       <details class="mobile-nav">
-        <summary class="icon-btn icon-btn--bordered" aria-label="Menu">{% render 'st-icon', name: 'menu', size: 20, stroke: 1.4 %}</summary>
+        <summary class="icon-btn icon-btn--bordered" aria-label="{{ 'spatime.a11y.menu' | t }}">{% render 'st-icon', name: 'menu', size: 20, stroke: 1.4 %}</summary>
         <div class="mobile-nav__panel">
           {%- for link in menu.links -%}
             <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>

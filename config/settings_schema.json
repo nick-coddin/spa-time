@@ -2227,5 +2227,33 @@
         "default": "Uitvoering"
       }
     ]
+  },
+  {
+    "name": "Spa Time · Merk",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Tekstlogo in header en footer, gebruikt zolang er geen logo-afbeelding is gekozen."
+      },
+      {
+        "type": "text",
+        "id": "brand_name",
+        "label": "Merknaam",
+        "default": "SPA TIME"
+      },
+      {
+        "type": "text",
+        "id": "brand_tagline",
+        "label": "Ondertitel",
+        "default": "LUXURY JACUZZI'S"
+      },
+      {
+        "type": "text",
+        "id": "brand_mark",
+        "label": "Letter in de cirkel",
+        "info": "Leeg = eerste letter van de merknaam.",
+        "default": "S"
+      }
+    ]
   }
 ]

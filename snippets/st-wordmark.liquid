@@ -1,0 +1,3 @@
+{%- comment -%} Tekstlogo uit Thema-instellingen › Spa Time · Merk (gebruikt als er geen logo-afbeelding is). {%- endcomment -%}
+{%- assign brand_name = settings.brand_name | default: shop.name -%}
+<span class="brand__mark">{{ settings.brand_mark | default: brand_name | slice: 0 }}</span><span class="brand__text"><span class="brand__name">{{ brand_name }}</span>{%- if settings.brand_tagline != blank -%}<span class="brand__sub">{{ settings.brand_tagline }}</span>{%- endif -%}</span>

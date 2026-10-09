@@ -11,13 +11,13 @@
         <div class="st-product__slide{% if forloop.first %} is-active{% endif %}" data-slide="{{ forloop.index0 }}">{{ media | image_url: width: 1600 | image_tag: widths: '600,900,1200,1600', sizes: '(min-width: 990px) 50vw, 100vw', loading: lz, class: 'st-contain', alt: media.alt | escape }}</div>
       {%- endfor -%}
       {%- if images.size > 1 -%}
-        <button type="button" class="round-btn round-btn--prev" data-prev aria-label="Vorige foto">←</button>
-        <button type="button" class="round-btn round-btn--next" data-next aria-label="Volgende foto">→</button>
+        <button type="button" class="round-btn round-btn--prev" data-prev aria-label="{{ 'spatime.a11y.previous_photo' | t }}">←</button>
+        <button type="button" class="round-btn round-btn--next" data-next aria-label="{{ 'spatime.a11y.next_photo' | t }}">→</button>
       {%- endif -%}
     </div>
     {%- if images.size > 1 -%}
       <div class="st-product__thumbs">
-        {%- for media in images -%}<button type="button" class="st-product__thumb{% if forloop.first %} is-active{% endif %}" data-thumb="{{ forloop.index0 }}" aria-label="Foto {{ forloop.index }}">{{ media | image_url: width: 200 | image_tag: alt: '' }}</button>{%- endfor -%}
+        {%- for media in images -%}<button type="button" class="st-product__thumb{% if forloop.first %} is-active{% endif %}" data-thumb="{{ forloop.index0 }}" aria-label="{{ 'spatime.a11y.photo' | t: number: forloop.index }}">{{ media | image_url: width: 200 | image_tag: alt: '' }}</button>{%- endfor -%}
       </div>
     {%- endif -%}
   </div>
@@ -28,7 +28,7 @@
         {%- when 'badge' -%}{%- if product.metafields.custom.badge != blank -%}<span class="tag" {{ block.shopify_attributes }}>{{ product.metafields.custom.badge }}</span>{%- endif -%}
         {%- when 'title' -%}
           <div class="st-product__title" {{ block.shopify_attributes }}><h1 class="st-heading st-heading--display">{{ product.title }}</h1>
-          {%- if product.metafields.custom.persons -%}<span class="st-product__persons">{{ product.metafields.custom.persons }} personen</span>{%- endif -%}</div>
+          {%- if product.metafields.custom.persons -%}<span class="st-product__persons">{{ 'spatime.product.persons' | t: count: product.metafields.custom.persons.value }}</span>{%- endif -%}</div>
         {%- when 'subtitle' -%}<p class="st-product__subtitle" {{ block.shopify_attributes }}>{{ product.metafields.custom.subtitle }}</p>
         {%- when 'description' -%}<div class="st-rte" {{ block.shopify_attributes }}>{{ product.description }}</div>
         {%- when 'variant_picker' -%}
@@ -36,14 +36,14 @@
           {%- if block.settings.compare_link != blank -%}<a href="{{ block.settings.compare_link }}" class="text-link text-link--center">{{ block.settings.compare_label }} →</a>{%- endif -%}</div>
         {%- when 'price' -%}
           <div class="st-product__price" {{ block.shopify_attributes }}><span class="st-product__summary" data-summary>{{ current.title }}</span>
-          <span class="st-price st-price--lg"><span class="st-price__value" data-price>{{ current.price | money_without_trailing_zeros }}</span><span class="st-price__vat">incl. btw</span></span></div>
+          <span class="st-price st-price--lg"><span class="st-price__value" data-price>{{ current.price | money_without_trailing_zeros }}</span><span class="st-price__vat">{{ 'spatime.product.incl_vat' | t }}</span></span></div>
         {%- when 'buy_buttons' -%}
           <div {{ block.shopify_attributes }}>
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
           {%- form 'product', product, id: product_form_id, data-product-form: '' -%}
             <input type="hidden" name="id" value="{{ current.id }}" data-variant-id>
             <button type="submit" class="btn btn--primary btn--full btn--lg" {% unless current.available %}disabled{% endunless %} data-add>
-              <span data-add-label>{% if current.available %}{{ block.settings.label | replace: '[product]', product.title }}{% else %}Uitverkocht{% endif %}</span>{% render 'st-icon', name: 'arrow', size: 16, stroke: 1.4 %}
+              <span data-add-label>{% if current.available %}{{ block.settings.label | replace: '[product]', product.title }}{% else %}{{ 'spatime.product.sold_out' | t }}{% endif %}</span>{% render 'st-icon', name: 'arrow', size: 16, stroke: 1.4 %}
             </button>
           {%- endform -%}
           </div>

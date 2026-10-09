@@ -2,8 +2,8 @@
 <section class="st-split bg-{{ section.settings.background }}" id="showroom" style="--split-min:420px">
   <div class="st-split__content"><div class="stack">{% render 'st-content-blocks', blocks: section.blocks, settings: settings %}</div></div>
   <div class="st-split__media st-split__media--map">
-    <iframe title="Kaart {{ shop.name }}" src="https://maps.google.com/maps?q={{ q }}&z={{ section.settings.zoom }}&output=embed" loading="lazy"></iframe>
-    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query={{ q }}" target="_blank" rel="noopener">Bekijk op Google Maps →</a>
+    <iframe title="{{ 'spatime.map.title' | t: name: shop.name }}" src="https://maps.google.com/maps?q={{ q }}&z={{ section.settings.zoom }}&output=embed" loading="lazy"></iframe>
+    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query={{ q }}" target="_blank" rel="noopener">{{ 'spatime.map.open' | t }} →</a>
   </div>
 </section>
 

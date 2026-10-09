@@ -1,5 +1,7 @@
 (() => {
-  const money = c => '€ ' + (c / 100).toLocaleString('nl-NL', { minimumFractionDigits: c % 100 ? 2 : 0 });
+  // Locale, currency and UI strings come from the theme (layout/theme.liquid → window.SpaTime).
+  const cfg = window.SpaTime || {};
+  const money = c => new Intl.NumberFormat(cfg.locale || 'nl-NL', { style: 'currency', currency: cfg.currency || 'EUR', minimumFractionDigits: c % 100 ? 2 : 0 }).format(c / 100);
 
   // Galerij
   document.querySelectorAll('[data-gallery]').forEach(g => {
@@ -54,7 +56,7 @@
         const cart = await (await fetch(window.Shopify?.routes?.root + 'cart.js')).json();
         document.querySelectorAll('[data-cart-count]').forEach(el => { el.textContent = cart.item_count; el.hidden = cart.item_count === 0; });
         const t = document.querySelector('[data-cart-toast]');
-        if (t) { t.querySelector('[data-cart-toast-text]').textContent = root.querySelector('[data-summary]').textContent + ' is toegevoegd aan je winkelwagen.'; t.hidden = false; clearTimeout(t._h); t._h = setTimeout(() => t.hidden = true, 4000); }
+        if (t) { t.querySelector('[data-cart-toast-text]').textContent = root.querySelector('[data-summary]').textContent + ' ' + (cfg.strings?.added || ''); t.hidden = false; clearTimeout(t._h); t._h = setTimeout(() => t.hidden = true, 4000); }
       } catch (err) { form.submit(); }
       finally { btn.disabled = false; }
     });
@@ -90,7 +92,7 @@
 
       const interest = new URLSearchParams(location.search).get('interesse');
       const config = { layout: 'month_view', theme: 'light' };
-      if (interest) config.notes = 'Interesse: ' + interest;
+      if (interest) config.notes = ((window.SpaTime?.strings?.interest) || '') + ' ' + interest;
 
       target.innerHTML = '';
       target.classList.add('is-loaded');

@@ -37,6 +37,13 @@
       }
     </style>
     {{ 'spatime.css' | asset_url | stylesheet_tag }}
+    <script>
+      window.SpaTime = {
+        locale: {{ request.locale.iso_code | json }},
+        currency: {{ cart.currency.iso_code | json }},
+        strings: { added: {{ 'spatime.added' | t | json }}, interest: {{ 'spatime.booking.interest' | t | json }} }
+      };
+    </script>
     <script src="{{ 'spatime.js' | asset_url }}" defer></script>
 
     {% if request.design_mode %}
