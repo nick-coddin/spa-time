@@ -60,13 +60,13 @@
           "type": "group",
           "settings": {
             "icon": "gear",
-            "title": "Comfort & techniek"
+            "title": "Techniek & comfort"
           }
         },
         "row_1": {
           "type": "row",
           "settings": {
-            "label": "Hoogwaardige afwerking",
+            "label": "Balboa besturingssysteem",
             "col_1": true,
             "col_2": true,
             "col_3": true
@@ -75,7 +75,7 @@
         "row_2": {
           "type": "row",
           "settings": {
-            "label": "Krachtige massage",
+            "label": "Bluetooth audiosysteem",
             "col_1": true,
             "col_2": true,
             "col_3": true
@@ -84,7 +84,7 @@
         "row_3": {
           "type": "row",
           "settings": {
-            "label": "Bluetooth",
+            "label": "UV-waterdesinfectie",
             "col_1": true,
             "col_2": true,
             "col_3": true
@@ -93,32 +93,32 @@
         "row_4": {
           "type": "row",
           "settings": {
-            "label": "Standaard uitrusting",
-            "col_1": true,
-            "col_2": true,
-            "col_3": true
-          }
-        },
-        "group_5": {
-          "type": "group",
-          "settings": {
-            "icon": "sliders",
-            "title": "Extra luxe & bediening"
-          }
-        },
-        "row_6": {
-          "type": "row",
-          "settings": {
-            "label": "Extra massagekracht (tweede pomp)",
+            "label": "SpaTouch 4 touchscreen",
             "col_1": false,
             "col_2": true,
             "col_3": true
           }
         },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "label": "Extra krachtige hydrotherapie",
+            "col_1": false,
+            "col_2": true,
+            "col_3": true
+          }
+        },
+        "group_6": {
+          "type": "group",
+          "settings": {
+            "icon": "layers",
+            "title": "Isolatie"
+          }
+        },
         "row_7": {
           "type": "row",
           "settings": {
-            "label": "Balboa SpaTouch-bedieningspaneel",
+            "label": "Extra dikke kuipisolatie (45 mm)",
             "col_1": false,
             "col_2": true,
             "col_3": true
@@ -127,50 +127,41 @@
         "row_8": {
           "type": "row",
           "settings": {
-            "label": "Luxe LED-verlichting",
+            "label": "Bodemisolatie",
             "col_1": false,
-            "col_2": true,
+            "col_2": false,
             "col_3": true
           }
         },
-        "group_9": {
-          "type": "group",
-          "settings": {
-            "icon": "layers",
-            "title": "Isolatie & afwerking"
-          }
-        },
-        "row_10": {
+        "row_9": {
           "type": "row",
           "settings": {
-            "label": "Verbeterde isolatie",
+            "label": "Frame-isolatie",
             "col_1": false,
-            "col_2": true,
+            "col_2": false,
             "col_3": true
+          }
+        },
+        "group_10": {
+          "type": "group",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Verlichting"
           }
         },
         "row_11": {
           "type": "row",
           "settings": {
-            "label": "Maximale isolatie",
+            "label": "LED-hoekverlichting",
             "col_1": false,
-            "col_2": false,
+            "col_2": true,
             "col_3": true
           }
         },
         "row_12": {
           "type": "row",
           "settings": {
-            "label": "Geïsoleerde bodem",
-            "col_1": false,
-            "col_2": false,
-            "col_3": true
-          }
-        },
-        "row_13": {
-          "type": "row",
-          "settings": {
-            "label": "Exclusieve afwerking",
+            "label": "LED-verlichting rondom de kast",
             "col_1": false,
             "col_2": false,
             "col_3": true
@@ -183,15 +174,14 @@
         "row_2",
         "row_3",
         "row_4",
-        "group_5",
-        "row_6",
+        "row_5",
+        "group_6",
         "row_7",
         "row_8",
-        "group_9",
-        "row_10",
+        "row_9",
+        "group_10",
         "row_11",
-        "row_12",
-        "row_13"
+        "row_12"
       ]
     },
     "uitgelegd": {
@@ -202,28 +192,32 @@
           "type": "card",
           "settings": {
             "icon": "steam",
-            "title": "Massagekracht"
+            "title": "Massagekracht",
+            "text": "Premium en Signature hebben extra krachtige hydrotherapie. Dat zorgt voor meer kracht, een diepere massage en een intensere wellnessbeleving."
           }
         },
         "card_1": {
           "type": "card",
           "settings": {
             "icon": "touch",
-            "title": "Bediening"
+            "title": "Bediening",
+            "text": "Comfort wordt bediend met het Balboa TP500S-paneel. Premium en Signature hebben het Balboa SpaTouch 4-touchscreen, waarmee je eenvoudig massage, verlichting en instellingen bedient."
           }
         },
         "card_2": {
           "type": "card",
           "settings": {
             "icon": "layers",
-            "title": "Isolatie"
+            "title": "Isolatie",
+            "text": "Comfort heeft 25 mm kuipisolatie, Premium 45 mm. Signature voegt daar 25 mm frame-isolatie en een extra geïsoleerde bodemplaat aan toe, voor het beste rendement en een lager energieverbruik."
           }
         },
         "card_3": {
           "type": "card",
           "settings": {
             "icon": "sparkle",
-            "title": "Afwerking"
+            "title": "Afwerking",
+            "text": "Signature heeft een volledige LED-strip rondom de vier zijden van de omkasting en exclusieve afwerkingsdetails, voor een nog luxere uitstraling."
           }
         }
       },
@@ -283,7 +277,7 @@
           "type": "usp",
           "settings": {
             "icon": "truck",
-            "title": "Gratis levering en plaatsing",
+            "title": "Levering en plaatsing",
             "text": "In Nederland en België"
           }
         },

@@ -15,7 +15,12 @@ Run (after `shopify store auth` with product/metaobject/page/navigation scopes):
 import json
 import subprocess
 import sys
+import os
 import tempfile
+
+
+sys.path.insert(0, os.path.dirname(__file__))
+from content import MODELS, TIERS  # noqa: E402  (shared with sync-content.py)
 
 STORE = 'spa-time-swqdbe9x.myshopify.com'
 
@@ -96,23 +101,6 @@ def upsert_metaobject(type_, handle, fields):
     return res['metaobjectUpsert']['metaobject']['id']
 
 
-TIERS = [
-    ('comfort', {'name': 'Comfort', 'subtitle': 'Essentiële luxe', 'icon': 'diamond',
-                 'short_description': 'De complete Spa Time-ervaring met krachtige massage, Bluetooth en een hoogwaardige afwerking.',
-                 'description': 'De complete Spa Time-ervaring. Krachtige massage, Bluetooth en een hoogwaardige afwerking. Alles wat je nodig hebt om optimaal te genieten.',
-                 'features': ['Krachtige massage', 'Bluetooth', 'Hoogwaardige afwerking'],
-                 'ideal_for': 'Wie een complete, betrouwbare jacuzzi zoekt met alle basisvoorzieningen.', 'ideal_icon': 'users', 'featured': 'false'}),
-    ('premium', {'name': 'Premium', 'subtitle': 'Extra comfort', 'icon': 'steam',
-                 'short_description': 'Alles van Comfort, met extra massagekracht, luxe details en betere isolatie.',
-                 'description': 'Alles van Comfort, met meer luxe en betere prestaties. Extra massagekracht, luxe details en betere isolatie voor een nog intensere wellnessbeleving.',
-                 'features': ['Alles van Comfort', 'Extra massagekracht (tweede pomp)', 'Balboa SpaTouch-bedieningspaneel', 'Luxe LED-verlichting', 'Verbeterde isolatie'],
-                 'ideal_for': 'Wie de beste balans zoekt tussen luxe, massagekracht en maximale ontspanning.', 'ideal_icon': 'crown', 'featured': 'true'}),
-    ('signature', {'name': 'Signature', 'subtitle': 'Ultieme luxe', 'icon': 'star',
-                   'short_description': 'Alles van Premium, op het hoogste niveau: maximale isolatie en exclusieve afwerking.',
-                   'description': 'Alles van Premium, op het hoogste niveau uitgevoerd. Met maximale isolatie, extra luxe afwerking en de meest uitgebreide uitrusting voor het hoogste comfort en de beste prestaties.',
-                   'features': ['Alles van Premium', 'Maximale isolatie', 'Geïsoleerde bodem', 'Exclusieve afwerking'],
-                   'ideal_for': 'Wie het maximale uit zijn jacuzzi wil halen en kiest voor de meest complete uitvoering.', 'ideal_icon': 'diamond', 'featured': 'false'}),
-]
 for handle, fields in TIERS:
     upsert_metaobject('uitvoering', handle, fields)
 log('uitvoeringen Comfort, Premium, Signature')
@@ -145,42 +133,6 @@ for key, name, type_, ref in MF:
     log(f'metafield custom.{key}')
 
 # ---------------------------------------------------------------- products
-MODELS = [
-    {'title': 'Ibiza', 'handle': 'ibiza', 'why_text': 'De Ibiza bewijst dat compact en luxe prima samengaan. Ideaal voor stellen of een kleinere tuin, zonder in te leveren op massagekracht.', 'persons': 3, 'subtitle': 'Compacte 3-persoons jacuzzi',
-     'tagline': 'Compact genieten zonder in te leveren op comfort.',
-     'description': '<p>De Ibiza bewijst dat compact en luxe prima samengaan. Ideaal voor stellen of een kleinere tuin, zonder in te leveren op massagekracht.</p>',
-     'prices': {'Comfort': 6500, 'Premium': 7500, 'Signature': 8700},
-     'why_heading': 'Compact.\nKrachtig.\nVolledig uitgerust.',
-     'highlights': ['Drie comfortabele zitplaatsen', 'Krachtige massage', 'Past in bijna elke tuin'],
-     'key_specs': [('users', '3', 'personen')], 'specs': [], 'size': None},
-    {'title': 'Bali', 'handle': 'bali', 'why_text': 'De Bali biedt de perfecte balans tussen ruimte, comfort en krachtige massage. Vijf comfortabele zitplaatsen, een aantal met diepwerkende massagejets, zorgen ervoor dat iedereen zijn favoriete plek vindt.', 'persons': 5, 'subtitle': '5-persoons jacuzzi',
-     'tagline': 'Ruimte en krachtige massage voor de ultieme ontspanning.',
-     'description': '<p>De Bali is onze allrounder: ruim genoeg voor het hele gezin, compact genoeg voor bijna elke tuin.</p>',
-     'prices': {'Comfort': 6500, 'Premium': 7999, 'Signature': 9900},
-     'why_heading': 'Ruimte voor vijf.\nKrachtige massage.\nNiet onnodig groot.',
-     'highlights': ['Vijf comfortabele zitplaatsen', '42 krachtige massagejets', 'Twee massagepompen voor extra kracht',
-                    'Luxe afwerking en comfortabele hoofdsteunen', '25 LED-lampen rondom voor een sfeervolle verlichting',
-                    'Ergonomische indeling voor optimale ontspanning'],
-     'key_specs': [('users', '5', 'personen'), ('gear', '42', 'massagejets'), ('bolt', '2 × 2 HP', 'massagepompen'),
-                   ('steam', '3 kW', 'Balboa-verwarming'), ('drop', '1.030 liter', 'waterinhoud')],
-     'specs': [('Afmetingen', '210 × 200 × 90 cm'), ('Waterinhoud', '1.030 liter'), ('Leeggewicht', '350 kg'),
-               ('Aantal jets', '42'), ('Massage', '2 × 2 HP massagepompen'), ('Circulatie', '1 × 0,5 HP circulatiepomp'),
-               ('Voeding', '220V / 50Hz of 380V / 50Hz'), ('Verwarming', '3 kW Balboa'), ('Verlichting', '25 LED-lampen rondom'),
-               ('Hoofdsteunen', '3 hoofdsteunen'), ('Waterbehandeling', 'UV-desinfectie met RVS-behuizing'),
-               ('Constructie', '8 mm Aristech-acryl, RVS-frame en ABS-bodemplaat')],
-     'size': (210, 200)},
-    {'title': 'Marbella', 'handle': 'marbella', 'why_text': 'De Marbella combineert luxe, kracht en comfort. Met ruimte voor zes personen het ideale model om het hele jaar door te genieten met familie en vrienden.', 'persons': 6, 'subtitle': '6-persoons jacuzzi',
-     'tagline': 'Maximale ruimte en comfort voor het hele gezelschap.',
-     'description': '<p>De Marbella combineert luxe, kracht en comfort. Het ideale model om het hele jaar door te genieten met familie en vrienden, in je eigen tuin.</p>',
-     'prices': {'Comfort': 9900, 'Premium': 11400, 'Signature': 12900},
-     'why_heading': 'Ruimte voor zes.\nMaximaal comfort.\nVoor het hele gezelschap.',
-     'highlights': ['Zes zitplaatsen, waarvan één ligplaats', '58 strategisch geplaatste massagejets', 'Balboa SpaTouch 4-besturing', 'Multicolor LED-verlichting'],
-     'key_specs': [('users', '6', 'personen'), ('gear', '58', 'massagejets'), ('drop', '1.450 liter', 'waterinhoud')],
-     'specs': [('Afmetingen', '230 × 230 × 92 cm'), ('Zitplaatsen', '6 (waarvan 1 ligplaats)'), ('Massagejets', '58'),
-               ('Waterinhoud', '1.450 liter'), ('Besturing', 'Balboa SpaTouch 4'), ('Verlichting', 'Multicolor LED'),
-               ('Aansluiting', '230V / 400V'), ('Leeggewicht', '420 kg')],
-     'size': (230, 230)},
-]
 COLORS = [('White', 0), ('Marble White', 250)]
 
 publications = gql('{ publications(first: 20) { nodes { id name } } }')['publications']['nodes']

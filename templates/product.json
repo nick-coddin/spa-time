@@ -41,7 +41,7 @@
           "type": "note",
           "settings": {
             "icon": "check",
-            "text": "Gratis levering en plaatsing in Nederland en België"
+            "text": "Levering en plaatsing mogelijk in Nederland en België"
           }
         }
       },
@@ -167,7 +167,7 @@
           "type": "usp",
           "settings": {
             "icon": "truck",
-            "title": "Gratis levering en plaatsing",
+            "title": "Levering en plaatsing",
             "text": "In Nederland en België"
           }
         },

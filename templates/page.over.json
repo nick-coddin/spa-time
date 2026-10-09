@@ -48,28 +48,36 @@
           "type": "chapter",
           "settings": {
             "heading": "Waar het begon.",
-            "text": "<p>Het verhaal achter Spa Time begon in 2020. Oprichter Bram Wevers zette toen zijn eerste stappen in de wereld van jacuzzi's, met de verkoop van opblaasbare modellen.</p><p>Hoewel hij daar na verloop van tijd mee stopte, liet het product hem nooit helemaal los. Eén ambitie bleef hangen: ooit terugkomen met iets dat écht eigen was.</p>"
+            "text": "<p>Het verhaal achter Spa Time begon in 2020. Oprichter Bram Wevers zette toen zijn eerste stappen in de wereld van jacuzzi’s met de verkoop van opblaasbare modellen.</p><p>Hoewel hij daar na verloop van tijd mee stopte, liet het product hem nooit helemaal los. Eén ambitie bleef hangen: ooit terugkomen met iets dat écht eigen was.</p>"
           }
         },
         "chapter_1": {
           "type": "chapter",
           "settings": {
             "heading": "Van idee naar Spa Time.",
-            "text": "<p>Niet simpelweg een bestaand product doorverkopen, maar een eigen jacuzzilijn ontwikkelen vanuit een duidelijke visie. Een collectie waarin luxe, comfort en gebruiksgemak samenkomen voor een ultieme wellnessbeleving, zonder concessies.</p><p>Vanuit die gedachte ontstond Spa Time.</p><p>Vandaag de dag werken we met een zorgvuldig samengestelde collectie, waarin kwaliteit, comfort en uitstraling samenkomen. Zodat jij kunt genieten van een complete en luxe jacuzzi, zonder eindeloze opties of ingewikkelde keuzes.</p>"
+            "text": "<p>Niet simpelweg een bestaand product doorverkopen, maar een eigen jacuzzilijn ontwikkelen vanuit een duidelijke visie. Een collectie waarbij bewust wordt nagedacht over techniek, comfort, uitstraling en de details die in dagelijks gebruik het verschil maken.</p><p>Vanuit die gedachte ontstond Spa Time.</p>"
           }
         },
         "chapter_2": {
           "type": "chapter",
           "settings": {
+            "heading": "Luxe moet niet ingewikkeld zijn.",
+            "text": "<p>Wie op zoek gaat naar een jacuzzi krijgt al snel te maken met tientallen modellen, technische verschillen en lange lijsten met extra opties. Bij Spa Time doen we dat anders.</p><p>Een Spa Time moet vanaf de basis al goed zijn: compleet, hoogwaardig en voorzien van alles wat nodig is om optimaal te kunnen genieten.</p><p>Daarom wordt ieder model zorgvuldig samengesteld. Van krachtige hydrotherapie en hoogwaardige Balboa-techniek tot efficiënte isolatie, luxe verlichting en een verfijnde afwerking. Over ieder onderdeel wordt nagedacht met één doel: <em>kwaliteit, comfort en uitstraling samenbrengen in één jacuzzi.</em></p><p>Om de keuze eenvoudig en overzichtelijk te houden, is iedere Spa Time verkrijgbaar in drie uitvoeringen: Comfort, Premium en Signature. Drie niveaus van luxe, ieder met hun eigen kenmerken, maar altijd vanuit dezelfde basisgedachte: welke uitvoering je ook kiest, je kiest voor een volwaardige Spa Time.</p>"
+          }
+        },
+        "chapter_3": {
+          "type": "chapter",
+          "settings": {
             "heading": "Onze ambitie.",
-            "text": "<p>Onze ambitie is om Spa Time uit te bouwen tot een herkenbaar Nederlands jacuzzimerk, waar kwaliteit, luxe en uitstraling vanzelfsprekend zijn, zonder het persoonlijke contact uit het oog te verliezen.</p><p>Juist bij een aankoop als een jacuzzi vinden we persoonlijk advies en goede service belangrijk. Van het eerste contact en het kiezen van het juiste model tot de levering en de ondersteuning daarna.</p>"
+            "text": "<p>De ambitie is om Spa Time uit te bouwen tot een herkenbaar Nederlands jacuzzimerk waar kwaliteit, luxe en uitstraling vanzelfsprekend zijn, zonder het persoonlijke contact uit het oog te verliezen.</p><p>Want juist bij een aankoop als een jacuzzi vinden we dat persoonlijk advies en goede service belangrijk zijn. Van het eerste contact en het kiezen van het juiste model tot de levering en ondersteuning daarna.</p>"
           }
         }
       },
       "block_order": [
         "chapter_0",
         "chapter_1",
-        "chapter_2"
+        "chapter_2",
+        "chapter_3"
       ]
     },
     "quote": {
