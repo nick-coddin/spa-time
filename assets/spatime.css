@@ -1,6 +1,6 @@
 /* Spa Time — één stylesheet. Kleuren via thema-instellingen (CSS-variabelen in layout/theme.liquid). */
 :root{--c-line:#E3D9CA;--c-line-soft:#EAE2D6;--c-body:#3D3530;--c-muted:#5A5048;--c-on-dark:#E8DFD2;--c-on-dark-muted:#8F857A;--c-deep:#0F0D0B;
-  --serif:'Libre Caslon Display',Georgia,serif;--sans:'Jost',system-ui,sans-serif;--gutter:clamp(20px,4vw,56px);--max:1360px}
+  --serif:'Libre Caslon Display',Georgia,serif;--sans:'Jost',system-ui,sans-serif;--gutter:clamp(20px,4vw,56px);--max:1360px;--max-split:1920px}
 :where(.st) *,:where(.st) *::before,:where(.st) *::after{box-sizing:border-box}
 body{background:var(--c-cream)}
 .st{color:var(--c-ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
@@ -79,7 +79,7 @@ body{background:var(--c-cream)}
 .st-hero--overlay::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(21,18,15,var(--overlay)) 0%,rgba(21,18,15,calc(var(--overlay)*.65)) 40%,rgba(21,18,15,0) 68%);pointer-events:none}
 .st-hero--overlay .st-hero__content{position:relative;z-index:1;width:100%;padding-block:clamp(64px,8vw,96px)}
 .st-hero--overlay .stack{max-width:580px}.st-hero--overlay .st-rte,.st-hero--overlay .st-rte--lead{color:var(--c-on-dark)}.st-hero--overlay .eyebrow{color:var(--c-gold-light)}
-.st-hero--split{grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr))}
+.st-hero--split{grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));padding-inline:max(0px,(100% - var(--max-split)) / 2)}
 .st-hero--split .st-hero__content{grid-row:1;display:flex;align-items:center;padding:clamp(56px,6vw,96px) clamp(20px,4vw,72px)}
 .st-hero--split .st-hero__media{grid-row:1;position:relative;min-height:400px;background:#1E1A16}
 .st-hero--split .st-hero__media img,.st-hero--split .st-hero__media .st-placeholder{position:absolute;inset:0}
@@ -88,7 +88,7 @@ body{background:var(--c-cream)}
   .st-hero--overlay::after{background:linear-gradient(0deg,rgba(21,18,15,.94) 25%,rgba(21,18,15,.3) 100%)}.st-hero--overlay{align-items:end}}
 
 /* Afbeelding met tekst */
-.st-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr))}.st-split.has-border{border-top:1px solid var(--c-line)}
+.st-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));padding-inline:max(0px,(100% - var(--max-split)) / 2)}.st-split.has-border{border-top:1px solid var(--c-line)}
 .st-split__media{position:relative;min-height:var(--split-min,480px);background:#1E1A16;overflow:hidden}
 .st-split__media img,.st-split__media .st-placeholder,.st-split__media iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .st-split--img-left .st-split__media{order:-1}.st-split--img-left .st-split__fade{left:auto;right:0;transform:scaleX(-1)}

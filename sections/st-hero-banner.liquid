@@ -8,7 +8,7 @@
       # split: twee kolommen vanaf ca. 900px (2 × 440px minimum)
       assign hero_sizes = '100vw'
       if section.settings.layout == 'split'
-        assign hero_sizes = '(min-width: 900px) 50vw, 100vw'
+        assign hero_sizes = '(min-width: 1920px) 960px, (min-width: 900px) 50vw, 100vw'
       endif
     -%}
     {% render 'st-responsive-image', image: section.settings.image, sizes: hero_sizes, class: 'st-cover', eager: section.settings.eager %}
