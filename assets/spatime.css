@@ -244,3 +244,12 @@ input:checked+.option-tile .option-tile__check{display:grid}
   linear-gradient(150deg,transparent 58%,rgba(150,140,128,.22) 60%,transparent 62%),
   linear-gradient(80deg,transparent 18%,rgba(150,140,128,.18) 20%,transparent 22%),
   linear-gradient(160deg,#FBFAF8 0%,#ECE8E2 100%)}
+
+/* Afspraak plannen (Cal.com) */
+.booking .section-head{margin-bottom:32px}
+.booking__panel{background:var(--c-cream);border:1px solid var(--c-line);min-height:560px;display:grid}
+.booking__panel.is-loaded{background:#fff;min-height:0}
+.booking__placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:48px 24px;text-align:center;color:var(--c-gold)}
+.booking__title{font:400 clamp(24px,2.4vw,30px)/1.2 var(--serif);color:var(--c-ink)}
+.booking__note{font-size:14px;color:var(--c-muted)}
+.booking [data-booking-target]>div:not(.booking__placeholder){width:100%}

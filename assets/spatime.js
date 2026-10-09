@@ -63,3 +63,46 @@
   // Mobiel menu sluiten bij klik buiten
   document.addEventListener('click', e => { document.querySelectorAll('.mobile-nav[open]').forEach(d => { if (!d.contains(e.target)) d.removeAttribute('open'); }); });
 })();
+
+// Afspraak plannen: Cal.com inline embed, pas geladen na een klik.
+(() => {
+  const track = (event, data = {}) => { if (Array.isArray(window.dataLayer)) window.dataLayer.push({ event, ...data }); };
+
+  // Interesse meegeven vanaf een productpagina: "Bali Premium, White".
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href*="#afspraak"]');
+    const summary = document.querySelector('[data-summary]');
+    if (!link || !summary) return;
+    const url = new URL(link.href, location.href);
+    url.searchParams.set('interesse', summary.textContent.trim());
+    link.href = url.toString();
+  });
+
+  document.querySelectorAll('[data-booking]').forEach((root) => {
+    const target = root.querySelector('[data-booking-target]');
+    const button = root.querySelector('[data-booking-load]');
+    const origin = root.dataset.calOrigin || 'https://cal.com';
+    const script = origin.replace('https://', 'https://app.') + '/embed/embed.js';
+
+    button?.addEventListener('click', () => {
+      // Officiële Cal.com-loader (namespace "spatime").
+      (function (C, A, L) { const p = function (a, ar) { a.q.push(ar); }; const d = C.document; C.Cal = C.Cal || function () { const cal = C.Cal; const ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, script, 'init');
+
+      const interest = new URLSearchParams(location.search).get('interesse');
+      const config = { layout: 'month_view', theme: 'light' };
+      if (interest) config.notes = 'Interesse: ' + interest;
+
+      target.innerHTML = '';
+      target.classList.add('is-loaded');
+      const mount = document.createElement('div');
+      mount.id = 'spatime-cal-' + Math.random().toString(36).slice(2);
+      target.appendChild(mount);
+
+      window.Cal('init', 'spatime', { origin });
+      window.Cal.ns.spatime('inline', { elementOrSelector: '#' + mount.id, calLink: root.dataset.calLink, config });
+      window.Cal.ns.spatime('ui', { theme: 'light', cssVarsPerTheme: { light: { 'cal-brand': '#946E42' } }, hideEventTypeDetails: false, layout: 'month_view' });
+      window.Cal.ns.spatime('on', { action: 'bookingSuccessfulV2', callback: () => track('generate_lead', { method: 'showroom_booking', interest: interest || '' }) });
+      track('booking_open');
+    });
+  });
+})();

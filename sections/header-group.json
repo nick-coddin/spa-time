@@ -6,7 +6,7 @@
       "type": "st-header",
       "settings": {
         "cta_label": "Plan showroomafspraak",
-        "cta_link": "/pages/contact#showroom"
+        "cta_link": "/pages/contact#afspraak"
       }
     }
   },

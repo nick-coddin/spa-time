@@ -67,7 +67,7 @@
             "title": "Bezoek onze showroom",
             "value": "Tolstraat 8a, Haaksbergen",
             "cta_label": "Showroombezoek op afspraak",
-            "cta_link": "#showroom",
+            "cta_link": "#afspraak",
             "note": ""
           }
         }
@@ -107,7 +107,8 @@
         "button_4": {
           "type": "button",
           "settings": {
-            "label": "Plan een showroomafspraak"
+            "label": "Plan een showroomafspraak",
+            "link": "#afspraak"
           }
         }
       },
@@ -118,11 +119,16 @@
         "address_3",
         "button_4"
       ]
+    },
+    "afspraak": {
+      "type": "st-booking",
+      "settings": {}
     }
   },
   "order": [
     "hero",
     "form",
+    "afspraak",
     "kaart"
   ]
 }

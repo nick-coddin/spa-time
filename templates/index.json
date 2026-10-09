@@ -47,7 +47,7 @@
           "type": "button",
           "settings": {
             "label": "Plan een showroombezoek",
-            "link": "/pages/contact#showroom",
+            "link": "/pages/contact#afspraak",
             "style": "ghost",
             "icon": "calendar"
           }
@@ -312,7 +312,7 @@
           "type": "button",
           "settings": {
             "label": "Plan een showroomafspraak",
-            "link": "/pages/contact#showroom",
+            "link": "/pages/contact#afspraak",
             "style": "primary",
             "icon": "none"
           }

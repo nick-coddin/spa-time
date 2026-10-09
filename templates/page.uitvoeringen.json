@@ -260,7 +260,7 @@
           "settings": {
             "label": "Plan een showroomafspraak",
             "icon": "calendar",
-            "link": "/pages/contact#showroom"
+            "link": "/pages/contact#afspraak"
           }
         },
         "address_3": {

@@ -1,0 +1,71 @@
+{%- comment -%}
+  Showroomafspraak via Cal.com. De agenda laadt pas na een klik (geen cookies van
+  Cal.com vóór die keuze). Interesse uit de URL (?interesse=…) gaat mee als notitie.
+  Een geboekte afspraak stuurt `generate_lead` naar de dataLayer (assets/spatime.js).
+{%- endcomment -%}
+<section class="booking bg-{{ section.settings.background }} pad-md" id="afspraak" data-booking data-cal-link="{{ section.settings.cal_link | escape }}" data-cal-origin="{{ section.settings.cal_origin }}">
+  <div class="container">
+    <div class="section-head">
+      <div class="stack">
+        {% render 'st-eyebrow', text: section.settings.eyebrow %}
+        <h2 class="st-heading st-heading--h2">{{ section.settings.heading }}</h2>
+      </div>
+      {%- if section.settings.text != blank -%}<div class="st-rte section-head__aside">{{ section.settings.text }}</div>{%- endif -%}
+    </div>
+    <div class="booking__panel" data-booking-target>
+      <div class="booking__placeholder" data-booking-placeholder>
+        {% render 'st-icon', name: 'calendar', size: 40, stroke: 1 %}
+        <p class="booking__title">{{ section.settings.placeholder_title }}</p>
+        <button type="button" class="btn btn--primary btn--lg" data-booking-load>{{ section.settings.button_label }}{% render 'st-icon', name: 'arrow', size: 16, stroke: 1.4 %}</button>
+        {%- if section.settings.privacy_note != blank -%}<p class="booking__note">{{ section.settings.privacy_note }}</p>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ST · Afspraak plannen",
+  "tag": "div",
+  "class": "st",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Bovenkop", "default": "Showroomafspraak" },
+    { "type": "text", "id": "heading", "label": "Kop", "default": "Plan je bezoek." },
+    { "type": "richtext", "id": "text", "label": "Tekst", "default": "<p>Kies een moment dat jou uitkomt. We nemen de tijd om alle modellen en uitvoeringen met je te bekijken.</p>" },
+    { "type": "header", "content": "Cal.com" },
+    {
+      "type": "text",
+      "id": "cal_link",
+      "label": "Cal.com-link",
+      "info": "Het deel na cal.com/, bijvoorbeeld gebruikersnaam/showroombezoek.",
+      "default": "nick-soer-x4e7gd/30min"
+    },
+    {
+      "type": "select",
+      "id": "cal_origin",
+      "label": "Cal.com-regio",
+      "options": [
+        { "value": "https://cal.com", "label": "cal.com" },
+        { "value": "https://cal.eu", "label": "cal.eu (EU)" }
+      ],
+      "default": "https://cal.com"
+    },
+    { "type": "header", "content": "Voordat de agenda laadt" },
+    { "type": "text", "id": "placeholder_title", "label": "Titel", "default": "Bekijk de beschikbare tijden" },
+    { "type": "text", "id": "button_label", "label": "Knoptekst", "default": "Kies een datum en tijd" },
+    { "type": "text", "id": "privacy_note", "label": "Privacytekst", "default": "De agenda wordt geladen via Cal.com." },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Achtergrond",
+      "options": [
+        { "value": "cream", "label": "Crème" },
+        { "value": "soft", "label": "Licht" },
+        { "value": "sand", "label": "Zand" }
+      ],
+      "default": "soft"
+    }
+  ],
+  "presets": [{ "name": "ST · Afspraak plannen" }]
+}
+{% endschema %}
