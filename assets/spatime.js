@@ -99,7 +99,9 @@
       target.appendChild(mount);
 
       window.Cal('init', 'spatime', { origin });
-      window.Cal.ns.spatime('inline', { elementOrSelector: '#' + mount.id, calLink: root.dataset.calLink, config });
+      // Accept "user", "user/type" or a full pasted URL (https://cal.com/user/type?x=y).
+      const calLink = (root.dataset.calLink || '').trim().replace(/^https?:\/\/(app\.)?cal\.(com|eu)\//, '').replace(/[?#].*$/, '').replace(/^\/+|\/+$/g, '');
+      window.Cal.ns.spatime('inline', { elementOrSelector: '#' + mount.id, calLink, config });
       window.Cal.ns.spatime('ui', { theme: 'light', cssVarsPerTheme: { light: { 'cal-brand': '#946E42' } }, hideEventTypeDetails: false, layout: 'month_view' });
       window.Cal.ns.spatime('on', { action: 'bookingSuccessfulV2', callback: () => track('generate_lead', { method: 'showroom_booking', interest: interest || '' }) });
       track('booking_open');
