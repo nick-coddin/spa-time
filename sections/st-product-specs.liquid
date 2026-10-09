@@ -13,7 +13,7 @@
     {%- assign top = product.metafields.custom.top_view.value -%}
     {%- if top -%}
       <figure class="specs__figure">
-        <div class="specs__img">{% render 'st-responsive-image', image: top, sizes: '40vw', class: 'st-contain' %}</div>
+        <div class="specs__img">{% render 'st-responsive-image', image: top, sizes: '(min-width: 1360px) 560px, (min-width: 990px) 42vw, 100vw', class: 'st-contain' %}</div>
         <span class="specs__dim specs__dim--v">{{ product.metafields.custom.length_cm }} cm</span>
         <span class="specs__dim specs__dim--h">{{ product.metafields.custom.width_cm }} cm</span>
       </figure>

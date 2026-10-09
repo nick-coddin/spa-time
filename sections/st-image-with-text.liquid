@@ -1,6 +1,6 @@
 <section class="st-split bg-{{ section.settings.background }} st-split--img-{{ section.settings.image_position }}{% if section.settings.border %} has-border{% endif %}" style="--split-min:{{ section.settings.min_height }}px">
   <div class="st-split__media">
-    {% render 'st-responsive-image', image: section.settings.image, sizes: '(min-width: 990px) 50vw, 100vw', class: 'st-cover' %}
+    {% render 'st-responsive-image', image: section.settings.image, sizes: '(min-width: 900px) 50vw, 100vw', class: 'st-cover' %}
     {%- if section.settings.fade -%}<span class="st-split__fade"></span>{%- endif -%}
   </div>
   <div class="st-split__content"><div class="stack">{% render 'st-content-blocks', blocks: section.blocks, settings: settings %}</div></div>

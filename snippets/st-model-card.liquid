@@ -3,7 +3,7 @@
 {%- assign from_label = 'spatime.product.from' | t -%}
 <article class="model-card">
   <a href="{{ product.url }}" class="model-card__media" tabindex="-1" aria-hidden="true">
-    {% render 'st-responsive-image', image: product.featured_media.preview_image, sizes: '(min-width: 990px) 33vw, 100vw', class: 'st-contain' %}
+    {% render 'st-responsive-image', image: product.featured_media.preview_image, sizes: '(min-width: 1360px) 400px, (min-width: 1060px) 31vw, (min-width: 680px) 47vw, 100vw', class: 'st-contain' %}
   </a>
   <div class="model-card__body">
     <h3 class="model-card__name">{{ product.title }}</h3>

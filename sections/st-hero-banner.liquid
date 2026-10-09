@@ -4,7 +4,14 @@
 {%- endcomment -%}
 <section class="st-hero st-hero--{{ section.settings.layout }} bg-{{ section.settings.background }}" style="--hero-min:{{ section.settings.min_height }}px;--overlay:{{ section.settings.overlay | divided_by: 100.0 }}">
   <div class="st-hero__media">
-    {% render 'st-responsive-image', image: section.settings.image, sizes: '100vw', class: 'st-cover', eager: section.settings.eager %}
+    {%- liquid
+      # split: twee kolommen vanaf ca. 900px (2 × 440px minimum)
+      assign hero_sizes = '100vw'
+      if section.settings.layout == 'split'
+        assign hero_sizes = '(min-width: 900px) 50vw, 100vw'
+      endif
+    -%}
+    {% render 'st-responsive-image', image: section.settings.image, sizes: hero_sizes, class: 'st-cover', eager: section.settings.eager %}
     {%- if section.settings.layout == 'split' and section.settings.fade -%}<span class="st-hero__fade"></span>{%- endif -%}
   </div>
   <div class="st-hero__content{% if section.settings.layout == 'overlay' %} container{% endif %}">

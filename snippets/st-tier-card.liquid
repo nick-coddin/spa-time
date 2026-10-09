@@ -4,7 +4,7 @@
 <article class="tier-card tier-card--{{ style }}{% if tier.featured.value %} is-featured{% endif %}">
   {%- if tier.featured.value -%}<span class="badge">{{ 'spatime.most_chosen' | t }}</span>{%- endif -%}
   {%- if style == 'image' and tier.image.value -%}
-    <div class="tier-card__media">{% render 'st-responsive-image', image: tier.image.value, sizes: '33vw', class: 'st-cover' %}</div>
+    <div class="tier-card__media">{% render 'st-responsive-image', image: tier.image.value, sizes: '(min-width: 1360px) 400px, (min-width: 1060px) 31vw, (min-width: 680px) 47vw, 100vw', class: 'st-cover' %}</div>
   {%- endif -%}
   <div class="tier-card__body">
     <header class="tier-card__head">
