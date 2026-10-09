@@ -94,6 +94,8 @@ body{background:var(--c-cream)}
 .st-split--img-left .st-split__media{order:-1}.st-split--img-left .st-split__fade{left:auto;right:0;transform:scaleX(-1)}
 .st-split__content{display:flex;align-items:center;padding:clamp(56px,6vw,96px) clamp(20px,4vw,72px)}
 .st-split__media--map iframe{filter:grayscale(.85) sepia(.18) contrast(.95)}
+/* mobiel (onder elkaar): foto 4:3 i.p.v. de desktop-minimumhoogte */
+@media (max-width:899px){.st-split__media:not(.st-split__media--map),.st-hero--split .st-hero__media{min-height:0;aspect-ratio:4/3}}
 .map-link{position:absolute;right:16px;bottom:16px;background:var(--c-soft);border:1px solid var(--c-line);padding:12px 18px;font-size:14px;font-weight:400}
 .address-line{display:flex;gap:14px;align-items:flex-start;color:var(--c-gold)}.address-line span{color:inherit}.bg-dark .address-line span{color:var(--c-on-dark)}.address-line span{color:var(--c-ink)}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;padding-top:24px;border-top:1px solid var(--c-line);margin-top:8px}
