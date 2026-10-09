@@ -6,7 +6,7 @@
       assign lz = 'eager'
     endif
   -%}
-  {{ image | image_url: width: 2400 | image_tag: loading: lz, sizes: sizes | default: '100vw', widths: '480,800,1200,1600,2000,2400', class: class, alt: image.alt | escape }}
+  {{ image | image_url: width: 5000 | image_tag: loading: lz, sizes: sizes | default: '100vw', widths: '480,800,1200,1600,2000,2400,3000,3840,5000', class: class, alt: image.alt | escape }}
 {%- else -%}
   {{ 'lifestyle-1' | placeholder_svg_tag: 'st-placeholder' }}
 {%- endif -%}
