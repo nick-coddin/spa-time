@@ -5,3 +5,4 @@
 # Shopify CLI
 .shopify/
 node_modules/
+scripts/logo/out/

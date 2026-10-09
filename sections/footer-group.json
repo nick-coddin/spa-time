@@ -6,7 +6,10 @@
       "type": "st-footer",
       "blocks": {
         "brand": {
-          "type": "brand"
+          "type": "brand",
+          "settings": {
+            "logo": "shopify://shop_images/spatime-logo.png"
+          }
         },
         "m1": {
           "type": "menu",

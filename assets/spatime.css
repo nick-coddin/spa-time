@@ -253,3 +253,8 @@ input:checked+.option-tile .option-tile__check{display:grid}
 .booking__title{font:400 clamp(24px,2.4vw,30px)/1.2 var(--serif);color:var(--c-ink)}
 .booking__note{font-size:14px;color:var(--c-muted)}
 .booking [data-booking-target]>div:not(.booking__placeholder){width:100%}
+
+/* Embleem i.p.v. letter in de cirkel */
+.brand__emblem{flex:none;width:46px;height:46px;object-fit:contain}
+.brand--footer .brand__emblem{width:40px;height:40px}
+.site-footer .brand__img{max-width:100%;height:auto}

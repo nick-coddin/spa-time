@@ -2236,6 +2236,12 @@
         "content": "Tekstlogo in header en footer, gebruikt zolang er geen logo-afbeelding is gekozen."
       },
       {
+        "type": "image_picker",
+        "id": "brand_emblem",
+        "label": "Embleem",
+        "info": "Vervangt de letter in de cirkel, naast de merknaam. Gebruik een transparante PNG."
+      },
+      {
         "type": "text",
         "id": "brand_name",
         "label": "Merknaam",
