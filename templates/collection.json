@@ -14,7 +14,8 @@
       "settings": {
         "layout": "split",
         "fade": true,
-        "eager": true
+        "eager": true,
+        "image": "shopify://shop_images/spatime-collectie-hero.jpg"
       },
       "blocks": {
         "eyebrow_0": {
@@ -108,7 +109,8 @@
       "type": "st-image-with-text",
       "settings": {
         "image_position": "right",
-        "background": "dark"
+        "background": "dark",
+        "image": "shopify://shop_images/spatime-showroom-logo.jpg"
       },
       "blocks": {
         "eyebrow_0": {

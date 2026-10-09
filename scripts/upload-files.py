@@ -1,7 +1,7 @@
 """
 Uploads local images to Shopify Files (Content › Files).
 Usage: python3 scripts/upload-files.py path/to/file.png [...]
-Prints the shopify://shop_images/<name> reference for theme settings.
+Prints the file id (for metafields/metaobjects) and the shopify://shop_images/<name> reference for theme settings.
 """
 import json
 import mimetypes
@@ -47,4 +47,4 @@ for path in sys.argv[1:]:
             break
         time.sleep(2)
     url = node['image']['url'] if node.get('image') else ''
-    print(f"{name}: {node['fileStatus']}  shopify://shop_images/{url.split('/')[-1].split('?')[0] or name}")
+    print(f"{name}: {node['fileStatus']}  {file['id']}  shopify://shop_images/{url.split('/')[-1].split('?')[0] or name}")

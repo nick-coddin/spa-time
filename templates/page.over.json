@@ -15,7 +15,8 @@
         "layout": "split",
         "fade": true,
         "eager": true,
-        "min_height": 480
+        "min_height": 480,
+        "image": "shopify://shop_images/bram-wevers.png"
       },
       "blocks": {
         "eyebrow_0": {

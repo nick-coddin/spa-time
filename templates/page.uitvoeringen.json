@@ -14,7 +14,8 @@
       "settings": {
         "layout": "split",
         "fade": true,
-        "eager": true
+        "eager": true,
+        "image": "shopify://shop_images/spatime-uitvoeringen-hero.jpg"
       },
       "blocks": {
         "eyebrow_0": {
@@ -202,7 +203,8 @@
           "settings": {
             "icon": "steam",
             "title": "Massagekracht",
-            "text": "Premium en Signature hebben extra krachtige hydrotherapie. Dat zorgt voor meer kracht, een diepere massage en een intensere wellnessbeleving."
+            "text": "Premium en Signature hebben extra krachtige hydrotherapie. Dat zorgt voor meer kracht, een diepere massage en een intensere wellnessbeleving.",
+            "image": "shopify://shop_images/spatime-kenmerk-massage.jpg"
           }
         },
         "card_1": {
@@ -210,7 +212,8 @@
           "settings": {
             "icon": "touch",
             "title": "Bediening",
-            "text": "Comfort wordt bediend met het Balboa TP500S-paneel. Premium en Signature hebben het Balboa SpaTouch 4-touchscreen, waarmee je eenvoudig massage, verlichting en instellingen bedient."
+            "text": "Comfort wordt bediend met het Balboa TP500S-paneel. Premium en Signature hebben het Balboa SpaTouch 4-touchscreen, waarmee je eenvoudig massage, verlichting en instellingen bedient.",
+            "image": "shopify://shop_images/spatime-kenmerk-bediening.jpg"
           }
         },
         "card_2": {
@@ -218,7 +221,8 @@
           "settings": {
             "icon": "layers",
             "title": "Isolatie",
-            "text": "Comfort heeft 25 mm kuipisolatie, Premium 45 mm. Signature voegt daar 25 mm frame-isolatie en een extra geïsoleerde bodemplaat aan toe, voor het beste rendement en een lager energieverbruik."
+            "text": "Comfort heeft 25 mm kuipisolatie, Premium 45 mm. Signature voegt daar 25 mm frame-isolatie en een extra geïsoleerde bodemplaat aan toe, voor het beste rendement en een lager energieverbruik.",
+            "image": "shopify://shop_images/spatime-kenmerk-isolatie.jpg"
           }
         },
         "card_3": {
@@ -226,7 +230,8 @@
           "settings": {
             "icon": "sparkle",
             "title": "Afwerking",
-            "text": "Signature heeft een volledige LED-strip rondom de vier zijden van de omkasting en exclusieve afwerkingsdetails, voor een nog luxere uitstraling."
+            "text": "Signature heeft een volledige LED-strip rondom de vier zijden van de omkasting en exclusieve afwerkingsdetails, voor een nog luxere uitstraling.",
+            "image": "shopify://shop_images/spatime-kenmerk-afwerking.jpg"
           }
         }
       },
@@ -242,7 +247,8 @@
       "settings": {
         "image_position": "left",
         "background": "dark",
-        "min_height": 300
+        "min_height": 300,
+        "image": "shopify://shop_images/spatime-showroom-modellen.jpg"
       },
       "blocks": {
         "heading_0": {

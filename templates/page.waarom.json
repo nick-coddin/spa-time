@@ -14,7 +14,8 @@
       "settings": {
         "layout": "split",
         "fade": true,
-        "eager": true
+        "eager": true,
+        "image": "shopify://shop_images/spatime-waarom-hero.jpg"
       },
       "blocks": {
         "eyebrow_0": {
@@ -47,7 +48,8 @@
     "gedachte": {
       "type": "st-image-with-text",
       "settings": {
-        "fade": true
+        "fade": true,
+        "image": "shopify://shop_images/spatime-waarom-bediening.jpg"
       },
       "blocks": {
         "eyebrow_0": {
@@ -128,7 +130,8 @@
       "type": "st-image-with-text",
       "settings": {
         "fade": true,
-        "min_height": 560
+        "min_height": 560,
+        "image": "shopify://shop_images/spatime-waarom-compleet.jpg"
       },
       "blocks": {
         "eyebrow_0": {

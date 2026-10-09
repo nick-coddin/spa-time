@@ -156,7 +156,7 @@
         "button_3"
       ],
       "settings": {
-        "image": "shopify://shop_images/ontwerp3-product-hoofdfoto-rood.jpg",
+        "image": "shopify://shop_images/spatime-home-waarom.jpg",
         "image_position": "right",
         "fade": false,
         "min_height": 480,
@@ -262,7 +262,7 @@
       ],
       "settings": {
         "layout": "overlay",
-        "image": "shopify://shop_images/ontwerp3-showroom-binnen-drie-modellen.jpg",
+        "image": "shopify://shop_images/spatime-home-moment.jpg",
         "fade": true,
         "overlay": 90,
         "min_height": 440,
@@ -340,7 +340,7 @@
         "facts_4"
       ],
       "settings": {
-        "image": "shopify://shop_images/ontwerp3-product-hoofdfoto-rood.jpg",
+        "image": "shopify://shop_images/spatime-showroom-modellen.jpg",
         "image_position": "left",
         "fade": false,
         "min_height": 480,

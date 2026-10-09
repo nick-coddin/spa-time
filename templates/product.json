@@ -85,7 +85,8 @@
       "type": "st-image-with-text",
       "settings": {
         "image_position": "right",
-        "min_height": 520
+        "min_height": 520,
+        "image": "shopify://shop_images/spatime-bali-terras.jpg"
       },
       "blocks": {
         "eyebrow_0": {
@@ -141,7 +142,8 @@
         "layout": "overlay",
         "overlay": 95,
         "min_height": 440,
-        "background": "dark"
+        "background": "dark",
+        "image": "shopify://shop_images/spatime-showroom-bali.jpg"
       },
       "blocks": {
         "eyebrow_0": {

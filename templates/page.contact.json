@@ -14,7 +14,8 @@
       "settings": {
         "layout": "split",
         "fade": true,
-        "eager": true
+        "eager": true,
+        "image": "shopify://shop_images/spatime-contact-hero.jpg"
       },
       "blocks": {
         "eyebrow_0": {
