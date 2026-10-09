@@ -43,6 +43,14 @@
             "icon": "check",
             "text": "Levering en plaatsing mogelijk in Nederland en België"
           }
+        },
+        "alt_button_8": {
+          "type": "alt_button",
+          "settings": {
+            "divider": "of",
+            "label": "Plan een showroomafspraak",
+            "link": "/pages/contact#afspraak"
+          }
         }
       },
       "block_order": [
@@ -53,6 +61,7 @@
         "variant_picker_4",
         "price_5",
         "buy_buttons_6",
+        "alt_button_8",
         "note_7"
       ]
     },

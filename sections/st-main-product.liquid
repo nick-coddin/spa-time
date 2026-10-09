@@ -47,6 +47,13 @@
             </button>
           {%- endform -%}
           </div>
+        {%- when 'alt_button' -%}
+          <div class="st-product__alt" {{ block.shopify_attributes }}>
+            {%- if block.settings.divider != blank -%}<span class="st-product__or">{{ block.settings.divider }}</span>{%- endif -%}
+            {%- assign alt_label = block.settings.label | replace: '[product]', product.title -%}
+            {%- assign alt_link = block.settings.link | default: '/pages/contact#afspraak' -%}
+            {% render 'st-button', label: alt_label, link: alt_link, style: 'outline', icon: 'calendar', full: true %}
+          </div>
         {%- when 'note' -%}<p class="st-product__note" {{ block.shopify_attributes }}>{% render 'st-icon', name: block.settings.icon, size: 16, stroke: 1.8 %}{{ block.settings.text }}</p>
       {%- endcase -%}
     {%- endfor -%}
@@ -118,6 +125,31 @@
           "id": "label",
           "label": "Knoptekst ([product] = naam)",
           "default": "Bestel jouw [product]"
+        }
+      ]
+    },
+    {
+      "type": "alt_button",
+      "name": "Alternatieve knop",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "divider",
+          "label": "Tekst tussen de knoppen",
+          "default": "of"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Knoptekst ([product] = naam)",
+          "default": "Plan een showroomafspraak"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Leeg = afspraakplanner op de contactpagina. Links naar #afspraak krijgen het gekozen model en de uitvoering mee als notitie."
         }
       ]
     },

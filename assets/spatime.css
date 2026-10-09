@@ -258,3 +258,9 @@ input:checked+.option-tile .option-tile__check{display:grid}
 .brand__emblem{flex:none;width:46px;height:46px;object-fit:contain}
 .brand--footer .brand__emblem{width:40px;height:40px}
 .site-footer .brand__img{max-width:100%;height:auto}
+
+/* Productpagina: 'of' + alternatieve knop onder de bestelknop */
+.st-product__alt{display:flex;flex-direction:column;gap:14px}
+.st-product__or{display:flex;align-items:center;gap:16px;font-size:14px;color:var(--c-muted);text-transform:lowercase}
+.st-product__or::before,.st-product__or::after{content:"";flex:1;height:1px;background:var(--c-line)}
+.st-product__alt .btn{padding:17px 28px;font-size:16px}
