@@ -12,9 +12,33 @@
     </a>
     <nav class="main-nav" aria-label="{{ 'spatime.a11y.main_menu' | t }}">
       <ul>
+        {%- liquid
+          # Precies één actief item. Volgorde: directe match zonder dropdown, directe match, item met actieve
+          # sublink (bijv. collectiepagina → "Collectie", productpagina → "Jacuzzi's" via de dropdown).
+          assign active_index = 0
+          for link in menu.links
+            if link.active and link.links == blank and active_index == 0
+              assign active_index = forloop.index
+            endif
+          endfor
+          if active_index == 0
+            for link in menu.links
+              if link.active and active_index == 0
+                assign active_index = forloop.index
+              endif
+            endfor
+          endif
+          if active_index == 0
+            for link in menu.links
+              if link.child_active and active_index == 0
+                assign active_index = forloop.index
+              endif
+            endfor
+          endif
+        -%}
         {%- for link in menu.links -%}
           <li class="main-nav__item{% if link.links != blank %} has-dropdown{% endif %}">
-            <a href="{{ link.url }}" class="main-nav__link{% if link.active or link.child_active %} is-active{% endif %}">{{ link.title }}{% if link.links != blank %}{% render 'st-icon', name: 'chevron', size: 10, stroke: 2 %}{% endif %}</a>
+            <a href="{{ link.url }}" class="main-nav__link{% if forloop.index == active_index %} is-active{% endif %}"{% if forloop.index == active_index %} aria-current="page"{% endif %}>{{ link.title }}{% if link.links != blank %}{% render 'st-icon', name: 'chevron', size: 10, stroke: 2 %}{% endif %}</a>
             {%- if link.links != blank -%}
               <ul class="dropdown">
                 {%- for child in link.links -%}<li><a href="{{ child.url }}">{{ child.title }}</a></li>{%- endfor -%}
