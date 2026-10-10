@@ -1,14 +1,26 @@
-{%- comment -%} {% render 'st-responsive-image', image: img, sizes: '50vw', class: 'st-cover', eager: false %} {%- endcomment -%}
+{%- comment -%}
+  {% render 'st-responsive-image', image: img, sizes: '50vw', class: 'st-cover', eager: false %}
+  Een kleine (32px) versie staat als achtergrond van de img: die is er meteen, zodat overlay en
+  tekst nooit op een leeg vak staan. De scherpe versie (srcset) valt er daarna overheen.
+{%- endcomment -%}
 {%- if image != blank -%}
   {%- liquid
     assign lz = 'lazy'
-    assign img_sizes = sizes | default: '100vw'
-    assign img_alt = image.alt | escape
+    assign fp = 'auto'
     if eager
       assign lz = 'eager'
+      assign fp = 'high'
     endif
+    assign img_sizes = sizes | default: '100vw'
+    assign img_alt = image.alt | escape
+    assign fit = 'cover'
+    if class contains 'st-contain'
+      assign fit = 'contain'
+    endif
+    assign lqip = image | image_url: width: 32
+    assign img_style = 'background:url(' | append: lqip | append: ') center/' | append: fit | append: ' no-repeat'
   -%}
-  {{ image | image_url: width: 5000 | image_tag: loading: lz, sizes: img_sizes, widths: '480,800,1200,1600,2000,2400,3000,3840,5000', class: class, alt: img_alt }}
+  {{ image | image_url: width: 5000 | image_tag: loading: lz, fetchpriority: fp, sizes: img_sizes, widths: '480,800,1200,1600,2000,2400,3000,3840,5000', class: class, alt: img_alt, style: img_style }}
 {%- else -%}
   {{ 'lifestyle-1' | placeholder_svg_tag: 'st-placeholder' }}
 {%- endif -%}

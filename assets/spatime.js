@@ -110,3 +110,39 @@
     });
   });
 })();
+
+// Rustige onthulling van secties bij het scrollen. Alleen voor elementen die bij het laden onder de
+// vouw staan, zodat er bovenaan niets knippert. Niet in de editor en niet bij prefers-reduced-motion.
+(() => {
+  if (window.Shopify?.designMode || !('IntersectionObserver' in window) ||
+      matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Containers waarvan de kinderen één voor één verschijnen.
+  const GROUPS = ['.st-split__content .stack', '.st-hero__content .stack', '.section-head', '.features__intro',
+    '.features__grid', '.grid-3', '.feature-cards__grid', '.usp-bar__grid', '.key-specs__strip', '.key-specs__panel',
+    '.specs__grid', '.timeline__chapters', '.contact__grid', '.compare__table', '.statement .container', '.booking__panel'];
+  // Beelden die langzaam uitzoomen als ze in beeld komen.
+  const MEDIA = ['.st-split__media', '.st-hero__media'];
+
+  const fold = innerHeight * 0.92;
+  const below = (el) => el.getBoundingClientRect().top > fold;
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('is-in');
+    io.unobserve(e.target);
+  }), { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+
+  document.querySelectorAll(GROUPS.join(',')).forEach((group) => {
+    [...group.children].forEach((el, i) => {
+      if (!below(el) || el.closest('.st-reveal')) return;
+      el.classList.add('st-reveal');
+      el.style.setProperty('--rd', `${Math.min(i, 5) * 0.11}s`);
+      io.observe(el);
+    });
+  });
+  document.querySelectorAll(MEDIA.join(',')).forEach((el) => {
+    if (!below(el) || !el.querySelector('img')) return;
+    el.classList.add('st-zoom');
+    io.observe(el);
+  });
+})();
