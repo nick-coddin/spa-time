@@ -6,7 +6,7 @@
   // Galerij
   document.querySelectorAll('[data-gallery]').forEach(g => {
     const slides = [...g.querySelectorAll('[data-slide]')], thumbs = [...g.querySelectorAll('[data-thumb]')];
-    let i = 0;
+    let i = Math.max(0, slides.findIndex(s => s.classList.contains('is-active')));
     const go = n => { i = (n + slides.length) % slides.length; slides.forEach((s, k) => s.classList.toggle('is-active', k === i)); thumbs.forEach((t, k) => t.classList.toggle('is-active', k === i)); };
     g.querySelector('[data-prev]')?.addEventListener('click', () => go(i - 1));
     g.querySelector('[data-next]')?.addEventListener('click', () => go(i + 1));
@@ -26,7 +26,7 @@
     const find = vals => product.variants.find(v => v.options.every((o, k) => o === vals[k]));
     const base = product.variants[0];
 
-    const update = () => {
+    const update = (first = false) => {
       const vals = selected(), v = find(vals);
       // prijs per uitvoering (bij huidige kleur) en meerprijs per kleur (bij huidige uitvoering)
       root.querySelectorAll('[data-tier-price]').forEach(el => { const o = [...vals]; o[tierIdx] = el.dataset.tierPrice; const m = find(o); el.textContent = m ? money(m.price) : ''; });
@@ -40,11 +40,13 @@
       root.querySelectorAll('[data-price]').forEach(el => el.textContent = money(v.price));
       root.querySelectorAll('[data-summary]').forEach(el => el.textContent = product.title + ' ' + v.title.replace(' / ', ', '));
       const btn = root.querySelector('[data-add]'); if (btn) btn.disabled = !v.available;
-      if (v.featured_media) { const g = root.querySelector('[data-gallery]'); const idx = product.media.filter(m => m.media_type === 'image').findIndex(m => m.id === v.featured_media.id); if (g && idx > -1) g._go(idx); }
+      // foto van de variant tonen; variant zonder eigen foto → hoofdfoto (niet bij eerste keer laden)
+      const g = root.querySelector('[data-gallery]');
+      if (g && (v.featured_media || !first)) { const idx = v.featured_media ? product.media.filter(m => m.media_type === 'image').findIndex(m => m.id === v.featured_media.id) : 0; if (idx > -1) g._go(idx); }
       const url = new URL(location.href); url.searchParams.set('variant', v.id); history.replaceState(null, '', url);
     };
     root.addEventListener('change', e => { if (e.target.matches('input[type=radio]')) update(); });
-    update();
+    update(true);
 
     // Toevoegen aan winkelwagen zonder pagina-herlaad
     form?.addEventListener('submit', async e => {

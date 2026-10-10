@@ -1,14 +1,23 @@
 {%- liquid
   assign current = product.selected_or_first_available_variant
   assign images = product.media | where: 'media_type', 'image'
+  # startfoto = foto van de gekozen variant (Producten › variant › afbeelding), anders de eerste
+  assign start = 0
+  if current.featured_media
+    for media in images
+      if media.id == current.featured_media.id
+        assign start = forloop.index0
+      endif
+    endfor
+  endif
 -%}
 {% render 'st-breadcrumbs', product: product, page_title: product.title %}
 <section class="st-product container" data-product data-section="{{ section.id }}" data-color-option="{{ settings.color_option_name }}" data-tier-option="{{ settings.tier_option_name }}">
   <div class="st-product__gallery" data-gallery>
     <div class="st-product__stage">
       {%- for media in images -%}
-        {%- if forloop.first -%}{%- assign lz = 'eager' -%}{%- else -%}{%- assign lz = 'lazy' -%}{%- endif -%}
-        <div class="st-product__slide{% if forloop.first %} is-active{% endif %}" data-slide="{{ forloop.index0 }}">{{ media | image_url: width: 1600 | image_tag: widths: '600,900,1200,1600', sizes: '(min-width: 990px) 50vw, 100vw', loading: lz, class: 'st-contain', alt: media.alt | escape }}</div>
+        {%- if forloop.index0 == start -%}{%- assign lz = 'eager' -%}{%- else -%}{%- assign lz = 'lazy' -%}{%- endif -%}
+        <div class="st-product__slide{% if forloop.index0 == start %} is-active{% endif %}" data-slide="{{ forloop.index0 }}">{{ media | image_url: width: 1600 | image_tag: widths: '600,900,1200,1600', sizes: '(min-width: 990px) 50vw, 100vw', loading: lz, class: 'st-contain', alt: media.alt | escape }}</div>
       {%- endfor -%}
       {%- if images.size > 1 -%}
         <button type="button" class="round-btn round-btn--prev" data-prev aria-label="{{ 'spatime.a11y.previous_photo' | t }}">←</button>
@@ -17,7 +26,7 @@
     </div>
     {%- if images.size > 1 -%}
       <div class="st-product__thumbs">
-        {%- for media in images -%}<button type="button" class="st-product__thumb{% if forloop.first %} is-active{% endif %}" data-thumb="{{ forloop.index0 }}" aria-label="{{ 'spatime.a11y.photo' | t: number: forloop.index }}">{{ media | image_url: width: 200 | image_tag: alt: '' }}</button>{%- endfor -%}
+        {%- for media in images -%}<button type="button" class="st-product__thumb{% if forloop.index0 == start %} is-active{% endif %}" data-thumb="{{ forloop.index0 }}" aria-label="{{ 'spatime.a11y.photo' | t: number: forloop.index }}">{{ media | image_url: width: 200 | image_tag: alt: '' }}</button>{%- endfor -%}
       </div>
     {%- endif -%}
   </div>
