@@ -120,7 +120,7 @@
   // Containers waarvan de kinderen één voor één verschijnen.
   const GROUPS = ['.st-split__content .stack', '.st-hero__content .stack', '.section-head', '.features__intro',
     '.features__grid', '.grid-3', '.feature-cards__grid', '.usp-bar__grid', '.key-specs__strip', '.key-specs__panel',
-    '.specs__grid', '.timeline__chapters', '.contact__grid', '.compare__table', '.statement .container', '.booking__panel'];
+    '.specs__grid', '.timeline__chapters', '.contact__grid', '.compare__table', '.statement .container', '.booking__panel', '.site-footer__grid'];
   // Beelden die langzaam uitzoomen als ze in beeld komen.
   const MEDIA = ['.st-split__media', '.st-hero__media'];
 

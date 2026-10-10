@@ -18,8 +18,9 @@
           "type": "brand",
           "settings": {
             "logo": "shopify://shop_images/spatime-logo.png",
-            "logo_width": 80,
-            "text": "Luxe jacuzzi's, compleet uitgerust. Zonder ingewikkelde keuzes."
+            "logo_width": 230,
+            "text": "Luxe jacuzzi's, compleet uitgerust.\nZonder ingewikkelde keuzes.",
+            "button_label": "Plan een showroombezoek"
           }
         },
         "m1": {

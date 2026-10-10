@@ -1,28 +1,57 @@
+{%- comment -%}
+  Gecentreerde footer: merk (logo, tagline, knop) boven en onder de kolommen, menu- en contactblokken
+  in het midden. Tagline: eerste regel licht, volgende regel(s) goud.
+{%- endcomment -%}
+{%- liquid
+  assign brand = section.blocks | where: 'type', 'brand' | first
+-%}
 <footer class="site-footer">
-  <div class="site-footer__grid container">
-    {%- for block in section.blocks -%}
-      <div class="site-footer__col" {{ block.shopify_attributes }}>
-        {%- case block.type -%}
-          {%- when 'brand' -%}
-            <a href="{{ routes.root_url }}" class="brand brand--footer" aria-label="{{ shop.name }}">
-              {%- if block.settings.logo -%}
-                {{ block.settings.logo | image_url: width: 480 | image_tag: width: block.settings.logo_width, height: nil, alt: shop.name, class: 'brand__img', loading: 'lazy' }}
-              {%- else -%}
-                {% render 'st-wordmark' %}
-              {%- endif -%}
-            </a>
-            <p class="site-footer__muted">{{ block.settings.text }}</p>
-          {%- when 'menu' -%}
-            <span class="site-footer__heading">{{ block.settings.heading }}</span>
-            {%- for link in linklists[block.settings.menu].links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
-          {%- when 'contact' -%}
-            <span class="site-footer__heading">{{ block.settings.heading }}</span>
-            <span>{{ settings.address_line1 }}</span><span>{{ settings.address_line2 }}</span>
-            <a href="tel:{{ settings.phone | remove: ' ' }}">{{ settings.phone }}</a>
-            <a href="mailto:{{ settings.email }}">{{ settings.email }}</a>
-        {%- endcase -%}
+  <span class="site-footer__glow" aria-hidden="true"></span>
+  <div class="site-footer__inner container">
+    {%- if brand -%}
+      <div class="site-footer__brand" {{ brand.shopify_attributes }} style="--logo-w:{{ brand.settings.logo_width }}px">
+        <a href="{{ routes.root_url }}" class="brand brand--footer" aria-label="{{ shop.name }}">
+          {%- if brand.settings.logo -%}
+            {{ brand.settings.logo | image_url: width: 600 | image_tag: height: nil, alt: shop.name, class: 'brand__img', loading: 'lazy' }}
+          {%- else -%}
+            {% render 'st-wordmark' %}
+          {%- endif -%}
+        </a>
+        {%- if brand.settings.text != blank -%}
+          {%- assign lines = brand.settings.text | newline_to_br | split: '<br />' -%}
+          <p class="site-footer__tagline">
+            {%- for line in lines -%}
+              {%- if forloop.first -%}{{ line | strip }}{%- else -%}<br><span>{{ line | strip }}</span>{%- endif -%}
+            {%- endfor -%}
+          </p>
+        {%- endif -%}
+        <div class="site-footer__divider" aria-hidden="true">{% render 'st-icon', name: 'drop', size: 16, stroke: 1 %}</div>
       </div>
-    {%- endfor -%}
+    {%- endif -%}
+
+    <div class="site-footer__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'brand' -%}{%- continue -%}{%- endif -%}
+        <div class="site-footer__col" {{ block.shopify_attributes }}>
+          {%- case block.type -%}
+            {%- when 'menu' -%}
+              <span class="site-footer__heading">{{ block.settings.heading }}</span>
+              {%- for link in linklists[block.settings.menu].links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+            {%- when 'contact' -%}
+              <span class="site-footer__heading">{{ block.settings.heading }}</span>
+              <span class="site-footer__address">{{ settings.address_line1 }}<br>{{ settings.address_line2 }}</span>
+              <a href="tel:{{ settings.phone | remove: ' ' }}">{{ settings.phone }}</a>
+              <a href="mailto:{{ settings.email }}">{{ settings.email }}</a>
+          {%- endcase -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if brand and brand.settings.button_label != blank -%}
+      <a href="{{ brand.settings.button_link | default: '/pages/contact#afspraak' }}" class="site-footer__cta">
+        {{- brand.settings.button_label }} <span aria-hidden="true">→</span>
+      </a>
+    {%- endif -%}
   </div>
   <div class="site-footer__bottom container">
     <span>© {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'spatime.footer.rights' | t }}</span>
@@ -61,13 +90,27 @@
           "max": 280,
           "step": 10,
           "unit": "px",
-          "default": 180
+          "default": 230
         },
         {
           "type": "textarea",
           "id": "text",
-          "label": "Tekst",
-          "default": "Luxe jacuzzi's, compleet uitgerust. Zonder ingewikkelde keuzes."
+          "label": "Tagline",
+          "info": "Eerste regel licht, volgende regel goud.",
+          "default": "Luxe jacuzzi's, compleet uitgerust.\nZonder ingewikkelde keuzes."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Knoptekst",
+          "info": "Leeg = geen knop.",
+          "default": "Plan een showroombezoek"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Knoplink",
+          "info": "Leeg = contactpagina, afspraakblok."
         }
       ]
     },
