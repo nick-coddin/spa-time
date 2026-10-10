@@ -160,12 +160,13 @@
           "settings": {
             "text": "Geen uitgeklede basis.\nGeen eindeloze optielijst.\nGewoon een complete Spa Time.",
             "highlight": "",
-            "size": "h2",
+            "size": "h3",
             "rule": false
           }
         },
         "text_2": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>Welke uitvoering je ook kiest, je kiest altijd voor een volwaardige Spa Time. Geen uitgeklede basis die eerst met allerlei opties uitgebreid moet worden, maar drie zorgvuldig samengestelde uitvoeringen met ieder hun eigen niveau van luxe.</p>",
             "style": "body"
@@ -178,8 +179,8 @@
         "text_4": {
           "type": "text",
           "settings": {
-            "text": "<p>Zo maken we het kiezen eenvoudig, zonder concessies te doen aan kwaliteit.</p>",
-            "style": "lead"
+            "text": "<p>Welke uitvoering je ook kiest, je kiest altijd voor een volwaardige Spa Time. Geen uitgeklede basis die eerst met allerlei opties uitgebreid moet worden, maar drie zorgvuldig samengestelde uitvoeringen met ieder hun eigen niveau van luxe.</p><p>Zo maken we het kiezen eenvoudig, zonder concessies te doen aan kwaliteit.</p>",
+            "style": "body"
           }
         },
         "button_5": {
