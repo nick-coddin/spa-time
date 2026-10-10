@@ -8,9 +8,11 @@
     const slides = [...g.querySelectorAll('[data-slide]')], thumbs = [...g.querySelectorAll('[data-thumb]')];
     let i = Math.max(0, slides.findIndex(s => s.classList.contains('is-active')));
     const go = n => { i = (n + slides.length) % slides.length; slides.forEach((s, k) => s.classList.toggle('is-active', k === i)); thumbs.forEach((t, k) => t.classList.toggle('is-active', k === i)); };
-    g.querySelector('[data-prev]')?.addEventListener('click', () => go(i - 1));
-    g.querySelector('[data-next]')?.addEventListener('click', () => go(i + 1));
-    thumbs.forEach((t, k) => t.addEventListener('click', () => go(k)));
+    // door de bezoeker gekozen foto → event, zodat de variantkeuze kan meeschakelen
+    const pick = n => { go(n); g.dispatchEvent(new CustomEvent('gallery:pick', { detail: i })); };
+    g.querySelector('[data-prev]')?.addEventListener('click', () => pick(i - 1));
+    g.querySelector('[data-next]')?.addEventListener('click', () => pick(i + 1));
+    thumbs.forEach((t, k) => t.addEventListener('click', () => pick(k)));
     g._go = go; g._slides = slides;
   });
 
@@ -26,8 +28,10 @@
     const find = vals => product.variants.find(v => v.options.every((o, k) => o === vals[k]));
     const base = product.variants[0];
 
+    let prev = selected(), last = prev;  // vorige keuze, voor de foto → variant-koppeling hieronder
     const update = (first = false) => {
       const vals = selected(), v = find(vals);
+      if (vals.join() !== last.join()) { prev = last; last = vals; }
       // prijs per uitvoering (bij huidige kleur) en meerprijs per kleur (bij huidige uitvoering)
       root.querySelectorAll('[data-tier-price]').forEach(el => { const o = [...vals]; o[tierIdx] = el.dataset.tierPrice; const m = find(o); el.textContent = m ? money(m.price) : ''; });
       root.querySelectorAll('[data-color-extra]').forEach(el => {
@@ -47,6 +51,24 @@
     };
     root.addEventListener('change', e => { if (e.target.matches('input[type=radio]')) update(); });
     update(true);
+
+    // Andersom: foto gekozen die bij een of meer varianten hoort → die variant selecteren. Bij meerdere
+    // kandidaten (bijv. één marmerfoto voor Comfort én Premium) wint de variant die het meest op de
+    // huidige keuze lijkt, bij gelijke stand die op de vorige keuze; zo verandert alleen wat bij de foto hoort.
+    const images = product.media.filter(m => m.media_type === 'image');
+    root.querySelector('[data-gallery]')?.addEventListener('gallery:pick', e => {
+      const media = images[e.detail]; if (!media) return;
+      const cur = selected();
+      const best = product.variants.filter(v => v.featured_media?.id === media.id)
+        .map(v => ({ v, score: v.options.filter((o, k) => o === cur[k]).length, tie: v.options.filter((o, k) => o === prev[k]).length }))
+        .sort((a, b) => b.score - a.score || b.tie - a.tie)[0];
+      if (!best || best.score === cur.length) return;
+      best.v.options.forEach((val, k) => {
+        const input = [...root.querySelectorAll('input[name="' + CSS.escape(product.options[k]) + '"]')].find(r => r.value === val);
+        if (input) input.checked = true;
+      });
+      update();
+    });
 
     // Toevoegen aan winkelwagen zonder pagina-herlaad
     form?.addEventListener('submit', async e => {
