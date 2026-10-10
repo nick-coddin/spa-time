@@ -2123,56 +2123,56 @@
       {
         "type": "color",
         "id": "color_ink",
-        "label": "Inkt / donker",
-        "default": "#15120F"
+        "label": "Antraciet (donker)",
+        "default": "#111213"
       },
       {
         "type": "color",
         "id": "color_cream",
-        "label": "Crème (achtergrond)",
-        "default": "#F6F2EB"
+        "label": "Wit (achtergrond)",
+        "default": "#FFFFFF"
       },
       {
         "type": "color",
         "id": "color_soft",
-        "label": "Licht (kaarten)",
-        "default": "#FBF8F3"
+        "label": "Kaarten",
+        "default": "#FFFFFF"
       },
       {
         "type": "color",
         "id": "color_sand",
-        "label": "Zand (afwisselend)",
-        "default": "#EFE8DD"
+        "label": "Vlak (afwisselend)",
+        "default": "#F1F1EF"
       },
       {
         "type": "color",
         "id": "color_gold",
-        "label": "Brons (iconen, lijnen)",
-        "default": "#946E42"
+        "label": "Goud (iconen, lijnen)",
+        "default": "#BFA06A"
       },
       {
         "type": "color",
         "id": "color_gold_text",
-        "label": "Brons tekst op licht",
-        "default": "#8C6A3F"
+        "label": "Goud tekst op licht",
+        "default": "#8E7244"
       },
       {
         "type": "color",
         "id": "color_gold_light",
         "label": "Goud op donker",
-        "default": "#C6A06E"
+        "default": "#BFA06A"
       },
       {
         "type": "color",
-        "id": "button_from",
-        "label": "Knop verloop boven",
-        "default": "#EDD9BF"
+        "id": "button_bg",
+        "label": "Knop achtergrond",
+        "default": "#111213"
       },
       {
         "type": "color",
-        "id": "button_to",
-        "label": "Knop verloop onder",
-        "default": "#D3B089"
+        "id": "button_ink",
+        "label": "Knop tekst",
+        "default": "#FFFFFF"
       }
     ]
   },
