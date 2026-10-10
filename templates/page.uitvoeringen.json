@@ -11,12 +11,6 @@
   "sections": {
     "hero": {
       "type": "st-hero-banner",
-      "settings": {
-        "layout": "split",
-        "fade": true,
-        "eager": true,
-        "image": "shopify://shop_images/spatime-uitvoeringen-hero.jpg"
-      },
       "blocks": {
         "eyebrow_0": {
           "type": "eyebrow",
@@ -27,8 +21,10 @@
         "heading_1": {
           "type": "heading",
           "settings": {
-            "text": "Drie niveaus van comfort.\nEén Spa Time-ervaring.",
-            "size": "h1"
+            "text": "Drie niveaus van comfort.",
+            "highlight": "",
+            "size": "h1",
+            "rule": false
           }
         },
         "text_2": {
@@ -41,7 +37,8 @@
         "text_3": {
           "type": "text",
           "settings": {
-            "text": "<p>Het model bepaalt de grootte en indeling. De uitvoering bepaalt massage, bediening, verlichting, isolatie en afwerking.</p>"
+            "text": "<p>Het model bepaalt de grootte en indeling. De uitvoering bepaalt massage, bediening, verlichting, isolatie en afwerking.</p>",
+            "style": "body"
           }
         }
       },
@@ -50,21 +47,32 @@
         "heading_1",
         "text_2",
         "text_3"
-      ]
+      ],
+      "settings": {
+        "layout": "split",
+        "image": "shopify://shop_images/spatime-uitvoeringen-hero.jpg",
+        "fade": true,
+        "overlay": 90,
+        "min_height": 440,
+        "background": "cream",
+        "eager": true
+      }
     },
     "kaarten": {
       "type": "st-tier-cards",
       "settings": {
         "style": "detailed",
+        "eyebrow": "Jouw spa, jouw ervaring",
         "heading": "",
-        "button_label": ""
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "background": "cream",
+        "padding": "md"
       }
     },
     "tabel": {
       "type": "st-comparison-table",
-      "settings": {
-        "highlight": 2
-      },
       "blocks": {
         "group_0": {
           "type": "group",
@@ -192,46 +200,56 @@
         "group_10",
         "row_11",
         "row_12"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Vergelijk de uitvoeringen",
+        "heading": "Alle verschillen in één overzicht.",
+        "text": "",
+        "col_1": "Comfort",
+        "col_2": "Premium",
+        "col_3": "Signature",
+        "highlight": 2,
+        "background": "cream",
+        "padding": "md"
+      }
     },
     "uitgelegd": {
       "type": "st-feature-cards",
-      "settings": {},
       "blocks": {
         "card_0": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/spatime-kenmerk-massage.jpg",
             "icon": "steam",
             "title": "Massagekracht",
-            "text": "Premium en Signature hebben extra krachtige hydrotherapie. Dat zorgt voor meer kracht, een diepere massage en een intensere wellnessbeleving.",
-            "image": "shopify://shop_images/spatime-kenmerk-massage.jpg"
+            "text": "Premium en Signature hebben extra krachtige hydrotherapie. Dat zorgt voor meer kracht, een diepere massage en een intensere wellnessbeleving."
           }
         },
         "card_1": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/spatime-kenmerk-bediening.jpg",
             "icon": "touch",
             "title": "Bediening",
-            "text": "Comfort wordt bediend met het Balboa TP500S-paneel. Premium en Signature hebben het Balboa SpaTouch 4-touchscreen, waarmee je eenvoudig massage, verlichting en instellingen bedient.",
-            "image": "shopify://shop_images/spatime-kenmerk-bediening.jpg"
+            "text": "Comfort wordt bediend met het Balboa TP500S-paneel. Premium en Signature hebben het Balboa SpaTouch 4-touchscreen, waarmee je eenvoudig massage, verlichting en instellingen bedient."
           }
         },
         "card_2": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/spatime-kenmerk-isolatie.jpg",
             "icon": "layers",
             "title": "Isolatie",
-            "text": "Comfort heeft 25 mm kuipisolatie, Premium 45 mm. Signature voegt daar 25 mm frame-isolatie en een extra geïsoleerde bodemplaat aan toe, voor het beste rendement en een lager energieverbruik.",
-            "image": "shopify://shop_images/spatime-kenmerk-isolatie.jpg"
+            "text": "Comfort heeft 25 mm kuipisolatie, Premium 45 mm. Signature voegt daar 25 mm frame-isolatie en een extra geïsoleerde bodemplaat aan toe, voor het beste rendement en een lager energieverbruik."
           }
         },
         "card_3": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/spatime-kenmerk-afwerking.jpg",
             "icon": "sparkle",
             "title": "Afwerking",
-            "text": "Signature heeft een volledige LED-strip rondom de vier zijden van de omkasting en exclusieve afwerkingsdetails, voor een nog luxere uitstraling.",
-            "image": "shopify://shop_images/spatime-kenmerk-afwerking.jpg"
+            "text": "Signature heeft een volledige LED-strip rondom de vier zijden van de omkasting en exclusieve afwerkingsdetails, voor een nog luxere uitstraling."
           }
         }
       },
@@ -240,36 +258,40 @@
         "card_1",
         "card_2",
         "card_3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Wat betekenen deze verschillen in de praktijk?",
+        "heading": "De belangrijkste kenmerken uitgelegd.",
+        "background": "cream",
+        "padding": "md"
+      }
     },
     "cta": {
       "type": "st-image-with-text",
-      "settings": {
-        "image_position": "left",
-        "background": "dark",
-        "min_height": 300,
-        "image": "shopify://shop_images/spatime-showroom-modellen.jpg"
-      },
       "blocks": {
         "heading_0": {
           "type": "heading",
           "settings": {
             "text": "Ervaar de verschillen zelf\nin onze showroom.",
-            "size": "h3"
+            "highlight": "",
+            "size": "h3",
+            "rule": false
           }
         },
         "text_1": {
           "type": "text",
           "settings": {
-            "text": "<p>In Haaksbergen laten we je de drie uitvoeringen graag zien en kun je ze zelf ervaren.</p>"
+            "text": "<p>In Haaksbergen laten we je de drie uitvoeringen graag zien en kun je ze zelf ervaren.</p>",
+            "style": "body"
           }
         },
         "button_2": {
           "type": "button",
           "settings": {
             "label": "Plan een showroomafspraak",
-            "icon": "calendar",
-            "link": "/pages/contact#afspraak"
+            "link": "/pages/contact#afspraak",
+            "style": "primary",
+            "icon": "calendar"
           }
         },
         "address_3": {
@@ -282,11 +304,18 @@
         "text_1",
         "button_2",
         "address_3"
-      ]
+      ],
+      "settings": {
+        "image": "shopify://shop_images/spatime-showroom-modellen.jpg",
+        "image_position": "left",
+        "fade": false,
+        "min_height": 300,
+        "background": "dark",
+        "border": false
+      }
     },
     "usps": {
       "type": "st-usp-bar",
-      "settings": {},
       "blocks": {
         "usp_0": {
           "type": "usp",
@@ -326,7 +355,8 @@
         "usp_1",
         "usp_2",
         "usp_3"
-      ]
+      ],
+      "settings": {}
     }
   },
   "order": [
